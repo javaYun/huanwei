@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflTrashCanMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflTrashCan" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="f_code" property="fCode" jdbcType="VARCHAR" />
+    <result column="f_name" property="fName" jdbcType="VARCHAR" />
+    <result column="f_frequency_id" property="fFrequencyId" jdbcType="VARCHAR" />
+    <result column="f_ljfl_type_id" property="fLjflTypeId" jdbcType="VARCHAR" />
+    <result column="f_work_point_id" property="fWorkPointId" jdbcType="VARCHAR" />
+    <result column="f_clear_staff_id" property="fClearStaffId" jdbcType="VARCHAR" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+    <result column="f_clear_staff_name" property="fClearStaffName" jdbcType="VARCHAR" />
+    <result column="f_height" property="fHeight" jdbcType="DOUBLE" />
+    <result column="f_spill_over_code" property="fSpillOverCode" jdbcType="VARCHAR" />
+    <result column="f_spill_over_value" property="fSpillOverValue" jdbcType="DOUBLE" />
+    <result column="f_volume" property="fVolume" jdbcType="DOUBLE" />
+    <result column="f_weight" property="fWeight" jdbcType="DOUBLE" />
+    <result column="f_last_spill_over_code" property="fLastSpillOverCode" jdbcType="VARCHAR" />
+    <result column="f_last_spill_over_value" property="fLastSpillOverValue" jdbcType="DOUBLE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sczh.platform.po.LjflTrashCanWithBLOBs" extends="BaseResultMap" >
+    <result column="f_memo" property="fMemo" jdbcType="LONGVARCHAR" />
+    <result column="f_photo_ids" property="fPhotoIds" jdbcType="LONGVARCHAR" />
+    <result column="f_trigger_condition" property="fTriggerCondition" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, f_code, f_name, f_frequency_id, f_ljfl_type_id, f_work_point_id, f_clear_staff_id, 
+    auditId, f_clear_staff_name, f_height, f_spill_over_code, f_spill_over_value, f_volume, 
+    f_weight, f_last_spill_over_code, f_last_spill_over_value
+  </sql>
+  <sql id="Blob_Column_List" >
+    f_memo, f_photo_ids, f_trigger_condition
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_trash_can
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_trash_can
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflTrashCanWithBLOBs" >
+    insert into ljfl_trash_can (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, f_code, 
+      f_name, f_frequency_id, f_ljfl_type_id, 
+      f_work_point_id, f_clear_staff_id, auditId, 
+      f_clear_staff_name, f_height, f_spill_over_code, 
+      f_spill_over_value, f_volume, f_weight, 
+      f_last_spill_over_code, f_last_spill_over_value, 
+      f_memo, f_photo_ids, f_trigger_condition
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{fCode,jdbcType=VARCHAR}, 
+      #{fName,jdbcType=VARCHAR}, #{fFrequencyId,jdbcType=VARCHAR}, #{fLjflTypeId,jdbcType=VARCHAR}, 
+      #{fWorkPointId,jdbcType=VARCHAR}, #{fClearStaffId,jdbcType=VARCHAR}, #{auditid,jdbcType=VARCHAR}, 
+      #{fClearStaffName,jdbcType=VARCHAR}, #{fHeight,jdbcType=DOUBLE}, #{fSpillOverCode,jdbcType=VARCHAR}, 
+      #{fSpillOverValue,jdbcType=DOUBLE}, #{fVolume,jdbcType=DOUBLE}, #{fWeight,jdbcType=DOUBLE}, 
+      #{fLastSpillOverCode,jdbcType=VARCHAR}, #{fLastSpillOverValue,jdbcType=DOUBLE}, 
+      #{fMemo,jdbcType=LONGVARCHAR}, #{fPhotoIds,jdbcType=LONGVARCHAR}, #{fTriggerCondition,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflTrashCanWithBLOBs" >
+    insert into ljfl_trash_can
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="fCode != null" >
+        f_code,
+      </if>
+      <if test="fName != null" >
+        f_name,
+      </if>
+      <if test="fFrequencyId != null" >
+        f_frequency_id,
+      </if>
+      <if test="fLjflTypeId != null" >
+        f_ljfl_type_id,
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id,
+      </if>
+      <if test="fClearStaffId != null" >
+        f_clear_staff_id,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+      <if test="fClearStaffName != null" >
+        f_clear_staff_name,
+      </if>
+      <if test="fHeight != null" >
+        f_height,
+      </if>
+      <if test="fSpillOverCode != null" >
+        f_spill_over_code,
+      </if>
+      <if test="fSpillOverValue != null" >
+        f_spill_over_value,
+      </if>
+      <if test="fVolume != null" >
+        f_volume,
+      </if>
+      <if test="fWeight != null" >
+        f_weight,
+      </if>
+      <if test="fLastSpillOverCode != null" >
+        f_last_spill_over_code,
+      </if>
+      <if test="fLastSpillOverValue != null" >
+        f_last_spill_over_value,
+      </if>
+      <if test="fMemo != null" >
+        f_memo,
+      </if>
+      <if test="fPhotoIds != null" >
+        f_photo_ids,
+      </if>
+      <if test="fTriggerCondition != null" >
+        f_trigger_condition,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null" >
+        #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fFrequencyId != null" >
+        #{fFrequencyId,jdbcType=VARCHAR},
+      </if>
+      <if test="fLjflTypeId != null" >
+        #{fLjflTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fClearStaffId != null" >
+        #{fClearStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="fClearStaffName != null" >
+        #{fClearStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="fHeight != null" >
+        #{fHeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fSpillOverCode != null" >
+        #{fSpillOverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpillOverValue != null" >
+        #{fSpillOverValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fVolume != null" >
+        #{fVolume,jdbcType=DOUBLE},
+      </if>
+      <if test="fWeight != null" >
+        #{fWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fLastSpillOverCode != null" >
+        #{fLastSpillOverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fLastSpillOverValue != null" >
+        #{fLastSpillOverValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fMemo != null" >
+        #{fMemo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="fPhotoIds != null" >
+        #{fPhotoIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="fTriggerCondition != null" >
+        #{fTriggerCondition,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflTrashCanWithBLOBs" >
+    update ljfl_trash_can
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        f_code = #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null" >
+        f_name = #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fFrequencyId != null" >
+        f_frequency_id = #{fFrequencyId,jdbcType=VARCHAR},
+      </if>
+      <if test="fLjflTypeId != null" >
+        f_ljfl_type_id = #{fLjflTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fClearStaffId != null" >
+        f_clear_staff_id = #{fClearStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="fClearStaffName != null" >
+        f_clear_staff_name = #{fClearStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="fHeight != null" >
+        f_height = #{fHeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fSpillOverCode != null" >
+        f_spill_over_code = #{fSpillOverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpillOverValue != null" >
+        f_spill_over_value = #{fSpillOverValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fVolume != null" >
+        f_volume = #{fVolume,jdbcType=DOUBLE},
+      </if>
+      <if test="fWeight != null" >
+        f_weight = #{fWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fLastSpillOverCode != null" >
+        f_last_spill_over_code = #{fLastSpillOverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fLastSpillOverValue != null" >
+        f_last_spill_over_value = #{fLastSpillOverValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fMemo != null" >
+        f_memo = #{fMemo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="fPhotoIds != null" >
+        f_photo_ids = #{fPhotoIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="fTriggerCondition != null" >
+        f_trigger_condition = #{fTriggerCondition,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sczh.platform.po.LjflTrashCanWithBLOBs" >
+    update ljfl_trash_can
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      f_name = #{fName,jdbcType=VARCHAR},
+      f_frequency_id = #{fFrequencyId,jdbcType=VARCHAR},
+      f_ljfl_type_id = #{fLjflTypeId,jdbcType=VARCHAR},
+      f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      f_clear_staff_id = #{fClearStaffId,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      f_clear_staff_name = #{fClearStaffName,jdbcType=VARCHAR},
+      f_height = #{fHeight,jdbcType=DOUBLE},
+      f_spill_over_code = #{fSpillOverCode,jdbcType=VARCHAR},
+      f_spill_over_value = #{fSpillOverValue,jdbcType=DOUBLE},
+      f_volume = #{fVolume,jdbcType=DOUBLE},
+      f_weight = #{fWeight,jdbcType=DOUBLE},
+      f_last_spill_over_code = #{fLastSpillOverCode,jdbcType=VARCHAR},
+      f_last_spill_over_value = #{fLastSpillOverValue,jdbcType=DOUBLE},
+      f_memo = #{fMemo,jdbcType=LONGVARCHAR},
+      f_photo_ids = #{fPhotoIds,jdbcType=LONGVARCHAR},
+      f_trigger_condition = #{fTriggerCondition,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflTrashCan" >
+    update ljfl_trash_can
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      f_name = #{fName,jdbcType=VARCHAR},
+      f_frequency_id = #{fFrequencyId,jdbcType=VARCHAR},
+      f_ljfl_type_id = #{fLjflTypeId,jdbcType=VARCHAR},
+      f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      f_clear_staff_id = #{fClearStaffId,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      f_clear_staff_name = #{fClearStaffName,jdbcType=VARCHAR},
+      f_height = #{fHeight,jdbcType=DOUBLE},
+      f_spill_over_code = #{fSpillOverCode,jdbcType=VARCHAR},
+      f_spill_over_value = #{fSpillOverValue,jdbcType=DOUBLE},
+      f_volume = #{fVolume,jdbcType=DOUBLE},
+      f_weight = #{fWeight,jdbcType=DOUBLE},
+      f_last_spill_over_code = #{fLastSpillOverCode,jdbcType=VARCHAR},
+      f_last_spill_over_value = #{fLastSpillOverValue,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+            <select id="selectLjflTrashCanSizeByPamater" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM ljfl_trash_can
+    
+   	  where
+   		 1=1
+   	 	    <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fName != null" >
+      and
+        f_name = #{fName,jdbcType=VARCHAR}
+      </if>
+        <if test="fCode != null" >
+      and
+        f_code = #{fCode,jdbcType=VARCHAR}
+      </if>
+        <if test="tenantid != null" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+	
+  </select>
+     <select id="selectLjflTrashCanByPamaters" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM ljfl_trash_can
+    
+   	  where
+   		 1=1
+ 	    <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+       <if test="tenantid != null" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fName != null" >
+      and
+        f_name = #{fName,jdbcType=VARCHAR}
+      </if>
+        <if test="fCode != null" >
+      and
+        f_code = #{fCode,jdbcType=VARCHAR}
+      </if>
+       
+ 
+        
+      order BY createTime
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	
+  </select>
+</mapper>

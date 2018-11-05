@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflSwipCardRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflSwipCardRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="divisionTime" property="divisiontime" jdbcType="TIMESTAMP" />
+    <result column="f_houses_code" property="fHousesCode" jdbcType="VARCHAR" />
+    <result column="f_houses_id" property="fHousesId" jdbcType="VARCHAR" />
+    <result column="f_houses_name" property="fHousesName" jdbcType="VARCHAR" />
+    <result column="f_qy_man_id" property="fQyManId" jdbcType="VARCHAR" />
+    <result column="f_qy_man_name" property="fQyManName" jdbcType="VARCHAR" />
+    <result column="f_smart_card_ccode" property="fSmartCardCcode" jdbcType="VARCHAR" />
+    <result column="f_smart_card_code" property="fSmartCardCode" jdbcType="VARCHAR" />
+    <result column="f_smart_card_id" property="fSmartCardId" jdbcType="VARCHAR" />
+    <result column="f_swip_card_time" property="fSwipCardTime" jdbcType="TIMESTAMP" />
+    <result column="f_work_point_code" property="fWorkPointCode" jdbcType="VARCHAR" />
+    <result column="f_work_point_id" property="fWorkPointId" jdbcType="VARCHAR" />
+    <result column="f_work_point_name" property="fWorkPointName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, auditId, businessSystemId, 
+    tenantId, divisionTime, f_houses_code, f_houses_id, f_houses_name, f_qy_man_id, f_qy_man_name, 
+    f_smart_card_ccode, f_smart_card_code, f_smart_card_id, f_swip_card_time, f_work_point_code, 
+    f_work_point_id, f_work_point_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_swip_card_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_swip_card_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflSwipCardRecord" >
+    insert into ljfl_swip_card_record (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      auditId, businessSystemId, tenantId, 
+      divisionTime, f_houses_code, f_houses_id, 
+      f_houses_name, f_qy_man_id, f_qy_man_name, 
+      f_smart_card_ccode, f_smart_card_code, f_smart_card_id, 
+      f_swip_card_time, f_work_point_code, f_work_point_id, 
+      f_work_point_name)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{auditid,jdbcType=VARCHAR}, #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, 
+      #{divisiontime,jdbcType=TIMESTAMP}, #{fHousesCode,jdbcType=VARCHAR}, #{fHousesId,jdbcType=VARCHAR}, 
+      #{fHousesName,jdbcType=VARCHAR}, #{fQyManId,jdbcType=VARCHAR}, #{fQyManName,jdbcType=VARCHAR}, 
+      #{fSmartCardCcode,jdbcType=VARCHAR}, #{fSmartCardCode,jdbcType=VARCHAR}, #{fSmartCardId,jdbcType=VARCHAR}, 
+      #{fSwipCardTime,jdbcType=TIMESTAMP}, #{fWorkPointCode,jdbcType=VARCHAR}, #{fWorkPointId,jdbcType=VARCHAR}, 
+      #{fWorkPointName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflSwipCardRecord" >
+    insert into ljfl_swip_card_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime,
+      </if>
+      <if test="fHousesCode != null" >
+        f_houses_code,
+      </if>
+      <if test="fHousesId != null" >
+        f_houses_id,
+      </if>
+      <if test="fHousesName != null" >
+        f_houses_name,
+      </if>
+      <if test="fQyManId != null" >
+        f_qy_man_id,
+      </if>
+      <if test="fQyManName != null" >
+        f_qy_man_name,
+      </if>
+      <if test="fSmartCardCcode != null" >
+        f_smart_card_ccode,
+      </if>
+      <if test="fSmartCardCode != null" >
+        f_smart_card_code,
+      </if>
+      <if test="fSmartCardId != null" >
+        f_smart_card_id,
+      </if>
+      <if test="fSwipCardTime != null" >
+        f_swip_card_time,
+      </if>
+      <if test="fWorkPointCode != null" >
+        f_work_point_code,
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id,
+      </if>
+      <if test="fWorkPointName != null" >
+        f_work_point_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fHousesCode != null" >
+        #{fHousesCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesId != null" >
+        #{fHousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesName != null" >
+        #{fHousesName,jdbcType=VARCHAR},
+      </if>
+      <if test="fQyManId != null" >
+        #{fQyManId,jdbcType=VARCHAR},
+      </if>
+      <if test="fQyManName != null" >
+        #{fQyManName,jdbcType=VARCHAR},
+      </if>
+      <if test="fSmartCardCcode != null" >
+        #{fSmartCardCcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fSmartCardCode != null" >
+        #{fSmartCardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fSmartCardId != null" >
+        #{fSmartCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="fSwipCardTime != null" >
+        #{fSwipCardTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fWorkPointCode != null" >
+        #{fWorkPointCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointName != null" >
+        #{fWorkPointName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflSwipCardRecord" >
+    update ljfl_swip_card_record
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fHousesCode != null" >
+        f_houses_code = #{fHousesCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesId != null" >
+        f_houses_id = #{fHousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesName != null" >
+        f_houses_name = #{fHousesName,jdbcType=VARCHAR},
+      </if>
+      <if test="fQyManId != null" >
+        f_qy_man_id = #{fQyManId,jdbcType=VARCHAR},
+      </if>
+      <if test="fQyManName != null" >
+        f_qy_man_name = #{fQyManName,jdbcType=VARCHAR},
+      </if>
+      <if test="fSmartCardCcode != null" >
+        f_smart_card_ccode = #{fSmartCardCcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fSmartCardCode != null" >
+        f_smart_card_code = #{fSmartCardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fSmartCardId != null" >
+        f_smart_card_id = #{fSmartCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="fSwipCardTime != null" >
+        f_swip_card_time = #{fSwipCardTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fWorkPointCode != null" >
+        f_work_point_code = #{fWorkPointCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointName != null" >
+        f_work_point_name = #{fWorkPointName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflSwipCardRecord" >
+    update ljfl_swip_card_record
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      f_houses_code = #{fHousesCode,jdbcType=VARCHAR},
+      f_houses_id = #{fHousesId,jdbcType=VARCHAR},
+      f_houses_name = #{fHousesName,jdbcType=VARCHAR},
+      f_qy_man_id = #{fQyManId,jdbcType=VARCHAR},
+      f_qy_man_name = #{fQyManName,jdbcType=VARCHAR},
+      f_smart_card_ccode = #{fSmartCardCcode,jdbcType=VARCHAR},
+      f_smart_card_code = #{fSmartCardCode,jdbcType=VARCHAR},
+      f_smart_card_id = #{fSmartCardId,jdbcType=VARCHAR},
+      f_swip_card_time = #{fSwipCardTime,jdbcType=TIMESTAMP},
+      f_work_point_code = #{fWorkPointCode,jdbcType=VARCHAR},
+      f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      f_work_point_name = #{fWorkPointName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+     <select id="selecSwipCardRecordTotalSize" parameterType="com.sczh.platform.po.Model.PageModelDomain"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM 	   
+    
+    <if test="tableName != null" >
+     ${tableName}
+      </if>
+      
+   	  where
+   		 1=1
+   		   <if test="beendeleted != null and beendeleted != ''" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="tenantid != null and tenantid != ''" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fCode != null and fCode != ''" >
+      and
+        f_work_point_code = #{fCode,jdbcType=VARCHAR}
+      </if>
+      <if test="fName != null and fName != ''" >
+      and
+        f_work_point_name = #{fName,jdbcType=VARCHAR}
+      </if>
+         <if test="fQymanId != null and fQymanId != ''" >
+      and
+        f_qyman_id = #{fQymanId,jdbcType=VARCHAR}
+      </if>
+      <if test="houseSelected != null and houseSelected != ''" >
+      and
+        f_houses_id = #{houseSelected,jdbcType=VARCHAR}
+      </if>
+       
+         <if test="startTime != null and startTime != ''" >
+      and
+        f_swip_card_time  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endTime != null and endTime != ''" >
+      and
+        f_swip_card_time &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+	
+  </select>
+     <select id="selecSwipCardRecordByDateTotal" parameterType="com.sczh.platform.po.Model.PageModelDomain"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM 
+    
+     <if test="tableName != null" >
+     ${tableName}
+      </if>
+      
+   	  where
+   	  1 =1
+   					   <if test="beendeleted != null and beendeleted != ''" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="tenantid != null and tenantid != ''" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fCode != null and fCode != ''" >
+      and
+        f_work_point_code = #{fCode,jdbcType=VARCHAR}
+      </if>
+      <if test="fName != null and fName != ''" >
+      and
+        f_work_point_name = #{fName,jdbcType=VARCHAR}
+      </if>
+         <if test="fQymanId != null and fQymanId != ''" >
+      and
+        f_qyman_id = #{fQymanId,jdbcType=VARCHAR}
+      </if>
+      <if test="houseSelected != null and houseSelected != ''" >
+      and
+        f_houses_id = #{houseSelected,jdbcType=VARCHAR}
+      </if>
+       
+         <if test="startTime != null and startTime != ''" >
+      and
+        f_swip_card_time  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endTime != null and endTime != ''" >
+      and
+        f_swip_card_time &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+	
+      order BY f_swip_card_time
+        <if test="currentNum != null and pageSize != 0" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${pageSize}
+      </if>
+	
+  </select>
+</mapper>

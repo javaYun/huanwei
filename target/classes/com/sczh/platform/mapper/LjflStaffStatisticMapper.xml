@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflStaffStatisticMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflStaffStatistic" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="personTime" property="persontime" jdbcType="INTEGER" />
+    <result column="rubbishTypeId" property="rubbishtypeid" jdbcType="VARCHAR" />
+    <result column="rubbishTypeIndex" property="rubbishtypeindex" jdbcType="INTEGER" />
+    <result column="rubbishTypeName" property="rubbishtypename" jdbcType="VARCHAR" />
+    <result column="staffId" property="staffid" jdbcType="VARCHAR" />
+    <result column="staffName" property="staffname" jdbcType="VARCHAR" />
+    <result column="staffOrderIndex" property="stafforderindex" jdbcType="INTEGER" />
+    <result column="statisticDate" property="statisticdate" jdbcType="DATE" />
+    <result column="systemIndex" property="systemindex" jdbcType="INTEGER" />
+    <result column="systemType" property="systemtype" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="value" property="value" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, auditId, businessSystemId, 
+    tenantId, personTime, rubbishTypeId, rubbishTypeIndex, rubbishTypeName, staffId, 
+    staffName, staffOrderIndex, statisticDate, systemIndex, systemType, unit, value
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_staff_statistic
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_staff_statistic
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflStaffStatistic" >
+    insert into ljfl_staff_statistic (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      auditId, businessSystemId, tenantId, 
+      personTime, rubbishTypeId, rubbishTypeIndex, 
+      rubbishTypeName, staffId, staffName, 
+      staffOrderIndex, statisticDate, systemIndex, 
+      systemType, unit, value
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{auditid,jdbcType=VARCHAR}, #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, 
+      #{persontime,jdbcType=INTEGER}, #{rubbishtypeid,jdbcType=VARCHAR}, #{rubbishtypeindex,jdbcType=INTEGER}, 
+      #{rubbishtypename,jdbcType=VARCHAR}, #{staffid,jdbcType=VARCHAR}, #{staffname,jdbcType=VARCHAR}, 
+      #{stafforderindex,jdbcType=INTEGER}, #{statisticdate,jdbcType=DATE}, #{systemindex,jdbcType=INTEGER}, 
+      #{systemtype,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{value,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflStaffStatistic" >
+    insert into ljfl_staff_statistic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="persontime != null" >
+        personTime,
+      </if>
+      <if test="rubbishtypeid != null" >
+        rubbishTypeId,
+      </if>
+      <if test="rubbishtypeindex != null" >
+        rubbishTypeIndex,
+      </if>
+      <if test="rubbishtypename != null" >
+        rubbishTypeName,
+      </if>
+      <if test="staffid != null" >
+        staffId,
+      </if>
+      <if test="staffname != null" >
+        staffName,
+      </if>
+      <if test="stafforderindex != null" >
+        staffOrderIndex,
+      </if>
+      <if test="statisticdate != null" >
+        statisticDate,
+      </if>
+      <if test="systemindex != null" >
+        systemIndex,
+      </if>
+      <if test="systemtype != null" >
+        systemType,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="value != null" >
+        value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="persontime != null" >
+        #{persontime,jdbcType=INTEGER},
+      </if>
+      <if test="rubbishtypeid != null" >
+        #{rubbishtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="rubbishtypeindex != null" >
+        #{rubbishtypeindex,jdbcType=INTEGER},
+      </if>
+      <if test="rubbishtypename != null" >
+        #{rubbishtypename,jdbcType=VARCHAR},
+      </if>
+      <if test="staffid != null" >
+        #{staffid,jdbcType=VARCHAR},
+      </if>
+      <if test="staffname != null" >
+        #{staffname,jdbcType=VARCHAR},
+      </if>
+      <if test="stafforderindex != null" >
+        #{stafforderindex,jdbcType=INTEGER},
+      </if>
+      <if test="statisticdate != null" >
+        #{statisticdate,jdbcType=DATE},
+      </if>
+      <if test="systemindex != null" >
+        #{systemindex,jdbcType=INTEGER},
+      </if>
+      <if test="systemtype != null" >
+        #{systemtype,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflStaffStatistic" >
+    update ljfl_staff_statistic
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="persontime != null" >
+        personTime = #{persontime,jdbcType=INTEGER},
+      </if>
+      <if test="rubbishtypeid != null" >
+        rubbishTypeId = #{rubbishtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="rubbishtypeindex != null" >
+        rubbishTypeIndex = #{rubbishtypeindex,jdbcType=INTEGER},
+      </if>
+      <if test="rubbishtypename != null" >
+        rubbishTypeName = #{rubbishtypename,jdbcType=VARCHAR},
+      </if>
+      <if test="staffid != null" >
+        staffId = #{staffid,jdbcType=VARCHAR},
+      </if>
+      <if test="staffname != null" >
+        staffName = #{staffname,jdbcType=VARCHAR},
+      </if>
+      <if test="stafforderindex != null" >
+        staffOrderIndex = #{stafforderindex,jdbcType=INTEGER},
+      </if>
+      <if test="statisticdate != null" >
+        statisticDate = #{statisticdate,jdbcType=DATE},
+      </if>
+      <if test="systemindex != null" >
+        systemIndex = #{systemindex,jdbcType=INTEGER},
+      </if>
+      <if test="systemtype != null" >
+        systemType = #{systemtype,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null" >
+        value = #{value,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflStaffStatistic" >
+    update ljfl_staff_statistic
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      personTime = #{persontime,jdbcType=INTEGER},
+      rubbishTypeId = #{rubbishtypeid,jdbcType=VARCHAR},
+      rubbishTypeIndex = #{rubbishtypeindex,jdbcType=INTEGER},
+      rubbishTypeName = #{rubbishtypename,jdbcType=VARCHAR},
+      staffId = #{staffid,jdbcType=VARCHAR},
+      staffName = #{staffname,jdbcType=VARCHAR},
+      staffOrderIndex = #{stafforderindex,jdbcType=INTEGER},
+      statisticDate = #{statisticdate,jdbcType=DATE},
+      systemIndex = #{systemindex,jdbcType=INTEGER},
+      systemType = #{systemtype,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      value = #{value,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+    <select id="selectStaffStaticListByPamaters" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_staff_statistic
+    where 1=1
+  	<if test="startTime != null" >
+     and   statisticDate = #{startTime,jdbcType=VARCHAR}
+      </if>
+     <if test="staffid != null" >
+     and   staffId = #{staffid,jdbcType=VARCHAR}
+      </if>
+     
+      group by staffId;
+  </select>
+  <select id="selectStaffStaticListByPamatersNoGroupBy" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_staff_statistic
+    where 1=1
+  	<if test="startTime != null" >
+     and   statisticDate = #{startTime,jdbcType=VARCHAR}
+      </if>
+     <if test="staffid != null" >
+     and   staffId = #{staffid,jdbcType=VARCHAR}
+      </if>
+      and (
+      value &gt; #{value,jdbcType=VARCHAR}
+      
+      or
+       personTime &gt; #{value,jdbcType=INTEGER}
+      )
+ 
+  </select>
+</mapper>

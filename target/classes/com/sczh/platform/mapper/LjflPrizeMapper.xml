@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflPrizeMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflPrize" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="f_code" property="fCode" jdbcType="VARCHAR" />
+    <result column="f_name" property="fName" jdbcType="VARCHAR" />
+    <result column="f_one_price" property="fOnePrice" jdbcType="DOUBLE" />
+    <result column="f_prize_type_id" property="fPrizeTypeId" jdbcType="VARCHAR" />
+    <result column="f_photo_url" property="fPhotoUrl" jdbcType="VARCHAR" />
+    <result column="f_picture" property="fPicture" jdbcType="VARCHAR" />
+    <result column="f_prize_type_name" property="fPrizeTypeName" jdbcType="VARCHAR" />
+    <result column="f_orderIndex" property="fOrderindex" jdbcType="INTEGER" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, f_code, f_name, f_one_price, f_prize_type_id, f_photo_url, f_picture, f_prize_type_name, 
+    f_orderIndex, auditId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_prize
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_prize
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflPrize" >
+    insert into ljfl_prize (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, f_code, 
+      f_name, f_one_price, f_prize_type_id, 
+      f_photo_url, f_picture, f_prize_type_name, 
+      f_orderIndex, auditId)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{fCode,jdbcType=VARCHAR}, 
+      #{fName,jdbcType=VARCHAR}, #{fOnePrice,jdbcType=DOUBLE}, #{fPrizeTypeId,jdbcType=VARCHAR}, 
+      #{fPhotoUrl,jdbcType=VARCHAR}, #{fPicture,jdbcType=VARCHAR}, #{fPrizeTypeName,jdbcType=VARCHAR}, 
+      #{fOrderindex,jdbcType=INTEGER}, #{auditid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflPrize" >
+    insert into ljfl_prize
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="fCode != null" >
+        f_code,
+      </if>
+      <if test="fName != null" >
+        f_name,
+      </if>
+      <if test="fOnePrice != null" >
+        f_one_price,
+      </if>
+      <if test="fPrizeTypeId != null" >
+        f_prize_type_id,
+      </if>
+      <if test="fPhotoUrl != null" >
+        f_photo_url,
+      </if>
+      <if test="fPicture != null" >
+        f_picture,
+      </if>
+      <if test="fPrizeTypeName != null" >
+        f_prize_type_name,
+      </if>
+      <if test="fOrderindex != null" >
+        f_orderIndex,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null" >
+        #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fOnePrice != null" >
+        #{fOnePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="fPrizeTypeId != null" >
+        #{fPrizeTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fPhotoUrl != null" >
+        #{fPhotoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fPicture != null" >
+        #{fPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="fPrizeTypeName != null" >
+        #{fPrizeTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="fOrderindex != null" >
+        #{fOrderindex,jdbcType=INTEGER},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflPrize" >
+    update ljfl_prize
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        f_code = #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null" >
+        f_name = #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fOnePrice != null" >
+        f_one_price = #{fOnePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="fPrizeTypeId != null" >
+        f_prize_type_id = #{fPrizeTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fPhotoUrl != null" >
+        f_photo_url = #{fPhotoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fPicture != null" >
+        f_picture = #{fPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="fPrizeTypeName != null" >
+        f_prize_type_name = #{fPrizeTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="fOrderindex != null" >
+        f_orderIndex = #{fOrderindex,jdbcType=INTEGER},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflPrize" >
+    update ljfl_prize
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      f_name = #{fName,jdbcType=VARCHAR},
+      f_one_price = #{fOnePrice,jdbcType=DOUBLE},
+      f_prize_type_id = #{fPrizeTypeId,jdbcType=VARCHAR},
+      f_photo_url = #{fPhotoUrl,jdbcType=VARCHAR},
+      f_picture = #{fPicture,jdbcType=VARCHAR},
+      f_prize_type_name = #{fPrizeTypeName,jdbcType=VARCHAR},
+      f_orderIndex = #{fOrderindex,jdbcType=INTEGER},
+      auditId = #{auditid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+   <select id="selectByBeenDeleted" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_prize
+    where beenDeleted = '0'
+  </select>
+  
+  <select id="selectPrizeInfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_prize
+    where beenDeleted = '0'
+    order by f_code LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+  
+  <select id="selectPrizeInfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from ljfl_prize
+  where beenDeleted = '0'
+  </select>
+  
+  <select id="selectPrizeInfoList1" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_prize
+    where beenDeleted = '0'
+    
+    and f_code regexp '${code}' 
+    
+    and f_name regexp '${name}'
+    
+    order by f_code LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+  
+   <select id="selectPrizeInfoListTotal1" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from ljfl_prize
+  where beenDeleted = '0'
+   and f_code regexp '${code}' 
+    
+    and f_name regexp '${name}'
+  
+  </select>
+  
+  <select id="selectljflprizebyname" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_prize
+    where f_name = #{name,jdbcType=VARCHAR}
+    and beenDeleted = '0'
+  </select>
+  
+</mapper>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.PersonInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.PersonInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="personcode" property="personcode" jdbcType="VARCHAR" />
+    <result column="personid" property="personid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="setuptime" property="setuptime" jdbcType="DATE" />
+    <result column="changetime" property="changetime" jdbcType="DATE" />
+    <result column="unitname" property="unitname" jdbcType="VARCHAR" />
+    <result column="departmentname" property="departmentname" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+    <result column="str2" property="str2" jdbcType="VARCHAR" />
+    <result column="str3" property="str3" jdbcType="VARCHAR" />
+    <result column="str4" property="str4" jdbcType="VARCHAR" />
+    <result column="areaId" property="areaid" jdbcType="VARCHAR" />
+    <result column="areaName" property="areaname" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, personcode, personid, name, role, state, setuptime, changetime, unitname, departmentname, 
+    pid, userId, str1, str2, str3, str4, areaId, areaName, username, password
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from personmanage
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from personmanage
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.PersonInfo" >
+    insert into personmanage (id, personcode, personid, 
+      name, role, state, 
+      setuptime, changetime, unitname, 
+      departmentname, pid, userId, 
+      str1, str2, str3, str4, 
+      areaId, areaName, username, 
+      password)
+    values (#{id,jdbcType=INTEGER}, #{personcode,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{setuptime,jdbcType=DATE}, #{changetime,jdbcType=DATE}, #{unitname,jdbcType=VARCHAR}, 
+      #{departmentname,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, 
+      #{str1,jdbcType=VARCHAR}, #{str2,jdbcType=VARCHAR}, #{str3,jdbcType=VARCHAR}, #{str4,jdbcType=VARCHAR}, 
+      #{areaid,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.PersonInfo" >
+    insert into personmanage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="personcode != null" >
+        personcode,
+      </if>
+      <if test="personid != null" >
+        personid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="setuptime != null" >
+        setuptime,
+      </if>
+      <if test="changetime != null" >
+        changetime,
+      </if>
+      <if test="unitname != null" >
+        unitname,
+      </if>
+      <if test="departmentname != null" >
+        departmentname,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+      <if test="str2 != null" >
+        str2,
+      </if>
+      <if test="str3 != null" >
+        str3,
+      </if>
+      <if test="str4 != null" >
+        str4,
+      </if>
+      <if test="areaid != null" >
+        areaId,
+      </if>
+      <if test="areaname != null" >
+        areaName,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="personcode != null" >
+        #{personcode,jdbcType=VARCHAR},
+      </if>
+      <if test="personid != null" >
+        #{personid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="changetime != null" >
+        #{changetime,jdbcType=DATE},
+      </if>
+      <if test="unitname != null" >
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentname != null" >
+        #{departmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        #{str4,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.PersonInfo" >
+    update personmanage
+    <set >
+      <if test="personcode != null" >
+        personcode = #{personcode,jdbcType=VARCHAR},
+      </if>
+      <if test="personid != null" >
+        personid = #{personid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        setuptime = #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="changetime != null" >
+        changetime = #{changetime,jdbcType=DATE},
+      </if>
+      <if test="unitname != null" >
+        unitname = #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentname != null" >
+        departmentname = #{departmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        str2 = #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        str3 = #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        str4 = #{str4,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        areaId = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.PersonInfo" >
+    update personmanage
+    set personcode = #{personcode,jdbcType=VARCHAR},
+      personid = #{personid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      setuptime = #{setuptime,jdbcType=DATE},
+      changetime = #{changetime,jdbcType=DATE},
+      unitname = #{unitname,jdbcType=VARCHAR},
+      departmentname = #{departmentname,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=VARCHAR},
+      str1 = #{str1,jdbcType=VARCHAR},
+      str2 = #{str2,jdbcType=VARCHAR},
+      str3 = #{str3,jdbcType=VARCHAR},
+      str4 = #{str4,jdbcType=VARCHAR},
+      areaId = #{areaid,jdbcType=VARCHAR},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+    <select id="selectPersonInfoList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from personmanage
+  </select>
+  <select id="selectPersonInfoList1" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from personmanage
+    where unitname = '${unitname}'
+    and departmentname = '${departmentname}'
+    order by id LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+ 
+  <select id="selectPersonInfoList2" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from personmanage
+    order by id LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+  
+  <select id="selectPersonInfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from personmanage
+  where unitname = '${unitname}'
+    and departmentname = '${departmentname}'
+  </select>
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from personmanage
+  where userId = #{userid,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <select id="selectByUnit" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from personmanage
+    where unitname = #{unitname,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByUnitandDepartment" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from personmanage
+    where unitname = #{unitname,jdbcType=VARCHAR}
+     and departmentname = #{departmentname,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

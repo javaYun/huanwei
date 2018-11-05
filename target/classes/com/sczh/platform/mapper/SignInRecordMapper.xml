@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.SignInRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.SignInRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="signdate" property="signdate" jdbcType="VARCHAR" />
+    <result column="signaddress" property="signaddress" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, signdate, signaddress
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sign_in_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sign_in_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.SignInRecord" >
+    insert into sign_in_record (id, name, signdate, 
+      signaddress)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{signdate,jdbcType=VARCHAR}, 
+      #{signaddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.SignInRecord" >
+    insert into sign_in_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="signdate != null" >
+        signdate,
+      </if>
+      <if test="signaddress != null" >
+        signaddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="signdate != null" >
+        #{signdate,jdbcType=VARCHAR},
+      </if>
+      <if test="signaddress != null" >
+        #{signaddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.SignInRecord" >
+    update sign_in_record
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="signdate != null" >
+        signdate = #{signdate,jdbcType=VARCHAR},
+      </if>
+      <if test="signaddress != null" >
+        signaddress = #{signaddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.SignInRecord" >
+    update sign_in_record
+    set name = #{name,jdbcType=VARCHAR},
+      signdate = #{signdate,jdbcType=VARCHAR},
+      signaddress = #{signaddress,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+    <select id="selectListSignInList" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from sign_in_record
+  where signdate regexp '${time}'
+   order by signdate LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+  
+  <select id="selectListSignInListTotal" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from sign_in_record
+  where signdate regexp '${time}'
+  </select>
+</mapper>

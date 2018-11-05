@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflTrashCanWorkPointMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflTrashCanWorkPoint" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="managerid" property="managerid" jdbcType="VARCHAR" />
+    <result column="managername" property="managername" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="collertorpointid" property="collertorpointid" jdbcType="VARCHAR" />
+    <result column="collertorpointname" property="collertorpointname" jdbcType="VARCHAR" />
+    <result column="trashcanid" property="trashcanid" jdbcType="VARCHAR" />
+    <result column="trashcanno" property="trashcanno" jdbcType="VARCHAR" />
+    <result column="trashcanname" property="trashcanname" jdbcType="VARCHAR" />
+    <result column="housesname" property="housesname" jdbcType="VARCHAR" />
+    <result column="transferstationname" property="transferstationname" jdbcType="VARCHAR" />
+    <result column="trashtype" property="trashtype" jdbcType="VARCHAR" />
+    <result column="trashcannum" property="trashcannum" jdbcType="VARCHAR" />
+    <result column="serverpersonnum" property="serverpersonnum" jdbcType="VARCHAR" />
+    <result column="orderindex" property="orderindex" jdbcType="VARCHAR" />
+    <result column="workpointtype" property="workpointtype" jdbcType="VARCHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="cover" property="cover" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="trashcanrate" property="trashcanrate" jdbcType="VARCHAR" />
+    <result column="uploadtime" property="uploadtime" jdbcType="TIMESTAMP" />
+    <result column="trashcanweight" property="trashcanweight" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="string1" property="string1" jdbcType="VARCHAR" />
+    <result column="string2" property="string2" jdbcType="VARCHAR" />
+    <result column="string3" property="string3" jdbcType="VARCHAR" />
+    <result column="string4" property="string4" jdbcType="VARCHAR" />
+    <result column="string5" property="string5" jdbcType="VARCHAR" />
+    <result column="string6" property="string6" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, managerid, managername, userid, username, collertorpointid, collertorpointname, 
+    trashcanid, trashcanno, trashcanname, housesname, transferstationname, trashtype, 
+    trashcannum, serverpersonnum, orderindex, workpointtype, ICCID, memo, cover, photo, 
+    trashcanrate, uploadtime, trashcanweight, longitude, latitude, string1, string2, 
+    string3, string4, string5, string6
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_trashcan_workpoint
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ljfl_trashcan_workpoint
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflTrashCanWorkPoint" >
+    insert into ljfl_trashcan_workpoint (id, managerid, managername, 
+      userid, username, collertorpointid, 
+      collertorpointname, trashcanid, trashcanno, 
+      trashcanname, housesname, transferstationname, 
+      trashtype, trashcannum, serverpersonnum, 
+      orderindex, workpointtype, ICCID, 
+      memo, cover, photo, 
+      trashcanrate, uploadtime, trashcanweight, 
+      longitude, latitude, string1, 
+      string2, string3, string4, 
+      string5, string6)
+    values (#{id,jdbcType=INTEGER}, #{managerid,jdbcType=VARCHAR}, #{managername,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{collertorpointid,jdbcType=VARCHAR}, 
+      #{collertorpointname,jdbcType=VARCHAR}, #{trashcanid,jdbcType=VARCHAR}, #{trashcanno,jdbcType=VARCHAR}, 
+      #{trashcanname,jdbcType=VARCHAR}, #{housesname,jdbcType=VARCHAR}, #{transferstationname,jdbcType=VARCHAR}, 
+      #{trashtype,jdbcType=VARCHAR}, #{trashcannum,jdbcType=VARCHAR}, #{serverpersonnum,jdbcType=VARCHAR}, 
+      #{orderindex,jdbcType=VARCHAR}, #{workpointtype,jdbcType=VARCHAR}, #{iccid,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{photo,jdbcType=VARCHAR}, 
+      #{trashcanrate,jdbcType=VARCHAR}, #{uploadtime,jdbcType=TIMESTAMP}, #{trashcanweight,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}, #{string1,jdbcType=VARCHAR}, 
+      #{string2,jdbcType=VARCHAR}, #{string3,jdbcType=VARCHAR}, #{string4,jdbcType=VARCHAR}, 
+      #{string5,jdbcType=VARCHAR}, #{string6,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflTrashCanWorkPoint" >
+    insert into ljfl_trashcan_workpoint
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="managerid != null" >
+        managerid,
+      </if>
+      <if test="managername != null" >
+        managername,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="collertorpointid != null" >
+        collertorpointid,
+      </if>
+      <if test="collertorpointname != null" >
+        collertorpointname,
+      </if>
+      <if test="trashcanid != null" >
+        trashcanid,
+      </if>
+      <if test="trashcanno != null" >
+        trashcanno,
+      </if>
+      <if test="trashcanname != null" >
+        trashcanname,
+      </if>
+      <if test="housesname != null" >
+        housesname,
+      </if>
+      <if test="transferstationname != null" >
+        transferstationname,
+      </if>
+      <if test="trashtype != null" >
+        trashtype,
+      </if>
+      <if test="trashcannum != null" >
+        trashcannum,
+      </if>
+      <if test="serverpersonnum != null" >
+        serverpersonnum,
+      </if>
+      <if test="orderindex != null" >
+        orderindex,
+      </if>
+      <if test="workpointtype != null" >
+        workpointtype,
+      </if>
+      <if test="iccid != null" >
+        ICCID,
+      </if>
+      <if test="memo != null" >
+        memo,
+      </if>
+      <if test="cover != null" >
+        cover,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="trashcanrate != null" >
+        trashcanrate,
+      </if>
+      <if test="uploadtime != null" >
+        uploadtime,
+      </if>
+      <if test="trashcanweight != null" >
+        trashcanweight,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="string1 != null" >
+        string1,
+      </if>
+      <if test="string2 != null" >
+        string2,
+      </if>
+      <if test="string3 != null" >
+        string3,
+      </if>
+      <if test="string4 != null" >
+        string4,
+      </if>
+      <if test="string5 != null" >
+        string5,
+      </if>
+      <if test="string6 != null" >
+        string6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="managerid != null" >
+        #{managerid,jdbcType=VARCHAR},
+      </if>
+      <if test="managername != null" >
+        #{managername,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="collertorpointid != null" >
+        #{collertorpointid,jdbcType=VARCHAR},
+      </if>
+      <if test="collertorpointname != null" >
+        #{collertorpointname,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcanid != null" >
+        #{trashcanid,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcanno != null" >
+        #{trashcanno,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcanname != null" >
+        #{trashcanname,jdbcType=VARCHAR},
+      </if>
+      <if test="housesname != null" >
+        #{housesname,jdbcType=VARCHAR},
+      </if>
+      <if test="transferstationname != null" >
+        #{transferstationname,jdbcType=VARCHAR},
+      </if>
+      <if test="trashtype != null" >
+        #{trashtype,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcannum != null" >
+        #{trashcannum,jdbcType=VARCHAR},
+      </if>
+      <if test="serverpersonnum != null" >
+        #{serverpersonnum,jdbcType=VARCHAR},
+      </if>
+      <if test="orderindex != null" >
+        #{orderindex,jdbcType=VARCHAR},
+      </if>
+      <if test="workpointtype != null" >
+        #{workpointtype,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcanrate != null" >
+        #{trashcanrate,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadtime != null" >
+        #{uploadtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trashcanweight != null" >
+        #{trashcanweight,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="string1 != null" >
+        #{string1,jdbcType=VARCHAR},
+      </if>
+      <if test="string2 != null" >
+        #{string2,jdbcType=VARCHAR},
+      </if>
+      <if test="string3 != null" >
+        #{string3,jdbcType=VARCHAR},
+      </if>
+      <if test="string4 != null" >
+        #{string4,jdbcType=VARCHAR},
+      </if>
+      <if test="string5 != null" >
+        #{string5,jdbcType=VARCHAR},
+      </if>
+      <if test="string6 != null" >
+        #{string6,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflTrashCanWorkPoint" >
+    update ljfl_trashcan_workpoint
+    <set >
+      <if test="managerid != null" >
+        managerid = #{managerid,jdbcType=VARCHAR},
+      </if>
+      <if test="managername != null" >
+        managername = #{managername,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="collertorpointid != null" >
+        collertorpointid = #{collertorpointid,jdbcType=VARCHAR},
+      </if>
+      <if test="collertorpointname != null" >
+        collertorpointname = #{collertorpointname,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcanid != null" >
+        trashcanid = #{trashcanid,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcanno != null" >
+        trashcanno = #{trashcanno,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcanname != null" >
+        trashcanname = #{trashcanname,jdbcType=VARCHAR},
+      </if>
+      <if test="housesname != null" >
+        housesname = #{housesname,jdbcType=VARCHAR},
+      </if>
+      <if test="transferstationname != null" >
+        transferstationname = #{transferstationname,jdbcType=VARCHAR},
+      </if>
+      <if test="trashtype != null" >
+        trashtype = #{trashtype,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcannum != null" >
+        trashcannum = #{trashcannum,jdbcType=VARCHAR},
+      </if>
+      <if test="serverpersonnum != null" >
+        serverpersonnum = #{serverpersonnum,jdbcType=VARCHAR},
+      </if>
+      <if test="orderindex != null" >
+        orderindex = #{orderindex,jdbcType=VARCHAR},
+      </if>
+      <if test="workpointtype != null" >
+        workpointtype = #{workpointtype,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        ICCID = #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="trashcanrate != null" >
+        trashcanrate = #{trashcanrate,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadtime != null" >
+        uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trashcanweight != null" >
+        trashcanweight = #{trashcanweight,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="string1 != null" >
+        string1 = #{string1,jdbcType=VARCHAR},
+      </if>
+      <if test="string2 != null" >
+        string2 = #{string2,jdbcType=VARCHAR},
+      </if>
+      <if test="string3 != null" >
+        string3 = #{string3,jdbcType=VARCHAR},
+      </if>
+      <if test="string4 != null" >
+        string4 = #{string4,jdbcType=VARCHAR},
+      </if>
+      <if test="string5 != null" >
+        string5 = #{string5,jdbcType=VARCHAR},
+      </if>
+      <if test="string6 != null" >
+        string6 = #{string6,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflTrashCanWorkPoint" >
+    update ljfl_trashcan_workpoint
+    set managerid = #{managerid,jdbcType=VARCHAR},
+      managername = #{managername,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      collertorpointid = #{collertorpointid,jdbcType=VARCHAR},
+      collertorpointname = #{collertorpointname,jdbcType=VARCHAR},
+      trashcanid = #{trashcanid,jdbcType=VARCHAR},
+      trashcanno = #{trashcanno,jdbcType=VARCHAR},
+      trashcanname = #{trashcanname,jdbcType=VARCHAR},
+      housesname = #{housesname,jdbcType=VARCHAR},
+      transferstationname = #{transferstationname,jdbcType=VARCHAR},
+      trashtype = #{trashtype,jdbcType=VARCHAR},
+      trashcannum = #{trashcannum,jdbcType=VARCHAR},
+      serverpersonnum = #{serverpersonnum,jdbcType=VARCHAR},
+      orderindex = #{orderindex,jdbcType=VARCHAR},
+      workpointtype = #{workpointtype,jdbcType=VARCHAR},
+      ICCID = #{iccid,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      trashcanrate = #{trashcanrate,jdbcType=VARCHAR},
+      uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      trashcanweight = #{trashcanweight,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      string1 = #{string1,jdbcType=VARCHAR},
+      string2 = #{string2,jdbcType=VARCHAR},
+      string3 = #{string3,jdbcType=VARCHAR},
+      string4 = #{string4,jdbcType=VARCHAR},
+      string5 = #{string5,jdbcType=VARCHAR},
+      string6 = #{string6,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectLjflTrashCanWorkPointList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_trashcan_workpoint
+  </select>
+   <select id="selectLjflTrashCanWorkPointList1" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_trashcan_workpoint
+    where trashcanid = #{trashcanid,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <select id="selectLjflTrashCanWorkPointInfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_trashcan_workpoint
+    order by trashcanweight LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+  
+  <select id="selectLjflTrashCanWorkPointInfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from ljfl_trashcan_workpoint
+  </select>
+</mapper>

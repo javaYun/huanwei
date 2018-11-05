@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.Et100Mapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.Et100" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="msgTypeValue" property="msgtypevalue" jdbcType="VARCHAR" />
+    <result column="msgCode" property="msgcode" jdbcType="VARCHAR" />
+    <result column="occurTime" property="occurtime" jdbcType="VARCHAR" />
+    <result column="sourceDeviceId" property="sourcedeviceid" jdbcType="VARCHAR" />
+    <result column="sourceDeviceType" property="sourcedevicetype" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="targetDeviceId" property="targetdeviceid" jdbcType="VARCHAR" />
+    <result column="targetDeviceType" property="targetdevicetype" jdbcType="VARCHAR" />
+    <result column="realtimeOrRepair" property="realtimeorrepair" jdbcType="VARCHAR" />
+    <result column="gps_num" property="gpsNum" jdbcType="VARCHAR" />
+    <result column="gps_datetime" property="gpsDatetime" jdbcType="VARCHAR" />
+    <result column="gps_latitude" property="gpsLatitude" jdbcType="VARCHAR" />
+    <result column="gps_longitude" property="gpsLongitude" jdbcType="VARCHAR" />
+    <result column="gps_direction" property="gpsDirection" jdbcType="VARCHAR" />
+    <result column="gpsValid" property="gpsvalid" jdbcType="VARCHAR" />
+    <result column="gps_speed" property="gpsSpeed" jdbcType="VARCHAR" />
+    <result column="ignition" property="ignition" jdbcType="VARCHAR" />
+    <result column="mnc" property="mnc" jdbcType="VARCHAR" />
+    <result column="seqNum" property="seqnum" jdbcType="VARCHAR" />
+    <result column="gpsInfoLen" property="gpsinfolen" jdbcType="VARCHAR" />
+    <result column="mcc" property="mcc" jdbcType="VARCHAR" />
+    <result column="cellId" property="cellid" jdbcType="VARCHAR" />
+    <result column="dataUploadMode" property="datauploadmode" jdbcType="VARCHAR" />
+    <result column="lac" property="lac" jdbcType="VARCHAR" />
+    <result column="heightValue" property="heightvalue" jdbcType="VARCHAR" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+    <result column="str2" property="str2" jdbcType="VARCHAR" />
+    <result column="str3" property="str3" jdbcType="VARCHAR" />
+    <result column="str4" property="str4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, msgTypeValue, msgCode, occurTime, sourceDeviceId, sourceDeviceType, tag, targetDeviceId, 
+    targetDeviceType, realtimeOrRepair, gps_num, gps_datetime, gps_latitude, gps_longitude, 
+    gps_direction, gpsValid, gps_speed, ignition, mnc, seqNum, gpsInfoLen, mcc, cellId, 
+    dataUploadMode, lac, heightValue, str1, str2, str3, str4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from et100
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from et100
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.Et100" >
+    insert into et100 (id, msgTypeValue, msgCode, 
+      occurTime, sourceDeviceId, sourceDeviceType, 
+      tag, targetDeviceId, targetDeviceType, 
+      realtimeOrRepair, gps_num, gps_datetime, 
+      gps_latitude, gps_longitude, gps_direction, 
+      gpsValid, gps_speed, ignition, 
+      mnc, seqNum, gpsInfoLen, 
+      mcc, cellId, dataUploadMode, 
+      lac, heightValue, str1, 
+      str2, str3, str4)
+    values (#{id,jdbcType=VARCHAR}, #{msgtypevalue,jdbcType=VARCHAR}, #{msgcode,jdbcType=VARCHAR}, 
+      #{occurtime,jdbcType=VARCHAR}, #{sourcedeviceid,jdbcType=VARCHAR}, #{sourcedevicetype,jdbcType=VARCHAR}, 
+      #{tag,jdbcType=VARCHAR}, #{targetdeviceid,jdbcType=VARCHAR}, #{targetdevicetype,jdbcType=VARCHAR}, 
+      #{realtimeorrepair,jdbcType=VARCHAR}, #{gpsNum,jdbcType=VARCHAR}, #{gpsDatetime,jdbcType=VARCHAR}, 
+      #{gpsLatitude,jdbcType=VARCHAR}, #{gpsLongitude,jdbcType=VARCHAR}, #{gpsDirection,jdbcType=VARCHAR}, 
+      #{gpsvalid,jdbcType=VARCHAR}, #{gpsSpeed,jdbcType=VARCHAR}, #{ignition,jdbcType=VARCHAR}, 
+      #{mnc,jdbcType=VARCHAR}, #{seqnum,jdbcType=VARCHAR}, #{gpsinfolen,jdbcType=VARCHAR}, 
+      #{mcc,jdbcType=VARCHAR}, #{cellid,jdbcType=VARCHAR}, #{datauploadmode,jdbcType=VARCHAR}, 
+      #{lac,jdbcType=VARCHAR}, #{heightvalue,jdbcType=VARCHAR}, #{str1,jdbcType=VARCHAR}, 
+      #{str2,jdbcType=VARCHAR}, #{str3,jdbcType=VARCHAR}, #{str4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.Et100" >
+    insert into et100
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="msgtypevalue != null" >
+        msgTypeValue,
+      </if>
+      <if test="msgcode != null" >
+        msgCode,
+      </if>
+      <if test="occurtime != null" >
+        occurTime,
+      </if>
+      <if test="sourcedeviceid != null" >
+        sourceDeviceId,
+      </if>
+      <if test="sourcedevicetype != null" >
+        sourceDeviceType,
+      </if>
+      <if test="tag != null" >
+        tag,
+      </if>
+      <if test="targetdeviceid != null" >
+        targetDeviceId,
+      </if>
+      <if test="targetdevicetype != null" >
+        targetDeviceType,
+      </if>
+      <if test="realtimeorrepair != null" >
+        realtimeOrRepair,
+      </if>
+      <if test="gpsNum != null" >
+        gps_num,
+      </if>
+      <if test="gpsDatetime != null" >
+        gps_datetime,
+      </if>
+      <if test="gpsLatitude != null" >
+        gps_latitude,
+      </if>
+      <if test="gpsLongitude != null" >
+        gps_longitude,
+      </if>
+      <if test="gpsDirection != null" >
+        gps_direction,
+      </if>
+      <if test="gpsvalid != null" >
+        gpsValid,
+      </if>
+      <if test="gpsSpeed != null" >
+        gps_speed,
+      </if>
+      <if test="ignition != null" >
+        ignition,
+      </if>
+      <if test="mnc != null" >
+        mnc,
+      </if>
+      <if test="seqnum != null" >
+        seqNum,
+      </if>
+      <if test="gpsinfolen != null" >
+        gpsInfoLen,
+      </if>
+      <if test="mcc != null" >
+        mcc,
+      </if>
+      <if test="cellid != null" >
+        cellId,
+      </if>
+      <if test="datauploadmode != null" >
+        dataUploadMode,
+      </if>
+      <if test="lac != null" >
+        lac,
+      </if>
+      <if test="heightvalue != null" >
+        heightValue,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+      <if test="str2 != null" >
+        str2,
+      </if>
+      <if test="str3 != null" >
+        str3,
+      </if>
+      <if test="str4 != null" >
+        str4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtypevalue != null" >
+        #{msgtypevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="msgcode != null" >
+        #{msgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="occurtime != null" >
+        #{occurtime,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcedeviceid != null" >
+        #{sourcedeviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcedevicetype != null" >
+        #{sourcedevicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="targetdeviceid != null" >
+        #{targetdeviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="targetdevicetype != null" >
+        #{targetdevicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="realtimeorrepair != null" >
+        #{realtimeorrepair,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsNum != null" >
+        #{gpsNum,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsDatetime != null" >
+        #{gpsDatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsLatitude != null" >
+        #{gpsLatitude,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsLongitude != null" >
+        #{gpsLongitude,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsDirection != null" >
+        #{gpsDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsvalid != null" >
+        #{gpsvalid,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsSpeed != null" >
+        #{gpsSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="ignition != null" >
+        #{ignition,jdbcType=VARCHAR},
+      </if>
+      <if test="mnc != null" >
+        #{mnc,jdbcType=VARCHAR},
+      </if>
+      <if test="seqnum != null" >
+        #{seqnum,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsinfolen != null" >
+        #{gpsinfolen,jdbcType=VARCHAR},
+      </if>
+      <if test="mcc != null" >
+        #{mcc,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid != null" >
+        #{cellid,jdbcType=VARCHAR},
+      </if>
+      <if test="datauploadmode != null" >
+        #{datauploadmode,jdbcType=VARCHAR},
+      </if>
+      <if test="lac != null" >
+        #{lac,jdbcType=VARCHAR},
+      </if>
+      <if test="heightvalue != null" >
+        #{heightvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        #{str4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.Et100" >
+    update et100
+    <set >
+      <if test="msgtypevalue != null" >
+        msgTypeValue = #{msgtypevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="msgcode != null" >
+        msgCode = #{msgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="occurtime != null" >
+        occurTime = #{occurtime,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcedeviceid != null" >
+        sourceDeviceId = #{sourcedeviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcedevicetype != null" >
+        sourceDeviceType = #{sourcedevicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="targetdeviceid != null" >
+        targetDeviceId = #{targetdeviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="targetdevicetype != null" >
+        targetDeviceType = #{targetdevicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="realtimeorrepair != null" >
+        realtimeOrRepair = #{realtimeorrepair,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsNum != null" >
+        gps_num = #{gpsNum,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsDatetime != null" >
+        gps_datetime = #{gpsDatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsLatitude != null" >
+        gps_latitude = #{gpsLatitude,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsLongitude != null" >
+        gps_longitude = #{gpsLongitude,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsDirection != null" >
+        gps_direction = #{gpsDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsvalid != null" >
+        gpsValid = #{gpsvalid,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsSpeed != null" >
+        gps_speed = #{gpsSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="ignition != null" >
+        ignition = #{ignition,jdbcType=VARCHAR},
+      </if>
+      <if test="mnc != null" >
+        mnc = #{mnc,jdbcType=VARCHAR},
+      </if>
+      <if test="seqnum != null" >
+        seqNum = #{seqnum,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsinfolen != null" >
+        gpsInfoLen = #{gpsinfolen,jdbcType=VARCHAR},
+      </if>
+      <if test="mcc != null" >
+        mcc = #{mcc,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid != null" >
+        cellId = #{cellid,jdbcType=VARCHAR},
+      </if>
+      <if test="datauploadmode != null" >
+        dataUploadMode = #{datauploadmode,jdbcType=VARCHAR},
+      </if>
+      <if test="lac != null" >
+        lac = #{lac,jdbcType=VARCHAR},
+      </if>
+      <if test="heightvalue != null" >
+        heightValue = #{heightvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        str2 = #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        str3 = #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        str4 = #{str4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.Et100" >
+    update et100
+    set msgTypeValue = #{msgtypevalue,jdbcType=VARCHAR},
+      msgCode = #{msgcode,jdbcType=VARCHAR},
+      occurTime = #{occurtime,jdbcType=VARCHAR},
+      sourceDeviceId = #{sourcedeviceid,jdbcType=VARCHAR},
+      sourceDeviceType = #{sourcedevicetype,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      targetDeviceId = #{targetdeviceid,jdbcType=VARCHAR},
+      targetDeviceType = #{targetdevicetype,jdbcType=VARCHAR},
+      realtimeOrRepair = #{realtimeorrepair,jdbcType=VARCHAR},
+      gps_num = #{gpsNum,jdbcType=VARCHAR},
+      gps_datetime = #{gpsDatetime,jdbcType=VARCHAR},
+      gps_latitude = #{gpsLatitude,jdbcType=VARCHAR},
+      gps_longitude = #{gpsLongitude,jdbcType=VARCHAR},
+      gps_direction = #{gpsDirection,jdbcType=VARCHAR},
+      gpsValid = #{gpsvalid,jdbcType=VARCHAR},
+      gps_speed = #{gpsSpeed,jdbcType=VARCHAR},
+      ignition = #{ignition,jdbcType=VARCHAR},
+      mnc = #{mnc,jdbcType=VARCHAR},
+      seqNum = #{seqnum,jdbcType=VARCHAR},
+      gpsInfoLen = #{gpsinfolen,jdbcType=VARCHAR},
+      mcc = #{mcc,jdbcType=VARCHAR},
+      cellId = #{cellid,jdbcType=VARCHAR},
+      dataUploadMode = #{datauploadmode,jdbcType=VARCHAR},
+      lac = #{lac,jdbcType=VARCHAR},
+      heightValue = #{heightvalue,jdbcType=VARCHAR},
+      str1 = #{str1,jdbcType=VARCHAR},
+      str2 = #{str2,jdbcType=VARCHAR},
+      str3 = #{str3,jdbcType=VARCHAR},
+      str4 = #{str4,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+    <select id="getEt100ListTotal" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from et100
+  </select>
+   <select id="getEt100ListTotalByTimeAndSourceDId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from et100
+    where  gps_datetime = #{gpsDatetime,jdbcType=VARCHAR}
+    and
+     sourceDeviceId = #{sourcedeviceid,jdbcType=VARCHAR}
+  </select>
+        <select id="getEt100ListByTime" resultType="java.util.Map" >
+		SELECT 
+	<include refid="Base_Column_List" />
+		FROM et100
+		where
+		gps_datetime &gt;=  #{startTime,jdbcType=VARCHAR}
+		and
+		 gps_datetime  &lt;= #{endTime,jdbcType=VARCHAR}
+		 
+		order BY  gps_datetime
+		
+  </select>
+  <select id="getEt100ListTotalBySourcedeviceid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from  et100
+    where sourceDeviceId = #{sourcedeviceid,jdbcType=VARCHAR}
+  </select>
+    <select id="getEt100ListBySourceDeviceTypeGroupByDeviceTypr" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from  et100
+    where  sourceDeviceType = #{sourcedevicetype,jdbcType=VARCHAR}
+  </select>
+  <select id="getEt100ListByTimeAndsourceDeviceID" resultType="java.util.Map" >
+		SELECT 
+	<include refid="Base_Column_List" />
+		FROM et100
+		where
+		gps_datetime &gt;=  #{startTime,jdbcType=VARCHAR}
+		and
+		 gps_datetime  &lt;= #{endTime,jdbcType=VARCHAR}
+		 and
+		 sourceDeviceId = #{sourcedeviceid,jdbcType=VARCHAR}
+		order BY  gps_datetime
+		
+  </select>
+
+</mapper>

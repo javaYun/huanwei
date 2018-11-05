@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflQuestionMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflQuestion" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="divisionTime" property="divisiontime" jdbcType="TIMESTAMP" />
+    <result column="f_description" property="fDescription" jdbcType="VARCHAR" />
+    <result column="f_latitude" property="fLatitude" jdbcType="DOUBLE" />
+    <result column="f_latitude_done" property="fLatitudeDone" jdbcType="DOUBLE" />
+    <result column="f_longitude" property="fLongitude" jdbcType="DOUBLE" />
+    <result column="f_longitude_done" property="fLongitudeDone" jdbcType="DOUBLE" />
+    <result column="f_photo_ids" property="fPhotoIds" jdbcType="VARCHAR" />
+    <result column="f_staff_id" property="fStaffId" jdbcType="VARCHAR" />
+    <result column="f_upload_time" property="fUploadTime" jdbcType="TIMESTAMP" />
+    <result column="f_houses_id" property="fHousesId" jdbcType="VARCHAR" />
+    <result column="f_work_point_id" property="fWorkPointId" jdbcType="VARCHAR" />
+    <result column="f_handling_status" property="fHandlingStatus" jdbcType="VARCHAR" />
+    <result column="f_handling_suggestion" property="fHandlingSuggestion" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, divisionTime, f_description, f_latitude, f_latitude_done, f_longitude, 
+    f_longitude_done, f_photo_ids, f_staff_id, f_upload_time, f_houses_id, f_work_point_id, 
+    f_handling_status, f_handling_suggestion
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_question201706
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_question201706
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflQuestion" >
+    insert into ljfl_question201706 (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, divisionTime, 
+      f_description, f_latitude, f_latitude_done, 
+      f_longitude, f_longitude_done, f_photo_ids, 
+      f_staff_id, f_upload_time, f_houses_id, 
+      f_work_point_id, f_handling_status, f_handling_suggestion
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{divisiontime,jdbcType=TIMESTAMP}, 
+      #{fDescription,jdbcType=VARCHAR}, #{fLatitude,jdbcType=DOUBLE}, #{fLatitudeDone,jdbcType=DOUBLE}, 
+      #{fLongitude,jdbcType=DOUBLE}, #{fLongitudeDone,jdbcType=DOUBLE}, #{fPhotoIds,jdbcType=VARCHAR}, 
+      #{fStaffId,jdbcType=VARCHAR}, #{fUploadTime,jdbcType=TIMESTAMP}, #{fHousesId,jdbcType=VARCHAR}, 
+      #{fWorkPointId,jdbcType=VARCHAR}, #{fHandlingStatus,jdbcType=VARCHAR}, #{fHandlingSuggestion,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflQuestion" >
+    insert into ljfl_question201706
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime,
+      </if>
+      <if test="fDescription != null" >
+        f_description,
+      </if>
+      <if test="fLatitude != null" >
+        f_latitude,
+      </if>
+      <if test="fLatitudeDone != null" >
+        f_latitude_done,
+      </if>
+      <if test="fLongitude != null" >
+        f_longitude,
+      </if>
+      <if test="fLongitudeDone != null" >
+        f_longitude_done,
+      </if>
+      <if test="fPhotoIds != null" >
+        f_photo_ids,
+      </if>
+      <if test="fStaffId != null" >
+        f_staff_id,
+      </if>
+      <if test="fUploadTime != null" >
+        f_upload_time,
+      </if>
+      <if test="fHousesId != null" >
+        f_houses_id,
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id,
+      </if>
+      <if test="fHandlingStatus != null" >
+        f_handling_status,
+      </if>
+      <if test="fHandlingSuggestion != null" >
+        f_handling_suggestion,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fDescription != null" >
+        #{fDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="fLatitude != null" >
+        #{fLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fLatitudeDone != null" >
+        #{fLatitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fLongitude != null" >
+        #{fLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fLongitudeDone != null" >
+        #{fLongitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fPhotoIds != null" >
+        #{fPhotoIds,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffId != null" >
+        #{fStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="fUploadTime != null" >
+        #{fUploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fHousesId != null" >
+        #{fHousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHandlingStatus != null" >
+        #{fHandlingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fHandlingSuggestion != null" >
+        #{fHandlingSuggestion,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflQuestion" >
+    update ljfl_question201706
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fDescription != null" >
+        f_description = #{fDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="fLatitude != null" >
+        f_latitude = #{fLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fLatitudeDone != null" >
+        f_latitude_done = #{fLatitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fLongitude != null" >
+        f_longitude = #{fLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fLongitudeDone != null" >
+        f_longitude_done = #{fLongitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fPhotoIds != null" >
+        f_photo_ids = #{fPhotoIds,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffId != null" >
+        f_staff_id = #{fStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="fUploadTime != null" >
+        f_upload_time = #{fUploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fHousesId != null" >
+        f_houses_id = #{fHousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHandlingStatus != null" >
+        f_handling_status = #{fHandlingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fHandlingSuggestion != null" >
+        f_handling_suggestion = #{fHandlingSuggestion,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflQuestion" >
+    update ljfl_question201706
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      f_description = #{fDescription,jdbcType=VARCHAR},
+      f_latitude = #{fLatitude,jdbcType=DOUBLE},
+      f_latitude_done = #{fLatitudeDone,jdbcType=DOUBLE},
+      f_longitude = #{fLongitude,jdbcType=DOUBLE},
+      f_longitude_done = #{fLongitudeDone,jdbcType=DOUBLE},
+      f_photo_ids = #{fPhotoIds,jdbcType=VARCHAR},
+      f_staff_id = #{fStaffId,jdbcType=VARCHAR},
+      f_upload_time = #{fUploadTime,jdbcType=TIMESTAMP},
+      f_houses_id = #{fHousesId,jdbcType=VARCHAR},
+      f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      f_handling_status = #{fHandlingStatus,jdbcType=VARCHAR},
+      f_handling_suggestion = #{fHandlingSuggestion,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <select id="selecLjflQuestionByDateTotalSize" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM ${tableName}
+    
+   	  where
+   		 1=1
+   	      <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+       <if test="fHandlingStatus != null" >
+      and
+        f_handling_status = #{fHandlingStatus,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null" >
+      and
+        createTime  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+         <if test="endTime != null" >
+      and
+        createTime &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+	
+  </select>
+     <select id="selecLjflQuestionByDateTotal" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM ${tableName}
+    
+   	  where
+   		 1=1
+      <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+       <if test="fHandlingStatus != null" >
+      and
+        f_handling_status = #{fHandlingStatus,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null" >
+      and
+        createTime  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+         <if test="endTime != null" >
+      and
+        createTime &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+      order BY createTime
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	
+  </select>
+  
+    <insert id="insertLjflQuestion" parameterType="java.lang.String"  >
+    insert into ${tableName} (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, divisionTime, 
+      f_description, f_latitude, f_latitude_done, 
+      f_longitude, f_longitude_done, f_photo_ids, 
+      f_staff_id, f_upload_time, f_houses_id, 
+      f_work_point_id, f_handling_status, f_handling_suggestion
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{divisiontime,jdbcType=TIMESTAMP}, 
+      #{fDescription,jdbcType=VARCHAR}, #{fLatitude,jdbcType=DOUBLE}, #{fLatitudeDone,jdbcType=DOUBLE}, 
+      #{fLongitude,jdbcType=DOUBLE}, #{fLongitudeDone,jdbcType=DOUBLE}, #{fPhotoIds,jdbcType=VARCHAR}, 
+      #{fStaffId,jdbcType=VARCHAR}, #{fUploadTime,jdbcType=TIMESTAMP}, #{fHousesId,jdbcType=VARCHAR}, 
+      #{fWorkPointId,jdbcType=VARCHAR}, #{fHandlingStatus,jdbcType=VARCHAR}, #{fHandlingSuggestion,jdbcType=VARCHAR}
+      )
+  </insert>
+    <select id="selectLjflQuestionByPamaters" parameterType="java.lang.String"  resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    FROM ${tableName}
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+   <update id="updateLjflQuestion" parameterType="java.lang.String"  >
+    update ${tableName}
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fDescription != null" >
+        f_description = #{fDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="fLatitude != null" >
+        f_latitude = #{fLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fLatitudeDone != null" >
+        f_latitude_done = #{fLatitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fLongitude != null" >
+        f_longitude = #{fLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fLongitudeDone != null" >
+        f_longitude_done = #{fLongitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fPhotoIds != null" >
+        f_photo_ids = #{fPhotoIds,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffId != null" >
+        f_staff_id = #{fStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="fUploadTime != null" >
+        f_upload_time = #{fUploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fHousesId != null" >
+        f_houses_id = #{fHousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHandlingStatus != null" >
+        f_handling_status = #{fHandlingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fHandlingSuggestion != null" >
+        f_handling_suggestion = #{fHandlingSuggestion,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+    <delete id="deleterLjflQuestion" parameterType="java.lang.String" >
+    delete from ${tableName}
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+</mapper>

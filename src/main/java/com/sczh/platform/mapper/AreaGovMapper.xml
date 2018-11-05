@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.AreaGovMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.AreaGov" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="areaCode" property="areacode" jdbcType="VARCHAR" />
+    <result column="areaName" property="areaname" jdbcType="VARCHAR" />
+    <result column="areaDescription" property="areadescription" jdbcType="VARCHAR" />
+    <result column="areaAddress" property="areaaddress" jdbcType="VARCHAR" />
+    <result column="areaPerson" property="areaperson" jdbcType="VARCHAR" />
+    <result column="areaPhone" property="areaphone" jdbcType="VARCHAR" />
+    <result column="areaAdmin" property="areaadmin" jdbcType="VARCHAR" />
+    <result column="setuptime" property="setuptime" jdbcType="DATE" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="changetime" property="changetime" jdbcType="DATE" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="lontitude" property="lontitude" jdbcType="VARCHAR" />
+    <result column="areaType" property="areatype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, areaCode, areaName, areaDescription, areaAddress, areaPerson, areaPhone, areaAdmin, 
+    setuptime, state, changetime, latitude, lontitude, areaType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from areagov
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from areagov
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.AreaGov" >
+    insert into areagov (id, areaCode, areaName, 
+      areaDescription, areaAddress, areaPerson, 
+      areaPhone, areaAdmin, setuptime, 
+      state, changetime, latitude, 
+      lontitude, areaType)
+    values (#{id,jdbcType=VARCHAR}, #{areacode,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, 
+      #{areadescription,jdbcType=VARCHAR}, #{areaaddress,jdbcType=VARCHAR}, #{areaperson,jdbcType=VARCHAR}, 
+      #{areaphone,jdbcType=VARCHAR}, #{areaadmin,jdbcType=VARCHAR}, #{setuptime,jdbcType=DATE}, 
+      #{state,jdbcType=VARCHAR}, #{changetime,jdbcType=DATE}, #{latitude,jdbcType=VARCHAR}, 
+      #{lontitude,jdbcType=VARCHAR}, #{areatype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.AreaGov" >
+    insert into areagov
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="areacode != null" >
+        areaCode,
+      </if>
+      <if test="areaname != null" >
+        areaName,
+      </if>
+      <if test="areadescription != null" >
+        areaDescription,
+      </if>
+      <if test="areaaddress != null" >
+        areaAddress,
+      </if>
+      <if test="areaperson != null" >
+        areaPerson,
+      </if>
+      <if test="areaphone != null" >
+        areaPhone,
+      </if>
+      <if test="areaadmin != null" >
+        areaAdmin,
+      </if>
+      <if test="setuptime != null" >
+        setuptime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="changetime != null" >
+        changetime,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="lontitude != null" >
+        lontitude,
+      </if>
+      <if test="areatype != null" >
+        areaType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null" >
+        #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="areadescription != null" >
+        #{areadescription,jdbcType=VARCHAR},
+      </if>
+      <if test="areaaddress != null" >
+        #{areaaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="areaperson != null" >
+        #{areaperson,jdbcType=VARCHAR},
+      </if>
+      <if test="areaphone != null" >
+        #{areaphone,jdbcType=VARCHAR},
+      </if>
+      <if test="areaadmin != null" >
+        #{areaadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="changetime != null" >
+        #{changetime,jdbcType=DATE},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="lontitude != null" >
+        #{lontitude,jdbcType=VARCHAR},
+      </if>
+      <if test="areatype != null" >
+        #{areatype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.AreaGov" >
+    update areagov
+    <set >
+      <if test="areacode != null" >
+        areaCode = #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="areadescription != null" >
+        areaDescription = #{areadescription,jdbcType=VARCHAR},
+      </if>
+      <if test="areaaddress != null" >
+        areaAddress = #{areaaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="areaperson != null" >
+        areaPerson = #{areaperson,jdbcType=VARCHAR},
+      </if>
+      <if test="areaphone != null" >
+        areaPhone = #{areaphone,jdbcType=VARCHAR},
+      </if>
+      <if test="areaadmin != null" >
+        areaAdmin = #{areaadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        setuptime = #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="changetime != null" >
+        changetime = #{changetime,jdbcType=DATE},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="lontitude != null" >
+        lontitude = #{lontitude,jdbcType=VARCHAR},
+      </if>
+      <if test="areatype != null" >
+        areaType = #{areatype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.AreaGov" >
+    update areagov
+    set areaCode = #{areacode,jdbcType=VARCHAR},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      areaDescription = #{areadescription,jdbcType=VARCHAR},
+      areaAddress = #{areaaddress,jdbcType=VARCHAR},
+      areaPerson = #{areaperson,jdbcType=VARCHAR},
+      areaPhone = #{areaphone,jdbcType=VARCHAR},
+      areaAdmin = #{areaadmin,jdbcType=VARCHAR},
+      setuptime = #{setuptime,jdbcType=DATE},
+      state = #{state,jdbcType=VARCHAR},
+      changetime = #{changetime,jdbcType=DATE},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      lontitude = #{lontitude,jdbcType=VARCHAR},
+      areaType = #{areatype,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <select id="selectaraegovinfos" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from areagov
+    where areaDescription = #{areadescription,jdbcType=VARCHAR}
+  </select>
+</mapper>

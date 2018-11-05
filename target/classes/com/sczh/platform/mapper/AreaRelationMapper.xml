@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.AreaRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.AreaRelation" >
+    <id column="areaRelationid" property="arearelationid" jdbcType="VARCHAR" />
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pid" property="pId" jdbcType="VARCHAR" />
+    <result column="onclick" property="onclick" jdbcType="VARCHAR" />
+    <result column="isArea" property="isarea" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="iconCls" property="iconcls" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    areaRelationid, id, name, pid, onclick, isArea, state, iconCls
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from arearelation
+    where areaRelationid = #{arearelationid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from arearelation
+    where areaRelationid = #{arearelationid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.AreaRelation" >
+    insert into arearelation (areaRelationid, id, name, 
+      pid, onclick, isArea, 
+      state, iconCls)
+    values (#{arearelationid,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{pId,jdbcType=VARCHAR}, #{onclick,jdbcType=VARCHAR}, #{isarea,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{iconcls,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.AreaRelation" >
+    insert into arearelation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="arearelationid != null" >
+        areaRelationid,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="pId != null" >
+        pid,
+      </if>
+      <if test="onclick != null" >
+        onclick,
+      </if>
+      <if test="isarea != null" >
+        isArea,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="iconcls != null" >
+        iconCls,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="arearelationid != null" >
+        #{arearelationid,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="onclick != null" >
+        #{onclick,jdbcType=VARCHAR},
+      </if>
+      <if test="isarea != null" >
+        #{isarea,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="iconcls != null" >
+        #{iconcls,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.AreaRelation" >
+    update arearelation
+    <set >
+      <if test="id != null" >
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null" >
+        pid = #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="onclick != null" >
+        onclick = #{onclick,jdbcType=VARCHAR},
+      </if>
+      <if test="isarea != null" >
+        isArea = #{isarea,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="iconcls != null" >
+        iconCls = #{iconcls,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where areaRelationid = #{arearelationid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.AreaRelation" >
+    update arearelation
+    set id = #{id,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      pid = #{pId,jdbcType=VARCHAR},
+      onclick = #{onclick,jdbcType=VARCHAR},
+      isArea = #{isarea,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      iconCls = #{iconcls,jdbcType=VARCHAR}
+    where areaRelationid = #{arearelationid,jdbcType=VARCHAR}
+  </update>
+        <select id="selectAreaRelationAndIsArea" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from arearelation
+    where 1 = 1
+    <if test="isarea != null" >
+       and  isArea = #{isarea,jdbcType=VARCHAR}
+      </if>
+  </select>
+        <select id="selectAreaRelation" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from arearelation
+    where  name = #{name,jdbcType=VARCHAR}
+    and pid = '0'
+   	and isArea = "Y"
+  </select>
+   <select id="selectAreaRelations" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from arearelation
+    where 1 = 1
+       <if test="pId != null" >
+        and  pid = #{pId,jdbcType=VARCHAR}
+      </if>
+  </select>
+      <select id="selectById" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from arearelation
+    where  id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteAreaRelation" parameterType="java.lang.String" >
+    delete from arearelation
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+</mapper>

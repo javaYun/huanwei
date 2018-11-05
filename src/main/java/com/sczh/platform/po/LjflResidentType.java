@@ -1,0 +1,155 @@
+package com.sczh.platform.po;
+
+import java.util.Date;
+
+public class LjflResidentType {
+    private String id;
+
+    private Date createtime;
+
+    private Date lastchangetime;
+
+    private Integer status;
+
+    private Integer beendeleted;
+
+    private Date deletedtime;
+
+    private String businesssystemid;
+
+    private String tenantid;
+
+    private String fCode;
+
+    private String fColor;
+
+    private String fName;
+
+    private String auditid;
+
+    private String userid;
+
+    private String unitid;
+
+    private String str1;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    public Date getLastchangetime() {
+        return lastchangetime;
+    }
+
+    public void setLastchangetime(Date lastchangetime) {
+        this.lastchangetime = lastchangetime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getBeendeleted() {
+        return beendeleted;
+    }
+
+    public void setBeendeleted(Integer beendeleted) {
+        this.beendeleted = beendeleted;
+    }
+
+    public Date getDeletedtime() {
+        return deletedtime;
+    }
+
+    public void setDeletedtime(Date deletedtime) {
+        this.deletedtime = deletedtime;
+    }
+
+    public String getBusinesssystemid() {
+        return businesssystemid;
+    }
+
+    public void setBusinesssystemid(String businesssystemid) {
+        this.businesssystemid = businesssystemid == null ? null : businesssystemid.trim();
+    }
+
+    public String getTenantid() {
+        return tenantid;
+    }
+
+    public void setTenantid(String tenantid) {
+        this.tenantid = tenantid == null ? null : tenantid.trim();
+    }
+
+    public String getfCode() {
+        return fCode;
+    }
+
+    public void setfCode(String fCode) {
+        this.fCode = fCode == null ? null : fCode.trim();
+    }
+
+    public String getfColor() {
+        return fColor;
+    }
+
+    public void setfColor(String fColor) {
+        this.fColor = fColor == null ? null : fColor.trim();
+    }
+
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName == null ? null : fName.trim();
+    }
+
+    public String getAuditid() {
+        return auditid;
+    }
+
+    public void setAuditid(String auditid) {
+        this.auditid = auditid == null ? null : auditid.trim();
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid == null ? null : userid.trim();
+    }
+
+    public String getUnitid() {
+        return unitid;
+    }
+
+    public void setUnitid(String unitid) {
+        this.unitid = unitid == null ? null : unitid.trim();
+    }
+
+    public String getStr1() {
+        return str1;
+    }
+
+    public void setStr1(String str1) {
+        this.str1 = str1 == null ? null : str1.trim();
+    }
+}

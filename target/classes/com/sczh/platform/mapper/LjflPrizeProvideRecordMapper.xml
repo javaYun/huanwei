@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflPrizeProvideRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflPrizeProvideRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="divisionTime" property="divisiontime" jdbcType="TIMESTAMP" />
+    <result column="cdkey" property="cdkey" jdbcType="VARCHAR" />
+    <result column="provideDate" property="providedate" jdbcType="TIMESTAMP" />
+    <result column="provideManId" property="providemanid" jdbcType="VARCHAR" />
+    <result column="provideNum" property="providenum" jdbcType="INTEGER" />
+    <result column="provideStatus" property="providestatus" jdbcType="INTEGER" />
+    <result column="receiveDate" property="receivedate" jdbcType="TIMESTAMP" />
+    <result column="spendScore" property="spendscore" jdbcType="DOUBLE" />
+    <result column="prizeId" property="prizeid" jdbcType="VARCHAR" />
+    <result column="prizeProvideId" property="prizeprovideid" jdbcType="VARCHAR" />
+    <result column="staffDetailId" property="staffdetailid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, divisionTime, cdkey, provideDate, provideManId, provideNum, provideStatus, 
+    receiveDate, spendScore, prizeId, prizeProvideId, staffDetailId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_prize_provide_record201612
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+ 
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_prize_provide_record201612
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflPrizeProvideRecord" >
+    insert into ljfl_prize_provide_record201612 (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, divisionTime, 
+      cdkey, provideDate, provideManId, 
+      provideNum, provideStatus, receiveDate, 
+      spendScore, prizeId, prizeProvideId, 
+      staffDetailId)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{divisiontime,jdbcType=TIMESTAMP}, 
+      #{cdkey,jdbcType=VARCHAR}, #{providedate,jdbcType=TIMESTAMP}, #{providemanid,jdbcType=VARCHAR}, 
+      #{providenum,jdbcType=INTEGER}, #{providestatus,jdbcType=INTEGER}, #{receivedate,jdbcType=TIMESTAMP}, 
+      #{spendscore,jdbcType=DOUBLE}, #{prizeid,jdbcType=VARCHAR}, #{prizeprovideid,jdbcType=VARCHAR}, 
+      #{staffdetailid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflPrizeProvideRecord" >
+    insert into ljfl_prize_provide_record201612
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime,
+      </if>
+      <if test="cdkey != null" >
+        cdkey,
+      </if>
+      <if test="providedate != null" >
+        provideDate,
+      </if>
+      <if test="providemanid != null" >
+        provideManId,
+      </if>
+      <if test="providenum != null" >
+        provideNum,
+      </if>
+      <if test="providestatus != null" >
+        provideStatus,
+      </if>
+      <if test="receivedate != null" >
+        receiveDate,
+      </if>
+      <if test="spendscore != null" >
+        spendScore,
+      </if>
+      <if test="prizeid != null" >
+        prizeId,
+      </if>
+      <if test="prizeprovideid != null" >
+        prizeProvideId,
+      </if>
+      <if test="staffdetailid != null" >
+        staffDetailId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdkey != null" >
+        #{cdkey,jdbcType=VARCHAR},
+      </if>
+      <if test="providedate != null" >
+        #{providedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="providemanid != null" >
+        #{providemanid,jdbcType=VARCHAR},
+      </if>
+      <if test="providenum != null" >
+        #{providenum,jdbcType=INTEGER},
+      </if>
+      <if test="providestatus != null" >
+        #{providestatus,jdbcType=INTEGER},
+      </if>
+      <if test="receivedate != null" >
+        #{receivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spendscore != null" >
+        #{spendscore,jdbcType=DOUBLE},
+      </if>
+      <if test="prizeid != null" >
+        #{prizeid,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeprovideid != null" >
+        #{prizeprovideid,jdbcType=VARCHAR},
+      </if>
+      <if test="staffdetailid != null" >
+        #{staffdetailid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflPrizeProvideRecord" >
+    update ljfl_prize_provide_record201612
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdkey != null" >
+        cdkey = #{cdkey,jdbcType=VARCHAR},
+      </if>
+      <if test="providedate != null" >
+        provideDate = #{providedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="providemanid != null" >
+        provideManId = #{providemanid,jdbcType=VARCHAR},
+      </if>
+      <if test="providenum != null" >
+        provideNum = #{providenum,jdbcType=INTEGER},
+      </if>
+      <if test="providestatus != null" >
+        provideStatus = #{providestatus,jdbcType=INTEGER},
+      </if>
+      <if test="receivedate != null" >
+        receiveDate = #{receivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spendscore != null" >
+        spendScore = #{spendscore,jdbcType=DOUBLE},
+      </if>
+      <if test="prizeid != null" >
+        prizeId = #{prizeid,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeprovideid != null" >
+        prizeProvideId = #{prizeprovideid,jdbcType=VARCHAR},
+      </if>
+      <if test="staffdetailid != null" >
+        staffDetailId = #{staffdetailid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflPrizeProvideRecord" >
+    update ${tablename}
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      cdkey = #{cdkey,jdbcType=VARCHAR},
+      provideDate = #{providedate,jdbcType=TIMESTAMP},
+      provideManId = #{providemanid,jdbcType=VARCHAR},
+      provideNum = #{providenum,jdbcType=INTEGER},
+      provideStatus = #{providestatus,jdbcType=INTEGER},
+      receiveDate = #{receivedate,jdbcType=TIMESTAMP},
+      spendScore = #{spendscore,jdbcType=DOUBLE},
+      prizeId = #{prizeid,jdbcType=VARCHAR},
+      prizeProvideId = #{prizeprovideid,jdbcType=VARCHAR},
+      staffDetailId = #{staffdetailid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <select id="selecScoreByDateTotalSize" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM ${tableName}
+    
+   	  where
+   		 1=1
+   		   
+      <if test="staffDetailId != null" >
+      and
+        staffDetailId = #{staffDetailId,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null" >
+      and
+        provideDate  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endtime != null" >
+      and
+        provideDate &lt;= #{endtime,jdbcType=VARCHAR}
+      </if>
+	<if test="prizeProvideId != null" >
+      and
+        prizeProvideId &lt;= #{prizeProvideId,jdbcType=VARCHAR}
+      </if>
+	<if test="prizeId != null" >
+      and
+        prizeId &lt;= #{prizeId,jdbcType=VARCHAR}
+      </if>
+	<if test="provideStatus != null" >
+      and
+        provideStatus &lt;= #{provideStatus,jdbcType=VARCHAR}
+      </if>
+
+
+		
+  </select>
+     <select id="selecScoreByDateTotal" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM ${tableName}
+    
+   	  where
+   		 1=1
+   		   
+      <if test="staffDetailId != null" >
+      and
+        staffDetailId = #{staffDetailId,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null" >
+      and
+        provideDate  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endtime != null" >
+      and
+        provideDate &lt;= #{endtime,jdbcType=VARCHAR}
+      </if>
+	<if test="prizeProvideId != null" >
+      and
+        prizeProvideId &lt;= #{prizeProvideId,jdbcType=VARCHAR}
+      </if>
+	<if test="prizeId != null" >
+      and
+        prizeId &lt;= #{prizeId,jdbcType=VARCHAR}
+      </if>
+	<if test="provideStatus != null" >
+      and
+        provideStatus &lt;= #{provideStatus,jdbcType=VARCHAR}
+      </if>
+      order BY provideDate
+        <if test="currentPage != null" >
+      LIMIT
+      ${currentPage}
+      ,
+       ${endNum}
+      </if>
+	
+  </select>
+  
+  <insert id="insertmap" parameterType="com.sczh.platform.po.LjflPrizeProvideRecord" >
+    insert into ${tablename} (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, divisionTime, 
+      cdkey, provideDate, provideManId, 
+      provideNum, provideStatus, receiveDate, 
+      spendScore, prizeId, prizeProvideId, 
+      staffDetailId)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{divisiontime,jdbcType=TIMESTAMP}, 
+      #{cdkey,jdbcType=VARCHAR}, #{providedate,jdbcType=TIMESTAMP}, #{providemanid,jdbcType=VARCHAR}, 
+      #{providenum,jdbcType=INTEGER}, #{providestatus,jdbcType=INTEGER}, #{receivedate,jdbcType=TIMESTAMP}, 
+      #{spendscore,jdbcType=DOUBLE}, #{prizeid,jdbcType=VARCHAR}, #{prizeprovideid,jdbcType=VARCHAR}, 
+      #{staffdetailid,jdbcType=VARCHAR})
+  </insert>
+  
+    <delete id="deletebyid" parameterType="java.lang.String" >
+    delete from ${tablename}
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+  
+   <select id="selectBycdKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${tablename}
+    where  beenDeleted = 0
+    and cdkey = #{cdkey,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

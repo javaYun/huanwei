@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.CarInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.CarInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="motelnum" property="motelnum" jdbcType="VARCHAR" />
+    <result column="VIN" property="vin" jdbcType="VARCHAR" />
+    <result column="carNum" property="carnum" jdbcType="VARCHAR" />
+    <result column="carlicensedate" property="carlicensedate" jdbcType="TIMESTAMP" />
+    <result column="usetype" property="usetype" jdbcType="VARCHAR" />
+    <result column="carstatus" property="carstatus" jdbcType="VARCHAR" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+    <result column="str2" property="str2" jdbcType="VARCHAR" />
+    <result column="str3" property="str3" jdbcType="VARCHAR" />
+    <result column="str4" property="str4" jdbcType="VARCHAR" />
+    <result column="str5" property="str5" jdbcType="VARCHAR" />
+    <result column="str6" property="str6" jdbcType="VARCHAR" />
+    <result column="str7" property="str7" jdbcType="VARCHAR" />
+    <result column="str8" property="str8" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="unitID" property="unitid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, num, brand, motelnum, VIN, carNum, carlicensedate, usetype, carstatus, str1, 
+    str2, str3, str4, str5, str6, str7, str8, userId, unitID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from carinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from carinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.CarInfo" >
+    insert into carinfo (id, num, brand, 
+      motelnum, VIN, carNum, 
+      carlicensedate, usetype, carstatus, 
+      str1, str2, str3, str4, 
+      str5, str6, str7, str8, 
+      userId, unitID)
+    values (#{id,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{motelnum,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR}, #{carnum,jdbcType=VARCHAR}, 
+      #{carlicensedate,jdbcType=TIMESTAMP}, #{usetype,jdbcType=VARCHAR}, #{carstatus,jdbcType=VARCHAR}, 
+      #{str1,jdbcType=VARCHAR}, #{str2,jdbcType=VARCHAR}, #{str3,jdbcType=VARCHAR}, #{str4,jdbcType=VARCHAR}, 
+      #{str5,jdbcType=VARCHAR}, #{str6,jdbcType=VARCHAR}, #{str7,jdbcType=VARCHAR}, #{str8,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{unitid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.CarInfo" >
+    insert into carinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="motelnum != null" >
+        motelnum,
+      </if>
+      <if test="vin != null" >
+        VIN,
+      </if>
+      <if test="carnum != null" >
+        carNum,
+      </if>
+      <if test="carlicensedate != null" >
+        carlicensedate,
+      </if>
+      <if test="usetype != null" >
+        usetype,
+      </if>
+      <if test="carstatus != null" >
+        carstatus,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+      <if test="str2 != null" >
+        str2,
+      </if>
+      <if test="str3 != null" >
+        str3,
+      </if>
+      <if test="str4 != null" >
+        str4,
+      </if>
+      <if test="str5 != null" >
+        str5,
+      </if>
+      <if test="str6 != null" >
+        str6,
+      </if>
+      <if test="str7 != null" >
+        str7,
+      </if>
+      <if test="str8 != null" >
+        str8,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="unitid != null" >
+        unitID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="motelnum != null" >
+        #{motelnum,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="carnum != null" >
+        #{carnum,jdbcType=VARCHAR},
+      </if>
+      <if test="carlicensedate != null" >
+        #{carlicensedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usetype != null" >
+        #{usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="carstatus != null" >
+        #{carstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        #{str4,jdbcType=VARCHAR},
+      </if>
+      <if test="str5 != null" >
+        #{str5,jdbcType=VARCHAR},
+      </if>
+      <if test="str6 != null" >
+        #{str6,jdbcType=VARCHAR},
+      </if>
+      <if test="str7 != null" >
+        #{str7,jdbcType=VARCHAR},
+      </if>
+      <if test="str8 != null" >
+        #{str8,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        #{unitid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.CarInfo" >
+    update carinfo
+    <set >
+      <if test="num != null" >
+        num = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="motelnum != null" >
+        motelnum = #{motelnum,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        VIN = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="carnum != null" >
+        carNum = #{carnum,jdbcType=VARCHAR},
+      </if>
+      <if test="carlicensedate != null" >
+        carlicensedate = #{carlicensedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usetype != null" >
+        usetype = #{usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="carstatus != null" >
+        carstatus = #{carstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        str2 = #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        str3 = #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        str4 = #{str4,jdbcType=VARCHAR},
+      </if>
+      <if test="str5 != null" >
+        str5 = #{str5,jdbcType=VARCHAR},
+      </if>
+      <if test="str6 != null" >
+        str6 = #{str6,jdbcType=VARCHAR},
+      </if>
+      <if test="str7 != null" >
+        str7 = #{str7,jdbcType=VARCHAR},
+      </if>
+      <if test="str8 != null" >
+        str8 = #{str8,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        unitID = #{unitid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.CarInfo" >
+    update carinfo
+    set num = #{num,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      motelnum = #{motelnum,jdbcType=VARCHAR},
+      VIN = #{vin,jdbcType=VARCHAR},
+      carNum = #{carnum,jdbcType=VARCHAR},
+      carlicensedate = #{carlicensedate,jdbcType=TIMESTAMP},
+      usetype = #{usetype,jdbcType=VARCHAR},
+      carstatus = #{carstatus,jdbcType=VARCHAR},
+      str1 = #{str1,jdbcType=VARCHAR},
+      str2 = #{str2,jdbcType=VARCHAR},
+      str3 = #{str3,jdbcType=VARCHAR},
+      str4 = #{str4,jdbcType=VARCHAR},
+      str5 = #{str5,jdbcType=VARCHAR},
+      str6 = #{str6,jdbcType=VARCHAR},
+      str7 = #{str7,jdbcType=VARCHAR},
+      str8 = #{str8,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=VARCHAR},
+      unitID = #{unitid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <select id="getCarInfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from carinfo
+   order by carlicensedate LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+         <select id="getCarInfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from carinfo
+  </select>
+    <delete id="deleteByPrimaryKeys" parameterType="map" >
+    delete from carinfo
+    where 1=1 
+       <if test="idsList != null and idsList.size()>0">  
+    and id in 
+          <foreach collection="idsList" item="item" index="index" open="(" separator="," close=")">  
+              #{item}  
+           </foreach>  
+        </if>
+  </delete>
+     <select id="getCarInfoListByUnit" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from carinfo
+    where 
+      unitID =  ${unitid}
+   order by carlicensedate LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+   <select id="getCarInfoListTotalByUnit" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from carinfo
+    where 
+    unitID = ${unitid}
+  </select>
+</mapper>

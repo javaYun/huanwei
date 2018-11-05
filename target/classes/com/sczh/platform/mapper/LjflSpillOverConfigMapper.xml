@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflSpillOverConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflSpillOverConfig" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="f_colour_value" property="fColourValue" jdbcType="VARCHAR" />
+    <result column="f_end_value" property="fEndValue" jdbcType="DOUBLE" />
+    <result column="f_spill_over_code" property="fSpillOverCode" jdbcType="VARCHAR" />
+    <result column="f_start_value" property="fStartValue" jdbcType="DOUBLE" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, f_colour_value, f_end_value, f_spill_over_code, f_start_value, auditId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_spill_over_config
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_spill_over_config
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflSpillOverConfig" >
+    insert into ljfl_spill_over_config (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, f_colour_value, 
+      f_end_value, f_spill_over_code, f_start_value, 
+      auditId)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{fColourValue,jdbcType=VARCHAR}, 
+      #{fEndValue,jdbcType=DOUBLE}, #{fSpillOverCode,jdbcType=VARCHAR}, #{fStartValue,jdbcType=DOUBLE}, 
+      #{auditid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflSpillOverConfig" >
+    insert into ljfl_spill_over_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="fColourValue != null" >
+        f_colour_value,
+      </if>
+      <if test="fEndValue != null" >
+        f_end_value,
+      </if>
+      <if test="fSpillOverCode != null" >
+        f_spill_over_code,
+      </if>
+      <if test="fStartValue != null" >
+        f_start_value,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fColourValue != null" >
+        #{fColourValue,jdbcType=VARCHAR},
+      </if>
+      <if test="fEndValue != null" >
+        #{fEndValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fSpillOverCode != null" >
+        #{fSpillOverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fStartValue != null" >
+        #{fStartValue,jdbcType=DOUBLE},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflSpillOverConfig" >
+    update ljfl_spill_over_config
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fColourValue != null" >
+        f_colour_value = #{fColourValue,jdbcType=VARCHAR},
+      </if>
+      <if test="fEndValue != null" >
+        f_end_value = #{fEndValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fSpillOverCode != null" >
+        f_spill_over_code = #{fSpillOverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fStartValue != null" >
+        f_start_value = #{fStartValue,jdbcType=DOUBLE},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflSpillOverConfig" >
+    update ljfl_spill_over_config
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_colour_value = #{fColourValue,jdbcType=VARCHAR},
+      f_end_value = #{fEndValue,jdbcType=DOUBLE},
+      f_spill_over_code = #{fSpillOverCode,jdbcType=VARCHAR},
+      f_start_value = #{fStartValue,jdbcType=DOUBLE},
+      auditId = #{auditid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+       <select id="selectLjflSpliOverConfigSizeByPamater" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM ljfl_spill_over_config
+    
+   	  where
+   		 1=1
+   	 	    <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+   
+        <if test="tenantid != null" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+	
+  </select>
+     <select id="selectLjflSpillOverConfigByPamaters" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM ljfl_spill_over_config
+    
+   	  where
+   		 1=1
+ 	    <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+       <if test="tenantid != null" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   	
+       
+ 
+        
+      order BY createTime
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	
+  </select>
+</mapper>

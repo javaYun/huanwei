@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.CloudStaffMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.CloudStaff" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="authorizeId" property="authorizeid" jdbcType="VARCHAR" />
+    <result column="authorizeName" property="authorizename" jdbcType="VARCHAR" />
+    <result column="birthPlace" property="birthplace" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="credentialNum" property="credentialnum" jdbcType="VARCHAR" />
+    <result column="credentialType" property="credentialtype" jdbcType="VARCHAR" />
+    <result column="departmentId" property="departmentid" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="educationId" property="educationid" jdbcType="VARCHAR" />
+    <result column="educationName" property="educationname" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="entryHereTime" property="entryheretime" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="graduate" property="graduate" jdbcType="VARCHAR" />
+    <result column="healthId" property="healthid" jdbcType="VARCHAR" />
+    <result column="healthName" property="healthname" jdbcType="VARCHAR" />
+    <result column="idCard" property="idcard" jdbcType="VARCHAR" />
+    <result column="innerEmail" property="inneremail" jdbcType="VARCHAR" />
+    <result column="isLeave" property="isleave" jdbcType="VARCHAR" />
+    <result column="joinWorkTime" property="joinworktime" jdbcType="VARCHAR" />
+    <result column="leaveTime" property="leavetime" jdbcType="VARCHAR" />
+    <result column="livePlace" property="liveplace" jdbcType="VARCHAR" />
+    <result column="maritalStatusId" property="maritalstatusid" jdbcType="VARCHAR" />
+    <result column="maritalStatusName" property="maritalstatusname" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nationId" property="nationid" jdbcType="VARCHAR" />
+    <result column="nationName" property="nationname" jdbcType="VARCHAR" />
+    <result column="officeTel" property="officetel" jdbcType="VARCHAR" />
+    <result column="orgId" property="orgid" jdbcType="VARCHAR" />
+    <result column="partyPostId" property="partypostid" jdbcType="VARCHAR" />
+    <result column="partyPostName" property="partypostname" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="politicalStatusId" property="politicalstatusid" jdbcType="VARCHAR" />
+    <result column="politicalStatusName" property="politicalstatusname" jdbcType="VARCHAR" />
+    <result column="postId" property="postid" jdbcType="VARCHAR" />
+    <result column="postName" property="postname" jdbcType="VARCHAR" />
+    <result column="presentPlace" property="presentplace" jdbcType="VARCHAR" />
+    <result column="socialSecurityNo" property="socialsecurityno" jdbcType="VARCHAR" />
+    <result column="socialSecuritycase" property="socialsecuritycase" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="workYearLimit" property="workyearlimit" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgname" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="isGroupLeader" property="isgroupleader" jdbcType="INTEGER" />
+    <result column="joinPartyTime" property="joinpartytime" jdbcType="VARCHAR" />
+    <result column="orderIndex" property="orderindex" jdbcType="INTEGER" />
+    <result column="personalInfoPublic" property="personalinfopublic" jdbcType="BIT" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="imei" property="imei" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="BIT" />
+    <result column="workTypeCode" property="worktypecode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, authorizeId, authorizeName, 
+    birthPlace, birthday, code, credentialNum, credentialType, departmentId, description, 
+    educationId, educationName, email, entryHereTime, gender, graduate, healthId, healthName, 
+    idCard, innerEmail, isLeave, joinWorkTime, leaveTime, livePlace, maritalStatusId, 
+    maritalStatusName, name, nationId, nationName, officeTel, orgId, partyPostId, partyPostName, 
+    phone, politicalStatusId, politicalStatusName, postId, postName, presentPlace, socialSecurityNo, 
+    socialSecuritycase, tenantId, workYearLimit, orgName, age, isGroupLeader, joinPartyTime, 
+    orderIndex, personalInfoPublic, picture, imei, position, workTypeCode
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cloud_staff
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from cloud_staff
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.CloudStaff" >
+    insert into cloud_staff (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      authorizeId, authorizeName, birthPlace, 
+      birthday, code, credentialNum, 
+      credentialType, departmentId, description, 
+      educationId, educationName, email, 
+      entryHereTime, gender, graduate, 
+      healthId, healthName, idCard, 
+      innerEmail, isLeave, joinWorkTime, 
+      leaveTime, livePlace, maritalStatusId, 
+      maritalStatusName, name, nationId, 
+      nationName, officeTel, orgId, 
+      partyPostId, partyPostName, phone, 
+      politicalStatusId, politicalStatusName, 
+      postId, postName, presentPlace, 
+      socialSecurityNo, socialSecuritycase, tenantId, 
+      workYearLimit, orgName, age, 
+      isGroupLeader, joinPartyTime, orderIndex, 
+      personalInfoPublic, picture, imei, 
+      position, workTypeCode)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{authorizeid,jdbcType=VARCHAR}, #{authorizename,jdbcType=VARCHAR}, #{birthplace,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{credentialnum,jdbcType=VARCHAR}, 
+      #{credentialtype,jdbcType=VARCHAR}, #{departmentid,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{educationid,jdbcType=VARCHAR}, #{educationname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{entryheretime,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{graduate,jdbcType=VARCHAR}, 
+      #{healthid,jdbcType=VARCHAR}, #{healthname,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
+      #{inneremail,jdbcType=VARCHAR}, #{isleave,jdbcType=VARCHAR}, #{joinworktime,jdbcType=VARCHAR}, 
+      #{leavetime,jdbcType=VARCHAR}, #{liveplace,jdbcType=VARCHAR}, #{maritalstatusid,jdbcType=VARCHAR}, 
+      #{maritalstatusname,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nationid,jdbcType=VARCHAR}, 
+      #{nationname,jdbcType=VARCHAR}, #{officetel,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR}, 
+      #{partypostid,jdbcType=VARCHAR}, #{partypostname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{politicalstatusid,jdbcType=VARCHAR}, #{politicalstatusname,jdbcType=VARCHAR}, 
+      #{postid,jdbcType=VARCHAR}, #{postname,jdbcType=VARCHAR}, #{presentplace,jdbcType=VARCHAR}, 
+      #{socialsecurityno,jdbcType=VARCHAR}, #{socialsecuritycase,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, 
+      #{workyearlimit,jdbcType=VARCHAR}, #{orgname,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{isgroupleader,jdbcType=INTEGER}, #{joinpartytime,jdbcType=VARCHAR}, #{orderindex,jdbcType=INTEGER}, 
+      #{personalinfopublic,jdbcType=BIT}, #{picture,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, 
+      #{position,jdbcType=BIT}, #{worktypecode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.CloudStaff" >
+    insert into cloud_staff
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="authorizeid != null" >
+        authorizeId,
+      </if>
+      <if test="authorizename != null" >
+        authorizeName,
+      </if>
+      <if test="birthplace != null" >
+        birthPlace,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="credentialnum != null" >
+        credentialNum,
+      </if>
+      <if test="credentialtype != null" >
+        credentialType,
+      </if>
+      <if test="departmentid != null" >
+        departmentId,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="educationid != null" >
+        educationId,
+      </if>
+      <if test="educationname != null" >
+        educationName,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="entryheretime != null" >
+        entryHereTime,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="graduate != null" >
+        graduate,
+      </if>
+      <if test="healthid != null" >
+        healthId,
+      </if>
+      <if test="healthname != null" >
+        healthName,
+      </if>
+      <if test="idcard != null" >
+        idCard,
+      </if>
+      <if test="inneremail != null" >
+        innerEmail,
+      </if>
+      <if test="isleave != null" >
+        isLeave,
+      </if>
+      <if test="joinworktime != null" >
+        joinWorkTime,
+      </if>
+      <if test="leavetime != null" >
+        leaveTime,
+      </if>
+      <if test="liveplace != null" >
+        livePlace,
+      </if>
+      <if test="maritalstatusid != null" >
+        maritalStatusId,
+      </if>
+      <if test="maritalstatusname != null" >
+        maritalStatusName,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="nationid != null" >
+        nationId,
+      </if>
+      <if test="nationname != null" >
+        nationName,
+      </if>
+      <if test="officetel != null" >
+        officeTel,
+      </if>
+      <if test="orgid != null" >
+        orgId,
+      </if>
+      <if test="partypostid != null" >
+        partyPostId,
+      </if>
+      <if test="partypostname != null" >
+        partyPostName,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="politicalstatusid != null" >
+        politicalStatusId,
+      </if>
+      <if test="politicalstatusname != null" >
+        politicalStatusName,
+      </if>
+      <if test="postid != null" >
+        postId,
+      </if>
+      <if test="postname != null" >
+        postName,
+      </if>
+      <if test="presentplace != null" >
+        presentPlace,
+      </if>
+      <if test="socialsecurityno != null" >
+        socialSecurityNo,
+      </if>
+      <if test="socialsecuritycase != null" >
+        socialSecuritycase,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="workyearlimit != null" >
+        workYearLimit,
+      </if>
+      <if test="orgname != null" >
+        orgName,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="isgroupleader != null" >
+        isGroupLeader,
+      </if>
+      <if test="joinpartytime != null" >
+        joinPartyTime,
+      </if>
+      <if test="orderindex != null" >
+        orderIndex,
+      </if>
+      <if test="personalinfopublic != null" >
+        personalInfoPublic,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="imei != null" >
+        imei,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="worktypecode != null" >
+        workTypeCode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authorizeid != null" >
+        #{authorizeid,jdbcType=VARCHAR},
+      </if>
+      <if test="authorizename != null" >
+        #{authorizename,jdbcType=VARCHAR},
+      </if>
+      <if test="birthplace != null" >
+        #{birthplace,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialnum != null" >
+        #{credentialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialtype != null" >
+        #{credentialtype,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentid != null" >
+        #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="educationid != null" >
+        #{educationid,jdbcType=VARCHAR},
+      </if>
+      <if test="educationname != null" >
+        #{educationname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="entryheretime != null" >
+        #{entryheretime,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="graduate != null" >
+        #{graduate,jdbcType=VARCHAR},
+      </if>
+      <if test="healthid != null" >
+        #{healthid,jdbcType=VARCHAR},
+      </if>
+      <if test="healthname != null" >
+        #{healthname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="inneremail != null" >
+        #{inneremail,jdbcType=VARCHAR},
+      </if>
+      <if test="isleave != null" >
+        #{isleave,jdbcType=VARCHAR},
+      </if>
+      <if test="joinworktime != null" >
+        #{joinworktime,jdbcType=VARCHAR},
+      </if>
+      <if test="leavetime != null" >
+        #{leavetime,jdbcType=VARCHAR},
+      </if>
+      <if test="liveplace != null" >
+        #{liveplace,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalstatusid != null" >
+        #{maritalstatusid,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalstatusname != null" >
+        #{maritalstatusname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nationid != null" >
+        #{nationid,jdbcType=VARCHAR},
+      </if>
+      <if test="nationname != null" >
+        #{nationname,jdbcType=VARCHAR},
+      </if>
+      <if test="officetel != null" >
+        #{officetel,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null" >
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="partypostid != null" >
+        #{partypostid,jdbcType=VARCHAR},
+      </if>
+      <if test="partypostname != null" >
+        #{partypostname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalstatusid != null" >
+        #{politicalstatusid,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalstatusname != null" >
+        #{politicalstatusname,jdbcType=VARCHAR},
+      </if>
+      <if test="postid != null" >
+        #{postid,jdbcType=VARCHAR},
+      </if>
+      <if test="postname != null" >
+        #{postname,jdbcType=VARCHAR},
+      </if>
+      <if test="presentplace != null" >
+        #{presentplace,jdbcType=VARCHAR},
+      </if>
+      <if test="socialsecurityno != null" >
+        #{socialsecurityno,jdbcType=VARCHAR},
+      </if>
+      <if test="socialsecuritycase != null" >
+        #{socialsecuritycase,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="workyearlimit != null" >
+        #{workyearlimit,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null" >
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="isgroupleader != null" >
+        #{isgroupleader,jdbcType=INTEGER},
+      </if>
+      <if test="joinpartytime != null" >
+        #{joinpartytime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderindex != null" >
+        #{orderindex,jdbcType=INTEGER},
+      </if>
+      <if test="personalinfopublic != null" >
+        #{personalinfopublic,jdbcType=BIT},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null" >
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=BIT},
+      </if>
+      <if test="worktypecode != null" >
+        #{worktypecode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.CloudStaff" >
+    update cloud_staff
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authorizeid != null" >
+        authorizeId = #{authorizeid,jdbcType=VARCHAR},
+      </if>
+      <if test="authorizename != null" >
+        authorizeName = #{authorizename,jdbcType=VARCHAR},
+      </if>
+      <if test="birthplace != null" >
+        birthPlace = #{birthplace,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialnum != null" >
+        credentialNum = #{credentialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialtype != null" >
+        credentialType = #{credentialtype,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentid != null" >
+        departmentId = #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="educationid != null" >
+        educationId = #{educationid,jdbcType=VARCHAR},
+      </if>
+      <if test="educationname != null" >
+        educationName = #{educationname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="entryheretime != null" >
+        entryHereTime = #{entryheretime,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="graduate != null" >
+        graduate = #{graduate,jdbcType=VARCHAR},
+      </if>
+      <if test="healthid != null" >
+        healthId = #{healthid,jdbcType=VARCHAR},
+      </if>
+      <if test="healthname != null" >
+        healthName = #{healthname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        idCard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="inneremail != null" >
+        innerEmail = #{inneremail,jdbcType=VARCHAR},
+      </if>
+      <if test="isleave != null" >
+        isLeave = #{isleave,jdbcType=VARCHAR},
+      </if>
+      <if test="joinworktime != null" >
+        joinWorkTime = #{joinworktime,jdbcType=VARCHAR},
+      </if>
+      <if test="leavetime != null" >
+        leaveTime = #{leavetime,jdbcType=VARCHAR},
+      </if>
+      <if test="liveplace != null" >
+        livePlace = #{liveplace,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalstatusid != null" >
+        maritalStatusId = #{maritalstatusid,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalstatusname != null" >
+        maritalStatusName = #{maritalstatusname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nationid != null" >
+        nationId = #{nationid,jdbcType=VARCHAR},
+      </if>
+      <if test="nationname != null" >
+        nationName = #{nationname,jdbcType=VARCHAR},
+      </if>
+      <if test="officetel != null" >
+        officeTel = #{officetel,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null" >
+        orgId = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="partypostid != null" >
+        partyPostId = #{partypostid,jdbcType=VARCHAR},
+      </if>
+      <if test="partypostname != null" >
+        partyPostName = #{partypostname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalstatusid != null" >
+        politicalStatusId = #{politicalstatusid,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalstatusname != null" >
+        politicalStatusName = #{politicalstatusname,jdbcType=VARCHAR},
+      </if>
+      <if test="postid != null" >
+        postId = #{postid,jdbcType=VARCHAR},
+      </if>
+      <if test="postname != null" >
+        postName = #{postname,jdbcType=VARCHAR},
+      </if>
+      <if test="presentplace != null" >
+        presentPlace = #{presentplace,jdbcType=VARCHAR},
+      </if>
+      <if test="socialsecurityno != null" >
+        socialSecurityNo = #{socialsecurityno,jdbcType=VARCHAR},
+      </if>
+      <if test="socialsecuritycase != null" >
+        socialSecuritycase = #{socialsecuritycase,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="workyearlimit != null" >
+        workYearLimit = #{workyearlimit,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null" >
+        orgName = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="isgroupleader != null" >
+        isGroupLeader = #{isgroupleader,jdbcType=INTEGER},
+      </if>
+      <if test="joinpartytime != null" >
+        joinPartyTime = #{joinpartytime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderindex != null" >
+        orderIndex = #{orderindex,jdbcType=INTEGER},
+      </if>
+      <if test="personalinfopublic != null" >
+        personalInfoPublic = #{personalinfopublic,jdbcType=BIT},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null" >
+        imei = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=BIT},
+      </if>
+      <if test="worktypecode != null" >
+        workTypeCode = #{worktypecode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.CloudStaff" >
+    update cloud_staff
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      authorizeId = #{authorizeid,jdbcType=VARCHAR},
+      authorizeName = #{authorizename,jdbcType=VARCHAR},
+      birthPlace = #{birthplace,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      credentialNum = #{credentialnum,jdbcType=VARCHAR},
+      credentialType = #{credentialtype,jdbcType=VARCHAR},
+      departmentId = #{departmentid,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      educationId = #{educationid,jdbcType=VARCHAR},
+      educationName = #{educationname,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      entryHereTime = #{entryheretime,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      graduate = #{graduate,jdbcType=VARCHAR},
+      healthId = #{healthid,jdbcType=VARCHAR},
+      healthName = #{healthname,jdbcType=VARCHAR},
+      idCard = #{idcard,jdbcType=VARCHAR},
+      innerEmail = #{inneremail,jdbcType=VARCHAR},
+      isLeave = #{isleave,jdbcType=VARCHAR},
+      joinWorkTime = #{joinworktime,jdbcType=VARCHAR},
+      leaveTime = #{leavetime,jdbcType=VARCHAR},
+      livePlace = #{liveplace,jdbcType=VARCHAR},
+      maritalStatusId = #{maritalstatusid,jdbcType=VARCHAR},
+      maritalStatusName = #{maritalstatusname,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      nationId = #{nationid,jdbcType=VARCHAR},
+      nationName = #{nationname,jdbcType=VARCHAR},
+      officeTel = #{officetel,jdbcType=VARCHAR},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      partyPostId = #{partypostid,jdbcType=VARCHAR},
+      partyPostName = #{partypostname,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      politicalStatusId = #{politicalstatusid,jdbcType=VARCHAR},
+      politicalStatusName = #{politicalstatusname,jdbcType=VARCHAR},
+      postId = #{postid,jdbcType=VARCHAR},
+      postName = #{postname,jdbcType=VARCHAR},
+      presentPlace = #{presentplace,jdbcType=VARCHAR},
+      socialSecurityNo = #{socialsecurityno,jdbcType=VARCHAR},
+      socialSecuritycase = #{socialsecuritycase,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      workYearLimit = #{workyearlimit,jdbcType=VARCHAR},
+      orgName = #{orgname,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      isGroupLeader = #{isgroupleader,jdbcType=INTEGER},
+      joinPartyTime = #{joinpartytime,jdbcType=VARCHAR},
+      orderIndex = #{orderindex,jdbcType=INTEGER},
+      personalInfoPublic = #{personalinfopublic,jdbcType=BIT},
+      picture = #{picture,jdbcType=VARCHAR},
+      imei = #{imei,jdbcType=VARCHAR},
+      position = #{position,jdbcType=BIT},
+      workTypeCode = #{worktypecode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+   <select id="selectCloudStaffSize" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM cloud_staff
+    
+   	  where
+   		 1=1
+   		     <if test="beenDeleteId != null" >
+      and  beenDeleted = #{beenDeleteId,jdbcType=VARCHAR}
+      </if>
+        <if test="tenantid != null" >
+      and  tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+ and orgName is not null
+     
+	
+  </select>
+     <select id="selectCloudStaffData" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM cloud_staff
+    
+   	  where
+   		 1=1
+    	      <if test="beenDeleteId != null" >
+      and  beenDeleted = #{beenDeleteId,jdbcType=VARCHAR}
+      </if>
+        <if test="tenantid != null" >
+      and  tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+  
+   and orgName is not null
+      order BY createTime
+        <if test="endNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	
+  </select>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.AreaRoleManagerMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.AreaRoleManager" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="roleName" property="rolename" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="unitId" property="unitid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, roleName, remark, createTime, userId, unitId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from arearolemanager
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from arearolemanager
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.AreaRoleManager" >
+    insert into arearolemanager (id, roleName, remark, 
+      createTime, userId, unitId
+      )
+    values (#{id,jdbcType=VARCHAR}, #{rolename,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{unitid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.AreaRoleManager" >
+    insert into arearolemanager
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="rolename != null" >
+        roleName,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="unitid != null" >
+        unitId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null" >
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        #{unitid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.AreaRoleManager" >
+    update arearolemanager
+    <set >
+      <if test="rolename != null" >
+        roleName = #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        unitId = #{unitid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.AreaRoleManager" >
+    update arearolemanager
+    set roleName = #{rolename,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=VARCHAR},
+      unitId = #{unitid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   
+  <select id="selectAreaRoleManagerByUnitId" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM arearolemanager
+    
+   	  where
+   		 1=1
+      <if test="unitId != null" >
+      and
+        unitId = #{unitId,jdbcType=VARCHAR}
+      </if>
+
+	
+  </select>
+  
+    <select id="selectAreaRoleManagerListByUserId" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM arearolemanager
+    
+   	  where
+   		 1=1
+      <if test="unitId != null" >
+      and
+        unitId = #{unitId,jdbcType=VARCHAR}
+      </if>
+
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${pageSize}
+      </if>
+       </select>
+    <select id="selectAreaRoleManager" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM arearolemanager
+       </select>
+</mapper>

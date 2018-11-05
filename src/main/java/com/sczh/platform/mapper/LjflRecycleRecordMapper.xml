@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflRecycleRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflRecycleRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="divisionTime" property="divisiontime" jdbcType="TIMESTAMP" />
+    <result column="f_confirm_time" property="fConfirmTime" jdbcType="TIMESTAMP" />
+    <result column="f_memo" property="fMemo" jdbcType="VARCHAR" />
+    <result column="f_recycle_staff_id" property="fRecycleStaffId" jdbcType="VARCHAR" />
+    <result column="f_score_type" property="fScoreType" jdbcType="VARCHAR" />
+    <result column="f_total_score_value" property="fTotalScoreValue" jdbcType="DOUBLE" />
+    <result column="f_unit_value" property="fUnitValue" jdbcType="DOUBLE" />
+    <result column="f_recycle_object_id" property="fRecycleObjectId" jdbcType="VARCHAR" />
+    <result column="f_staff_detail_id" property="fStaffDetailId" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="DOUBLE" />
+    <result column="latitudeDone" property="latitudedone" jdbcType="DOUBLE" />
+    <result column="longitude" property="longitude" jdbcType="DOUBLE" />
+    <result column="longitudeDone" property="longitudedone" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, divisionTime, f_confirm_time, f_memo, f_recycle_staff_id, f_score_type, 
+    f_total_score_value, f_unit_value, f_recycle_object_id, f_staff_detail_id, latitude, 
+    latitudeDone, longitude, longitudeDone
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_recycle_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_recycle_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflRecycleRecord" >
+    insert into ljfl_recycle_record (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, divisionTime, 
+      f_confirm_time, f_memo, f_recycle_staff_id, 
+      f_score_type, f_total_score_value, f_unit_value, 
+      f_recycle_object_id, f_staff_detail_id, latitude, 
+      latitudeDone, longitude, longitudeDone)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{divisiontime,jdbcType=TIMESTAMP}, 
+      #{fConfirmTime,jdbcType=TIMESTAMP}, #{fMemo,jdbcType=VARCHAR}, #{fRecycleStaffId,jdbcType=VARCHAR}, 
+      #{fScoreType,jdbcType=VARCHAR}, #{fTotalScoreValue,jdbcType=DOUBLE}, #{fUnitValue,jdbcType=DOUBLE}, 
+      #{fRecycleObjectId,jdbcType=VARCHAR}, #{fStaffDetailId,jdbcType=VARCHAR}, #{latitude,jdbcType=DOUBLE}, 
+      #{latitudedone,jdbcType=DOUBLE}, #{longitude,jdbcType=DOUBLE}, #{longitudedone,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflRecycleRecord" >
+    insert into ljfl_recycle_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime,
+      </if>
+      <if test="fConfirmTime != null" >
+        f_confirm_time,
+      </if>
+      <if test="fMemo != null" >
+        f_memo,
+      </if>
+      <if test="fRecycleStaffId != null" >
+        f_recycle_staff_id,
+      </if>
+      <if test="fScoreType != null" >
+        f_score_type,
+      </if>
+      <if test="fTotalScoreValue != null" >
+        f_total_score_value,
+      </if>
+      <if test="fUnitValue != null" >
+        f_unit_value,
+      </if>
+      <if test="fRecycleObjectId != null" >
+        f_recycle_object_id,
+      </if>
+      <if test="fStaffDetailId != null" >
+        f_staff_detail_id,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="latitudedone != null" >
+        latitudeDone,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="longitudedone != null" >
+        longitudeDone,
+      </if>
+     
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fConfirmTime != null" >
+        #{fConfirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fMemo != null" >
+        #{fMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="fRecycleStaffId != null" >
+        #{fRecycleStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="fScoreType != null" >
+        #{fScoreType,jdbcType=VARCHAR},
+      </if>
+      <if test="fTotalScoreValue != null" >
+        #{fTotalScoreValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fUnitValue != null" >
+        #{fUnitValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fRecycleObjectId != null" >
+        #{fRecycleObjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffDetailId != null" >
+        #{fStaffDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="latitudedone != null" >
+        #{latitudedone,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitudedone != null" >
+        #{longitudedone,jdbcType=DOUBLE},
+      </if>
+    
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflRecycleRecord" >
+    update ljfl_recycle_record
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fConfirmTime != null" >
+        f_confirm_time = #{fConfirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fMemo != null" >
+        f_memo = #{fMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="fRecycleStaffId != null" >
+        f_recycle_staff_id = #{fRecycleStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="fScoreType != null" >
+        f_score_type = #{fScoreType,jdbcType=VARCHAR},
+      </if>
+      <if test="fTotalScoreValue != null" >
+        f_total_score_value = #{fTotalScoreValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fUnitValue != null" >
+        f_unit_value = #{fUnitValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fRecycleObjectId != null" >
+        f_recycle_object_id = #{fRecycleObjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffDetailId != null" >
+        f_staff_detail_id = #{fStaffDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="latitudedone != null" >
+        latitudeDone = #{latitudedone,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitudedone != null" >
+        longitudeDone = #{longitudedone,jdbcType=DOUBLE},
+      </if>
+     
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflRecycleRecord" >
+    update ljfl_recycle_record
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      f_confirm_time = #{fConfirmTime,jdbcType=TIMESTAMP},
+      f_memo = #{fMemo,jdbcType=VARCHAR},
+      f_recycle_staff_id = #{fRecycleStaffId,jdbcType=VARCHAR},
+      f_score_type = #{fScoreType,jdbcType=VARCHAR},
+      f_total_score_value = #{fTotalScoreValue,jdbcType=DOUBLE},
+      f_unit_value = #{fUnitValue,jdbcType=DOUBLE},
+      f_recycle_object_id = #{fRecycleObjectId,jdbcType=VARCHAR},
+      f_staff_detail_id = #{fStaffDetailId,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=DOUBLE},
+      latitudeDone = #{latitudedone,jdbcType=DOUBLE},
+      longitude = #{longitude,jdbcType=DOUBLE},
+      longitudeDone = #{longitudedone,jdbcType=DOUBLE},
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+   <insert id="insertRecycleRecoed" parameterType="com.sczh.platform.po.LjflRecycleRecord" >
+    insert into ${tablename} (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, divisionTime, 
+      f_confirm_time, f_memo, f_recycle_staff_id, 
+      f_score_type, f_total_score_value, f_unit_value, 
+      f_recycle_object_id, f_staff_detail_id, latitude, 
+      latitudeDone, longitude, longitudeDone)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{divisiontime,jdbcType=TIMESTAMP}, 
+      #{fConfirmTime,jdbcType=TIMESTAMP}, #{fMemo,jdbcType=VARCHAR}, #{fRecycleStaffId,jdbcType=VARCHAR}, 
+      #{fScoreType,jdbcType=VARCHAR}, #{fTotalScoreValue,jdbcType=DOUBLE}, #{fUnitValue,jdbcType=DOUBLE}, 
+      #{fRecycleObjectId,jdbcType=VARCHAR}, #{fStaffDetailId,jdbcType=VARCHAR}, #{latitude,jdbcType=DOUBLE}, 
+      #{latitudedone,jdbcType=DOUBLE}, #{longitude,jdbcType=DOUBLE}, #{longitudedone,jdbcType=DOUBLE})
+  </insert>
+          <select id="selecRecycycleRecordByDateTotalSize" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM ${tableName}
+    
+   	  where
+   		 1=1
+   		    <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fRecycleObjectId != null" >
+      and
+        f_recycle_object_id = #{fRecycleObjectId,jdbcType=VARCHAR}
+      </if>
+      <if test="fScoreType != null" >
+      and
+        f_score_type = #{fScoreType,jdbcType=VARCHAR}
+      </if>
+        <if test="staffDetailId != null" >
+      and
+        f_staff_detail_id = #{staffDetailId,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null" >
+      and
+        createTime  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endTime != null" >
+      and
+        createTime &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+	
+  </select>
+     <select id="selecRecycleRecordByDateTotal" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM ${tableName}
+    
+   	  where
+   		 1=1
+ 	    <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fRecycleObjectId != null" >
+      and
+        f_recycle_object_id = #{fRecycleObjectId,jdbcType=VARCHAR}
+      </if>
+      <if test="fScoreType != null" >
+      and
+        f_score_type = #{fScoreType,jdbcType=VARCHAR}
+      </if>
+        <if test="staffDetailId != null" >
+      and
+        f_staff_detail_id = #{staffDetailId,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null" >
+      and
+        createTime  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+         <if test="endTime != null" >
+      and
+        createTime &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+      order BY createTime
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	
+  </select>
+</mapper>

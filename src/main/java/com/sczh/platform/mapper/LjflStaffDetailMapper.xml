@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflStaffDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflStaffDetail" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="credentialNum" property="credentialnum" jdbcType="VARCHAR" />
+    <result column="f_current_balance" property="fCurrentBalance" jdbcType="DOUBLE" />
+    <result column="f_current_score" property="fCurrentScore" jdbcType="DOUBLE" />
+    <result column="educationId" property="educationid" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="f_live_num" property="fLiveNum" jdbcType="INTEGER" />
+    <result column="maritalStatusId" property="maritalstatusid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="f_serve_status" property="fServeStatus" jdbcType="VARCHAR" />
+    <result column="f_staff_type" property="fStaffType" jdbcType="INTEGER" />
+    <result column="tdbImgId" property="tdbimgid" jdbcType="VARCHAR" />
+    <result column="tdbStr" property="tdbstr" jdbcType="VARCHAR" />
+    <result column="f_total_balance" property="fTotalBalance" jdbcType="DOUBLE" />
+    <result column="f_total_score" property="fTotalScore" jdbcType="DOUBLE" />
+    <result column="f_household_id" property="fHouseholdId" jdbcType="VARCHAR" />
+    <result column="f_resident_type_id" property="fResidentTypeId" jdbcType="VARCHAR" />
+    <result column="f_address" property="fAddress" jdbcType="VARCHAR" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+    <result column="f_last_add_score_time" property="fLastAddScoreTime" jdbcType="TIMESTAMP" />
+    <result column="f_last_consume_score_time" property="fLastConsumeScoreTime" jdbcType="TIMESTAMP" />
+    <result column="doorname" property="doorname" jdbcType="VARCHAR" />
+    <result column="znum" property="znum" jdbcType="INTEGER" />
+    <result column="rnum" property="rnum" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sczh.platform.po.LjflStaffDetail" extends="BaseResultMap" >
+    <result column="f_department_id" property="fDepartmentId" jdbcType="BINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, age, credentialNum, f_current_balance, f_current_score, educationId, gender, 
+    f_live_num, maritalStatusId, name, phone, picture, f_serve_status, f_staff_type, 
+    tdbImgId, tdbStr, f_total_balance, f_total_score, f_household_id, f_resident_type_id, 
+    f_address, auditId, f_last_add_score_time, f_last_consume_score_time, doorname, znum, 
+    rnum
+  </sql>
+  <sql id="Blob_Column_List" >
+    f_department_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_staff_detail
+    where id = #{id,jdbcType=VARCHAR}
+    and beenDeleted = '0'
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_staff_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflStaffDetail" >
+    insert into ljfl_staff_detail (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, age, 
+      credentialNum, f_current_balance, f_current_score, 
+      educationId, gender, f_live_num, 
+      maritalStatusId, name, phone, 
+      picture, f_serve_status, f_staff_type, 
+      tdbImgId, tdbStr, f_total_balance, 
+      f_total_score, f_household_id, f_resident_type_id, 
+      f_address, auditId, f_last_add_score_time, 
+      f_last_consume_score_time, doorname, znum, 
+      rnum, f_department_id)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{credentialnum,jdbcType=VARCHAR}, #{fCurrentBalance,jdbcType=DOUBLE}, #{fCurrentScore,jdbcType=DOUBLE}, 
+      #{educationid,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{fLiveNum,jdbcType=INTEGER}, 
+      #{maritalstatusid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{picture,jdbcType=VARCHAR}, #{fServeStatus,jdbcType=VARCHAR}, #{fStaffType,jdbcType=INTEGER}, 
+      #{tdbimgid,jdbcType=VARCHAR}, #{tdbstr,jdbcType=VARCHAR}, #{fTotalBalance,jdbcType=DOUBLE}, 
+      #{fTotalScore,jdbcType=DOUBLE}, #{fHouseholdId,jdbcType=VARCHAR}, #{fResidentTypeId,jdbcType=VARCHAR}, 
+      #{fAddress,jdbcType=VARCHAR}, #{auditid,jdbcType=VARCHAR}, #{fLastAddScoreTime,jdbcType=TIMESTAMP}, 
+      #{fLastConsumeScoreTime,jdbcType=TIMESTAMP}, #{doorname,jdbcType=VARCHAR}, #{znum,jdbcType=INTEGER}, 
+      #{rnum,jdbcType=INTEGER}, #{fDepartmentId,jdbcType=BINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflStaffDetail" >
+    insert into ljfl_staff_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="credentialnum != null" >
+        credentialNum,
+      </if>
+      <if test="fCurrentBalance != null" >
+        f_current_balance,
+      </if>
+      <if test="fCurrentScore != null" >
+        f_current_score,
+      </if>
+      <if test="educationid != null" >
+        educationId,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="fLiveNum != null" >
+        f_live_num,
+      </if>
+      <if test="maritalstatusid != null" >
+        maritalStatusId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="fServeStatus != null" >
+        f_serve_status,
+      </if>
+      <if test="fStaffType != null" >
+        f_staff_type,
+      </if>
+      <if test="tdbimgid != null" >
+        tdbImgId,
+      </if>
+      <if test="tdbstr != null" >
+        tdbStr,
+      </if>
+      <if test="fTotalBalance != null" >
+        f_total_balance,
+      </if>
+      <if test="fTotalScore != null" >
+        f_total_score,
+      </if>
+      <if test="fHouseholdId != null" >
+        f_household_id,
+      </if>
+      <if test="fResidentTypeId != null" >
+        f_resident_type_id,
+      </if>
+      <if test="fAddress != null" >
+        f_address,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+      <if test="fLastAddScoreTime != null" >
+        f_last_add_score_time,
+      </if>
+      <if test="fLastConsumeScoreTime != null" >
+        f_last_consume_score_time,
+      </if>
+      <if test="doorname != null" >
+        doorname,
+      </if>
+      <if test="znum != null" >
+        znum,
+      </if>
+      <if test="rnum != null" >
+        rnum,
+      </if>
+      <if test="fDepartmentId != null" >
+        f_department_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="credentialnum != null" >
+        #{credentialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="fCurrentBalance != null" >
+        #{fCurrentBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="fCurrentScore != null" >
+        #{fCurrentScore,jdbcType=DOUBLE},
+      </if>
+      <if test="educationid != null" >
+        #{educationid,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="fLiveNum != null" >
+        #{fLiveNum,jdbcType=INTEGER},
+      </if>
+      <if test="maritalstatusid != null" >
+        #{maritalstatusid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="fServeStatus != null" >
+        #{fServeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffType != null" >
+        #{fStaffType,jdbcType=INTEGER},
+      </if>
+      <if test="tdbimgid != null" >
+        #{tdbimgid,jdbcType=VARCHAR},
+      </if>
+      <if test="tdbstr != null" >
+        #{tdbstr,jdbcType=VARCHAR},
+      </if>
+      <if test="fTotalBalance != null" >
+        #{fTotalBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="fTotalScore != null" >
+        #{fTotalScore,jdbcType=DOUBLE},
+      </if>
+      <if test="fHouseholdId != null" >
+        #{fHouseholdId,jdbcType=VARCHAR},
+      </if>
+      <if test="fResidentTypeId != null" >
+        #{fResidentTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fAddress != null" >
+        #{fAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="fLastAddScoreTime != null" >
+        #{fLastAddScoreTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fLastConsumeScoreTime != null" >
+        #{fLastConsumeScoreTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="doorname != null" >
+        #{doorname,jdbcType=VARCHAR},
+      </if>
+      <if test="znum != null" >
+        #{znum,jdbcType=INTEGER},
+      </if>
+      <if test="rnum != null" >
+        #{rnum,jdbcType=INTEGER},
+      </if>
+      <if test="fDepartmentId != null" >
+        #{fDepartmentId,jdbcType=BINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflStaffDetail" >
+    update ljfl_staff_detail
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="credentialnum != null" >
+        credentialNum = #{credentialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="fCurrentBalance != null" >
+        f_current_balance = #{fCurrentBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="fCurrentScore != null" >
+        f_current_score = #{fCurrentScore,jdbcType=DOUBLE},
+      </if>
+      <if test="educationid != null" >
+        educationId = #{educationid,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="fLiveNum != null" >
+        f_live_num = #{fLiveNum,jdbcType=INTEGER},
+      </if>
+      <if test="maritalstatusid != null" >
+        maritalStatusId = #{maritalstatusid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="fServeStatus != null" >
+        f_serve_status = #{fServeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffType != null" >
+        f_staff_type = #{fStaffType,jdbcType=INTEGER},
+      </if>
+      <if test="tdbimgid != null" >
+        tdbImgId = #{tdbimgid,jdbcType=VARCHAR},
+      </if>
+      <if test="tdbstr != null" >
+        tdbStr = #{tdbstr,jdbcType=VARCHAR},
+      </if>
+      <if test="fTotalBalance != null" >
+        f_total_balance = #{fTotalBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="fTotalScore != null" >
+        f_total_score = #{fTotalScore,jdbcType=DOUBLE},
+      </if>
+      <if test="fHouseholdId != null" >
+        f_household_id = #{fHouseholdId,jdbcType=VARCHAR},
+      </if>
+      <if test="fResidentTypeId != null" >
+        f_resident_type_id = #{fResidentTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fAddress != null" >
+        f_address = #{fAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="fLastAddScoreTime != null" >
+        f_last_add_score_time = #{fLastAddScoreTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fLastConsumeScoreTime != null" >
+        f_last_consume_score_time = #{fLastConsumeScoreTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="doorname != null" >
+        doorname = #{doorname,jdbcType=VARCHAR},
+      </if>
+      <if test="znum != null" >
+        znum = #{znum,jdbcType=INTEGER},
+      </if>
+      <if test="rnum != null" >
+        rnum = #{rnum,jdbcType=INTEGER},
+      </if>
+      <if test="fDepartmentId != null" >
+        f_department_id = #{fDepartmentId,jdbcType=BINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sczh.platform.po.LjflStaffDetail" >
+    update ljfl_staff_detail
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      credentialNum = #{credentialnum,jdbcType=VARCHAR},
+      f_current_balance = #{fCurrentBalance,jdbcType=DOUBLE},
+      f_current_score = #{fCurrentScore,jdbcType=DOUBLE},
+      educationId = #{educationid,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      f_live_num = #{fLiveNum,jdbcType=INTEGER},
+      maritalStatusId = #{maritalstatusid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      f_serve_status = #{fServeStatus,jdbcType=VARCHAR},
+      f_staff_type = #{fStaffType,jdbcType=INTEGER},
+      tdbImgId = #{tdbimgid,jdbcType=VARCHAR},
+      tdbStr = #{tdbstr,jdbcType=VARCHAR},
+      f_total_balance = #{fTotalBalance,jdbcType=DOUBLE},
+      f_total_score = #{fTotalScore,jdbcType=DOUBLE},
+      f_household_id = #{fHouseholdId,jdbcType=VARCHAR},
+      f_resident_type_id = #{fResidentTypeId,jdbcType=VARCHAR},
+      f_address = #{fAddress,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      f_last_add_score_time = #{fLastAddScoreTime,jdbcType=TIMESTAMP},
+      f_last_consume_score_time = #{fLastConsumeScoreTime,jdbcType=TIMESTAMP},
+      doorname = #{doorname,jdbcType=VARCHAR},
+      znum = #{znum,jdbcType=INTEGER},
+      rnum = #{rnum,jdbcType=INTEGER},
+      f_department_id = #{fDepartmentId,jdbcType=BINARY}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflStaffDetail" >
+    update ljfl_staff_detail
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      credentialNum = #{credentialnum,jdbcType=VARCHAR},
+      f_current_balance = #{fCurrentBalance,jdbcType=DOUBLE},
+      f_current_score = #{fCurrentScore,jdbcType=DOUBLE},
+      educationId = #{educationid,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      f_live_num = #{fLiveNum,jdbcType=INTEGER},
+      maritalStatusId = #{maritalstatusid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      f_serve_status = #{fServeStatus,jdbcType=VARCHAR},
+      f_staff_type = #{fStaffType,jdbcType=INTEGER},
+      tdbImgId = #{tdbimgid,jdbcType=VARCHAR},
+      tdbStr = #{tdbstr,jdbcType=VARCHAR},
+      f_total_balance = #{fTotalBalance,jdbcType=DOUBLE},
+      f_total_score = #{fTotalScore,jdbcType=DOUBLE},
+      f_household_id = #{fHouseholdId,jdbcType=VARCHAR},
+      f_resident_type_id = #{fResidentTypeId,jdbcType=VARCHAR},
+      f_address = #{fAddress,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      f_last_add_score_time = #{fLastAddScoreTime,jdbcType=TIMESTAMP},
+      f_last_consume_score_time = #{fLastConsumeScoreTime,jdbcType=TIMESTAMP},
+      doorname = #{doorname,jdbcType=VARCHAR},
+      znum = #{znum,jdbcType=INTEGER},
+      rnum = #{rnum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <select id="selectByName" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_staff_detail
+    where id = #{name,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectStaffDetailList" parameterType="com.sczh.platform.po.Model.PageModelDomain" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_staff_detail as s
+    where
+    1=1
+      <if test="staffName != null">
+      and
+        s.name = #{staffName,jdbcType=VARCHAR}
+      </if>
+        <if test="beendeleted != null" >
+      and
+        s.beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      order BY s.createTime
+        <if test="currentNum != null">
+      LIMIT
+      #{currentNum,jdbcType=INTEGER},
+      #{endNum,jdbcType=INTEGER}
+      </if>
+      
+    
+  </select>
+  <select id="selecStaffDetailtTotalSize" parameterType="com.sczh.platform.po.Model.PageModelDomain" resultType="java.lang.Integer">
+    select 
+    count(*)
+    from ljfl_staff_detail as s
+    where
+    1=1
+      <if test="staffName != null">
+      and
+        s.name = #{staffName,jdbcType=VARCHAR}
+      </if>
+           <if test="beendeleted != null" >
+      and
+        s.beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+
+  </select>
+
+<select id="selectByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+
+    from ljfl_staff_detail
+    where phone = #{phone,jdbcType=VARCHAR}
+  </select>
+  
+  
+   <select id="selectStaffDetailData" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_staff_detail
+    where beenDeleted = '0'
+     <if test="name != null">
+    and name regexp '${name}'
+    </if>
+     <if test="housesId != null">
+    and f_household_id regexp '${housesId}'
+    </if>
+     <if test="phone != null">
+    and phone regexp '${phone}'
+    </if>
+    order by name LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+   <select id="selectStaffDetailDataTotal" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_staff_detail
+    where beenDeleted = '0'
+     <if test="name != null">
+    and name regexp '${name}'
+    </if>
+     <if test="housesId != null">
+    and f_household_id regexp '${housesId}'
+    </if>
+     <if test="phone != null">
+    and phone regexp '${phone}'
+    </if>
+  </select>
+  
+  
+   <select id="selectHouseHoldData" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_staff_detail as s
+    where
+    1=1
+    <if test="doorname != null">
+      and
+        s.doorname = #{doorname,jdbcType=VARCHAR}
+      </if>
+           <if test="beendeleted != null" >
+      and
+        s.beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      order BY s.createTime
+        <if test="currentNum != null">
+      LIMIT
+          ${currentNum}
+      ,
+       ${endNum}
+
+      </if>
+  </select>
+  <select id="selectHouseHoldTotalSize" parameterType="java.lang.String"  resultType="java.lang.Integer">
+    select 
+    count(*)
+    from ljfl_staff_detail as s
+    where
+    1=1
+      <if test="doorname != null">
+      and
+        s.doorname = #{doorname,jdbcType=VARCHAR}
+      </if>
+           <if test="beendeleted != null" >
+      and
+        s.beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+
+  </select>
+</mapper>

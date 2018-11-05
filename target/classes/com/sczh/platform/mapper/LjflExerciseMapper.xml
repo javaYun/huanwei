@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflExerciseMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflExercise" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="exerciseTypeId" property="exercisetypeid" jdbcType="VARCHAR" />
+    <result column="maxScore" property="maxscore" jdbcType="INTEGER" />
+    <result column="minScore" property="minscore" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="f_ljflHouses_id" property="fLjflhousesId" jdbcType="VARCHAR" />
+    <result column="exerciseTypeName" property="exercisetypename" jdbcType="VARCHAR" />
+    <result column="peopleNum" property="peoplenum" jdbcType="INTEGER" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, endtime, exerciseTypeId, maxScore, minScore, name, starttime, type, f_ljflHouses_id, 
+    exerciseTypeName, peopleNum, auditId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_exercise
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_exercise
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflExercise" >
+    insert into ljfl_exercise (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, endtime, 
+      exerciseTypeId, maxScore, minScore, 
+      name, starttime, type, 
+      f_ljflHouses_id, exerciseTypeName, peopleNum, 
+      auditId)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{exercisetypeid,jdbcType=VARCHAR}, #{maxscore,jdbcType=INTEGER}, #{minscore,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, #{type,jdbcType=INTEGER}, 
+      #{fLjflhousesId,jdbcType=VARCHAR}, #{exercisetypename,jdbcType=VARCHAR}, #{peoplenum,jdbcType=INTEGER}, 
+      #{auditid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflExercise" >
+    insert into ljfl_exercise
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="exercisetypeid != null" >
+        exerciseTypeId,
+      </if>
+      <if test="maxscore != null" >
+        maxScore,
+      </if>
+      <if test="minscore != null" >
+        minScore,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="fLjflhousesId != null" >
+        f_ljflHouses_id,
+      </if>
+      <if test="exercisetypename != null" >
+        exerciseTypeName,
+      </if>
+      <if test="peoplenum != null" >
+        peopleNum,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exercisetypeid != null" >
+        #{exercisetypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="maxscore != null" >
+        #{maxscore,jdbcType=INTEGER},
+      </if>
+      <if test="minscore != null" >
+        #{minscore,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="fLjflhousesId != null" >
+        #{fLjflhousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="exercisetypename != null" >
+        #{exercisetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="peoplenum != null" >
+        #{peoplenum,jdbcType=INTEGER},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflExercise" >
+    update ljfl_exercise
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exercisetypeid != null" >
+        exerciseTypeId = #{exercisetypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="maxscore != null" >
+        maxScore = #{maxscore,jdbcType=INTEGER},
+      </if>
+      <if test="minscore != null" >
+        minScore = #{minscore,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="fLjflhousesId != null" >
+        f_ljflHouses_id = #{fLjflhousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="exercisetypename != null" >
+        exerciseTypeName = #{exercisetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="peoplenum != null" >
+        peopleNum = #{peoplenum,jdbcType=INTEGER},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflExercise" >
+    update ljfl_exercise
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      exerciseTypeId = #{exercisetypeid,jdbcType=VARCHAR},
+      maxScore = #{maxscore,jdbcType=INTEGER},
+      minScore = #{minscore,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      starttime = #{starttime,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=INTEGER},
+      f_ljflHouses_id = #{fLjflhousesId,jdbcType=VARCHAR},
+      exerciseTypeName = #{exercisetypename,jdbcType=VARCHAR},
+      peopleNum = #{peoplenum,jdbcType=INTEGER},
+      auditId = #{auditid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectLjflExerciseInfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_exercise
+    order by starttime LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+  
+  <select id="selectLjflExerciseInfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from ljfl_exercise
+  where name regexp '${name}'
+  and beenDeleted = '0'
+  </select>
+  
+   <select id="selectLjflExerciseInfoListTotal1" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from ljfl_exercise
+  where beenDeleted = '0'
+  </select>
+</mapper>

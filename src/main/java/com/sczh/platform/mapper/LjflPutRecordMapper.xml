@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflPutRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflPutRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="divisionTime" property="divisiontime" jdbcType="TIMESTAMP" />
+    <result column="f_confirm_latitude" property="fConfirmLatitude" jdbcType="DOUBLE" />
+    <result column="f_confirm_latitude_done" property="fConfirmLatitudeDone" jdbcType="DOUBLE" />
+    <result column="f_confirm_longitude" property="fConfirmLongitude" jdbcType="DOUBLE" />
+    <result column="f_confirm_longitude_done" property="fConfirmLongitudeDone" jdbcType="DOUBLE" />
+    <result column="f_confirm_status" property="fConfirmStatus" jdbcType="INTEGER" />
+    <result column="f_confirm_user_id" property="fConfirmUserId" jdbcType="VARCHAR" />
+    <result column="f_quality" property="fQuality" jdbcType="INTEGER" />
+    <result column="f_read_status" property="fReadStatus" jdbcType="INTEGER" />
+    <result column="f_swing_time" property="fSwingTime" jdbcType="TIMESTAMP" />
+    <result column="f_weight" property="fWeight" jdbcType="DOUBLE" />
+    <result column="f_confirm_rubbish_type_id" property="fConfirmRubbishTypeId" jdbcType="VARCHAR" />
+    <result column="f_household_id" property="fHouseholdId" jdbcType="VARCHAR" />
+    <result column="f_staff_detail_id" property="fStaffDetailId" jdbcType="VARCHAR" />
+    <result column="f_work_point_id" property="fWorkPointId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, divisionTime, f_confirm_latitude, f_confirm_latitude_done, f_confirm_longitude, 
+    f_confirm_longitude_done, f_confirm_status, f_confirm_user_id, f_quality, f_read_status, 
+    f_swing_time, f_weight, f_confirm_rubbish_type_id, f_household_id, f_staff_detail_id, 
+    f_work_point_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_put_record201705
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_put_record201705
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+ <insert id="insert" parameterType="com.sczh.platform.po.LjflPutRecord" >
+    insert into ${tablename} (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, divisionTime, 
+      f_confirm_latitude, f_confirm_latitude_done, f_confirm_longitude, 
+      f_confirm_longitude_done, f_confirm_status, f_confirm_user_id, 
+      f_quality, f_read_status, f_swing_time, 
+      f_weight, f_confirm_rubbish_type_id, f_household_id, 
+      f_staff_detail_id, f_work_point_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{divisiontime,jdbcType=TIMESTAMP}, 
+      #{fConfirmLatitude,jdbcType=DOUBLE}, #{fConfirmLatitudeDone,jdbcType=DOUBLE}, #{fConfirmLongitude,jdbcType=DOUBLE}, 
+      #{fConfirmLongitudeDone,jdbcType=DOUBLE}, #{fConfirmStatus,jdbcType=INTEGER}, #{fConfirmUserId,jdbcType=VARCHAR}, 
+      #{fQuality,jdbcType=INTEGER}, #{fReadStatus,jdbcType=INTEGER}, #{fSwingTime,jdbcType=TIMESTAMP}, 
+      #{fWeight,jdbcType=DOUBLE}, #{fConfirmRubbishTypeId,jdbcType=VARCHAR}, #{fHouseholdId,jdbcType=VARCHAR}, 
+      #{fStaffDetailId,jdbcType=VARCHAR}, #{fWorkPointId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflPutRecord" >
+    insert into ljfl_put_record201705
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime,
+      </if>
+      <if test="fConfirmLatitude != null" >
+        f_confirm_latitude,
+      </if>
+      <if test="fConfirmLatitudeDone != null" >
+        f_confirm_latitude_done,
+      </if>
+      <if test="fConfirmLongitude != null" >
+        f_confirm_longitude,
+      </if>
+      <if test="fConfirmLongitudeDone != null" >
+        f_confirm_longitude_done,
+      </if>
+      <if test="fConfirmStatus != null" >
+        f_confirm_status,
+      </if>
+      <if test="fConfirmUserId != null" >
+        f_confirm_user_id,
+      </if>
+      <if test="fQuality != null" >
+        f_quality,
+      </if>
+      <if test="fReadStatus != null" >
+        f_read_status,
+      </if>
+      <if test="fSwingTime != null" >
+        f_swing_time,
+      </if>
+      <if test="fWeight != null" >
+        f_weight,
+      </if>
+      <if test="fConfirmRubbishTypeId != null" >
+        f_confirm_rubbish_type_id,
+      </if>
+      <if test="fHouseholdId != null" >
+        f_household_id,
+      </if>
+      <if test="fStaffDetailId != null" >
+        f_staff_detail_id,
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fConfirmLatitude != null" >
+        #{fConfirmLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmLatitudeDone != null" >
+        #{fConfirmLatitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmLongitude != null" >
+        #{fConfirmLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmLongitudeDone != null" >
+        #{fConfirmLongitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmStatus != null" >
+        #{fConfirmStatus,jdbcType=INTEGER},
+      </if>
+      <if test="fConfirmUserId != null" >
+        #{fConfirmUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="fQuality != null" >
+        #{fQuality,jdbcType=INTEGER},
+      </if>
+      <if test="fReadStatus != null" >
+        #{fReadStatus,jdbcType=INTEGER},
+      </if>
+      <if test="fSwingTime != null" >
+        #{fSwingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fWeight != null" >
+        #{fWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmRubbishTypeId != null" >
+        #{fConfirmRubbishTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHouseholdId != null" >
+        #{fHouseholdId,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffDetailId != null" >
+        #{fStaffDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflPutRecord" >
+    update ljfl_put_record201705
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fConfirmLatitude != null" >
+        f_confirm_latitude = #{fConfirmLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmLatitudeDone != null" >
+        f_confirm_latitude_done = #{fConfirmLatitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmLongitude != null" >
+        f_confirm_longitude = #{fConfirmLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmLongitudeDone != null" >
+        f_confirm_longitude_done = #{fConfirmLongitudeDone,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmStatus != null" >
+        f_confirm_status = #{fConfirmStatus,jdbcType=INTEGER},
+      </if>
+      <if test="fConfirmUserId != null" >
+        f_confirm_user_id = #{fConfirmUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="fQuality != null" >
+        f_quality = #{fQuality,jdbcType=INTEGER},
+      </if>
+      <if test="fReadStatus != null" >
+        f_read_status = #{fReadStatus,jdbcType=INTEGER},
+      </if>
+      <if test="fSwingTime != null" >
+        f_swing_time = #{fSwingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fWeight != null" >
+        f_weight = #{fWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fConfirmRubbishTypeId != null" >
+        f_confirm_rubbish_type_id = #{fConfirmRubbishTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHouseholdId != null" >
+        f_household_id = #{fHouseholdId,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffDetailId != null" >
+        f_staff_detail_id = #{fStaffDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflPutRecord" >
+    update ljfl_put_record201705
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      f_confirm_latitude = #{fConfirmLatitude,jdbcType=DOUBLE},
+      f_confirm_latitude_done = #{fConfirmLatitudeDone,jdbcType=DOUBLE},
+      f_confirm_longitude = #{fConfirmLongitude,jdbcType=DOUBLE},
+      f_confirm_longitude_done = #{fConfirmLongitudeDone,jdbcType=DOUBLE},
+      f_confirm_status = #{fConfirmStatus,jdbcType=INTEGER},
+      f_confirm_user_id = #{fConfirmUserId,jdbcType=VARCHAR},
+      f_quality = #{fQuality,jdbcType=INTEGER},
+      f_read_status = #{fReadStatus,jdbcType=INTEGER},
+      f_swing_time = #{fSwingTime,jdbcType=TIMESTAMP},
+      f_weight = #{fWeight,jdbcType=DOUBLE},
+      f_confirm_rubbish_type_id = #{fConfirmRubbishTypeId,jdbcType=VARCHAR},
+      f_household_id = #{fHouseholdId,jdbcType=VARCHAR},
+      f_staff_detail_id = #{fStaffDetailId,jdbcType=VARCHAR},
+      f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+      <select id="selecPutRecordByDateTotalSize" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM ${tableName}
+    
+   	  where
+   		 1=1
+   		   <if test="fHouseholdId != null" >
+      and
+        f_staff_detail_id = #{fHouseholdId,jdbcType=VARCHAR}
+      </if>
+      <if test="staffDetailId != null" >
+      and
+        f_staff_detail_id = #{staffDetailId,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null" >
+      and
+        createTime  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endTime != null" >
+      and
+        createTime &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+	
+  </select>
+     <select id="selecPutRecordByDateTotal" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM ${tableName}
+    
+   	  where
+   		 1=1
+      <if test="staffDetailId != null" >
+      and
+        f_staff_detail_id = #{staffDetailId,jdbcType=VARCHAR}
+      </if>
+      
+      	   <if test="fHouseholdId != null" >
+      and
+        f_staff_detail_id = #{fHouseholdId,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null" >
+      and
+        createTime  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+         <if test="endTime != null" >
+      and
+        createTime &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+      order BY createTime
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	
+  </select>
+</mapper>

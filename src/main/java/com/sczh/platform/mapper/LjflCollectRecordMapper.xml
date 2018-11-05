@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflCollectRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflCollectRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="divisionTime" property="divisiontime" jdbcType="TIMESTAMP" />
+    <result column="f_collect_time" property="fCollectTime" jdbcType="VARCHAR" />
+    <result column="f_houses_code" property="fHousesCode" jdbcType="VARCHAR" />
+    <result column="f_houses_id" property="fHousesId" jdbcType="VARCHAR" />
+    <result column="f_houses_name" property="fHousesName" jdbcType="VARCHAR" />
+    <result column="f_memo" property="fMemo" jdbcType="VARCHAR" />
+    <result column="f_qycar_code" property="fQycarCode" jdbcType="VARCHAR" />
+    <result column="f_qycar_id" property="fQycarId" jdbcType="VARCHAR" />
+    <result column="f_qyman_id" property="fQymanId" jdbcType="VARCHAR" />
+    <result column="f_qyman_name" property="fQymanName" jdbcType="VARCHAR" />
+    <result column="f_rubbish_type_code" property="fRubbishTypeCode" jdbcType="VARCHAR" />
+    <result column="f_rubbish_type_id" property="fRubbishTypeId" jdbcType="VARCHAR" />
+    <result column="f_rubbish_type_name" property="fRubbishTypeName" jdbcType="VARCHAR" />
+    <result column="f_weight" property="fWeight" jdbcType="DOUBLE" />
+    <result column="f_work_point_code" property="fWorkPointCode" jdbcType="VARCHAR" />
+    <result column="f_work_point_id" property="fWorkPointId" jdbcType="VARCHAR" />
+    <result column="f_work_point_name" property="fWorkPointName" jdbcType="VARCHAR" />
+    <result column="f_trash_can_id" property="fTrashCanId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, auditId, businessSystemId, 
+    tenantId, divisionTime, f_collect_time, f_houses_code, f_houses_id, f_houses_name, 
+    f_memo, f_qycar_code, f_qycar_id, f_qyman_id, f_qyman_name, f_rubbish_type_code, 
+    f_rubbish_type_id, f_rubbish_type_name, f_weight, f_work_point_code, f_work_point_id, 
+    f_work_point_name, f_trash_can_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_collect_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_collect_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflCollectRecord" >
+    insert into ljfl_collect_record (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      auditId, businessSystemId, tenantId, 
+      divisionTime, f_collect_time, f_houses_code, 
+      f_houses_id, f_houses_name, f_memo, 
+      f_qycar_code, f_qycar_id, f_qyman_id, 
+      f_qyman_name, f_rubbish_type_code, f_rubbish_type_id, 
+      f_rubbish_type_name, f_weight, f_work_point_code, 
+      f_work_point_id, f_work_point_name, f_trash_can_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{auditid,jdbcType=VARCHAR}, #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, 
+      #{divisiontime,jdbcType=TIMESTAMP}, #{fCollectTime,jdbcType=VARCHAR}, #{fHousesCode,jdbcType=VARCHAR}, 
+      #{fHousesId,jdbcType=VARCHAR}, #{fHousesName,jdbcType=VARCHAR}, #{fMemo,jdbcType=VARCHAR}, 
+      #{fQycarCode,jdbcType=VARCHAR}, #{fQycarId,jdbcType=VARCHAR}, #{fQymanId,jdbcType=VARCHAR}, 
+      #{fQymanName,jdbcType=VARCHAR}, #{fRubbishTypeCode,jdbcType=VARCHAR}, #{fRubbishTypeId,jdbcType=VARCHAR}, 
+      #{fRubbishTypeName,jdbcType=VARCHAR}, #{fWeight,jdbcType=DOUBLE}, #{fWorkPointCode,jdbcType=VARCHAR}, 
+      #{fWorkPointId,jdbcType=VARCHAR}, #{fWorkPointName,jdbcType=VARCHAR}, #{fTrashCanId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflCollectRecord" >
+    insert into ljfl_collect_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime,
+      </if>
+      <if test="fCollectTime != null" >
+        f_collect_time,
+      </if>
+      <if test="fHousesCode != null" >
+        f_houses_code,
+      </if>
+      <if test="fHousesId != null" >
+        f_houses_id,
+      </if>
+      <if test="fHousesName != null" >
+        f_houses_name,
+      </if>
+      <if test="fMemo != null" >
+        f_memo,
+      </if>
+      <if test="fQycarCode != null" >
+        f_qycar_code,
+      </if>
+      <if test="fQycarId != null" >
+        f_qycar_id,
+      </if>
+      <if test="fQymanId != null" >
+        f_qyman_id,
+      </if>
+      <if test="fQymanName != null" >
+        f_qyman_name,
+      </if>
+      <if test="fRubbishTypeCode != null" >
+        f_rubbish_type_code,
+      </if>
+      <if test="fRubbishTypeId != null" >
+        f_rubbish_type_id,
+      </if>
+      <if test="fRubbishTypeName != null" >
+        f_rubbish_type_name,
+      </if>
+      <if test="fWeight != null" >
+        f_weight,
+      </if>
+      <if test="fWorkPointCode != null" >
+        f_work_point_code,
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id,
+      </if>
+      <if test="fWorkPointName != null" >
+        f_work_point_name,
+      </if>
+      <if test="fTrashCanId != null" >
+        f_trash_can_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fCollectTime != null" >
+        #{fCollectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesCode != null" >
+        #{fHousesCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesId != null" >
+        #{fHousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesName != null" >
+        #{fHousesName,jdbcType=VARCHAR},
+      </if>
+      <if test="fMemo != null" >
+        #{fMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="fQycarCode != null" >
+        #{fQycarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fQycarId != null" >
+        #{fQycarId,jdbcType=VARCHAR},
+      </if>
+      <if test="fQymanId != null" >
+        #{fQymanId,jdbcType=VARCHAR},
+      </if>
+      <if test="fQymanName != null" >
+        #{fQymanName,jdbcType=VARCHAR},
+      </if>
+      <if test="fRubbishTypeCode != null" >
+        #{fRubbishTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fRubbishTypeId != null" >
+        #{fRubbishTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fRubbishTypeName != null" >
+        #{fRubbishTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="fWeight != null" >
+        #{fWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fWorkPointCode != null" >
+        #{fWorkPointCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointName != null" >
+        #{fWorkPointName,jdbcType=VARCHAR},
+      </if>
+      <if test="fTrashCanId != null" >
+        #{fTrashCanId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflCollectRecord" >
+    update ljfl_collect_record
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fCollectTime != null" >
+        f_collect_time = #{fCollectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesCode != null" >
+        f_houses_code = #{fHousesCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesId != null" >
+        f_houses_id = #{fHousesId,jdbcType=VARCHAR},
+      </if>
+      <if test="fHousesName != null" >
+        f_houses_name = #{fHousesName,jdbcType=VARCHAR},
+      </if>
+      <if test="fMemo != null" >
+        f_memo = #{fMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="fQycarCode != null" >
+        f_qycar_code = #{fQycarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fQycarId != null" >
+        f_qycar_id = #{fQycarId,jdbcType=VARCHAR},
+      </if>
+      <if test="fQymanId != null" >
+        f_qyman_id = #{fQymanId,jdbcType=VARCHAR},
+      </if>
+      <if test="fQymanName != null" >
+        f_qyman_name = #{fQymanName,jdbcType=VARCHAR},
+      </if>
+      <if test="fRubbishTypeCode != null" >
+        f_rubbish_type_code = #{fRubbishTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fRubbishTypeId != null" >
+        f_rubbish_type_id = #{fRubbishTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fRubbishTypeName != null" >
+        f_rubbish_type_name = #{fRubbishTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="fWeight != null" >
+        f_weight = #{fWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fWorkPointCode != null" >
+        f_work_point_code = #{fWorkPointCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointName != null" >
+        f_work_point_name = #{fWorkPointName,jdbcType=VARCHAR},
+      </if>
+      <if test="fTrashCanId != null" >
+        f_trash_can_id = #{fTrashCanId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflCollectRecord" >
+    update ljfl_collect_record
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      f_collect_time = #{fCollectTime,jdbcType=VARCHAR},
+      f_houses_code = #{fHousesCode,jdbcType=VARCHAR},
+      f_houses_id = #{fHousesId,jdbcType=VARCHAR},
+      f_houses_name = #{fHousesName,jdbcType=VARCHAR},
+      f_memo = #{fMemo,jdbcType=VARCHAR},
+      f_qycar_code = #{fQycarCode,jdbcType=VARCHAR},
+      f_qycar_id = #{fQycarId,jdbcType=VARCHAR},
+      f_qyman_id = #{fQymanId,jdbcType=VARCHAR},
+      f_qyman_name = #{fQymanName,jdbcType=VARCHAR},
+      f_rubbish_type_code = #{fRubbishTypeCode,jdbcType=VARCHAR},
+      f_rubbish_type_id = #{fRubbishTypeId,jdbcType=VARCHAR},
+      f_rubbish_type_name = #{fRubbishTypeName,jdbcType=VARCHAR},
+      f_weight = #{fWeight,jdbcType=DOUBLE},
+      f_work_point_code = #{fWorkPointCode,jdbcType=VARCHAR},
+      f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      f_work_point_name = #{fWorkPointName,jdbcType=VARCHAR},
+      f_trash_can_id = #{fTrashCanId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+        <select id="selecCollectRecordTotalSize" parameterType="com.sczh.platform.po.Model.PageModelDomain"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM 	   
+    
+    <if test="tableName != null" >
+     ${tableName}
+      </if>
+      
+   	  where
+   		 1=1
+   		   <if test="beendeleted != null and beendeleted != ''" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="tenantid != null and tenantid != ''" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fCode != null and fCode != ''" >
+      and
+        f_work_point_code = #{fCode,jdbcType=VARCHAR}
+      </if>
+      <if test="fName != null and fName != ''" >
+      and
+        f_work_point_name = #{fName,jdbcType=VARCHAR}
+      </if>
+         <if test="fQymanId != null and fQymanId != ''" >
+      and
+        f_qyman_id = #{fQymanId,jdbcType=VARCHAR}
+      </if>
+      <if test="houseSelected != null and houseSelected != ''" >
+      and
+        f_houses_id = #{houseSelected,jdbcType=VARCHAR}
+      </if>
+          <if test="fLjflTypeId != null and fLjflTypeId != ''" >
+      and
+        f_rubbish_type_id = #{fLjflTypeId,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null and startTime != ''" >
+      and
+        f_collect_time  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endTime != null and endTime != ''" >
+      and
+        f_collect_time &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+	
+  </select>
+     <select id="selecCollectRecordByDateTotal" parameterType="com.sczh.platform.po.Model.PageModelDomain"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM 
+    
+     <if test="tableName != null" >
+     ${tableName}
+      </if>
+      
+   	  where
+   	  1 =1
+   			   <if test="beendeleted != null and beendeleted != ''" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="tenantid != null and tenantid != ''" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   	   <if test="fCode != null and fCode != ''" >
+      and
+        f_work_point_code = #{fCode,jdbcType=VARCHAR}
+      </if>
+      <if test="fName != null and fName != ''" >
+      and
+        f_work_point_name = #{fName,jdbcType=VARCHAR}
+      </if>
+         <if test="fQymanId != null and fQymanId != ''" >
+      and
+        f_qyman_id = #{fQymanId,jdbcType=VARCHAR}
+      </if>
+      <if test="houseSelected != null and houseSelected != ''" >
+      and
+        f_houses_id = #{houseSelected,jdbcType=VARCHAR}
+      </if>
+          <if test="fLjflTypeId != null and fLjflTypeId != ''" >
+      and
+        f_rubbish_type_id = #{fLjflTypeId,jdbcType=VARCHAR}
+      </if>
+         <if test="startTime != null and startTime != ''" >
+      and
+        f_collect_time  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endTime != null and endTime != ''" >
+      and
+        f_collect_time &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+	
+      order BY f_collect_time
+        <if test="currentNum != null and pageSize != 0" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${pageSize}
+      </if>
+	
+  </select>
+</mapper>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflAccountModifyMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflAccountModify" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="f_add_balance" property="fAddBalance" jdbcType="DOUBLE" />
+    <result column="f_add_score" property="fAddScore" jdbcType="DOUBLE" />
+    <result column="f_modify_user_id" property="fModifyUserId" jdbcType="VARCHAR" />
+    <result column="f_modify_user_name" property="fModifyUserName" jdbcType="VARCHAR" />
+    <result column="f_staff_detail_id" property="fStaffDetailId" jdbcType="VARCHAR" />
+    <result column="f_memo" property="fMemo" jdbcType="VARCHAR" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, f_add_balance, f_add_score, f_modify_user_id, f_modify_user_name, f_staff_detail_id, 
+    f_memo, auditId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_account_modify
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_account_modify
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflAccountModify" >
+    insert into ljfl_account_modify (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, f_add_balance, 
+      f_add_score, f_modify_user_id, f_modify_user_name, 
+      f_staff_detail_id, f_memo, auditId
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{fAddBalance,jdbcType=DOUBLE}, 
+      #{fAddScore,jdbcType=DOUBLE}, #{fModifyUserId,jdbcType=VARCHAR}, #{fModifyUserName,jdbcType=VARCHAR}, 
+      #{fStaffDetailId,jdbcType=VARCHAR}, #{fMemo,jdbcType=VARCHAR}, #{auditid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflAccountModify" >
+    insert into ljfl_account_modify
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="fAddBalance != null" >
+        f_add_balance,
+      </if>
+      <if test="fAddScore != null" >
+        f_add_score,
+      </if>
+      <if test="fModifyUserId != null" >
+        f_modify_user_id,
+      </if>
+      <if test="fModifyUserName != null" >
+        f_modify_user_name,
+      </if>
+      <if test="fStaffDetailId != null" >
+        f_staff_detail_id,
+      </if>
+      <if test="fMemo != null" >
+        f_memo,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fAddBalance != null" >
+        #{fAddBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="fAddScore != null" >
+        #{fAddScore,jdbcType=DOUBLE},
+      </if>
+      <if test="fModifyUserId != null" >
+        #{fModifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="fModifyUserName != null" >
+        #{fModifyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffDetailId != null" >
+        #{fStaffDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="fMemo != null" >
+        #{fMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflAccountModify" >
+    update ljfl_account_modify
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fAddBalance != null" >
+        f_add_balance = #{fAddBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="fAddScore != null" >
+        f_add_score = #{fAddScore,jdbcType=DOUBLE},
+      </if>
+      <if test="fModifyUserId != null" >
+        f_modify_user_id = #{fModifyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="fModifyUserName != null" >
+        f_modify_user_name = #{fModifyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="fStaffDetailId != null" >
+        f_staff_detail_id = #{fStaffDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="fMemo != null" >
+        f_memo = #{fMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflAccountModify" >
+    update ljfl_account_modify
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_add_balance = #{fAddBalance,jdbcType=DOUBLE},
+      f_add_score = #{fAddScore,jdbcType=DOUBLE},
+      f_modify_user_id = #{fModifyUserId,jdbcType=VARCHAR},
+      f_modify_user_name = #{fModifyUserName,jdbcType=VARCHAR},
+      f_staff_detail_id = #{fStaffDetailId,jdbcType=VARCHAR},
+      f_memo = #{fMemo,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+    <select id="selectAccoountModityInfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_account_modify
+    where f_modify_user_name regexp '${modifyusername}'
+    order by f_add_score
+  </select>
+    <select id="selectAccoountModityInfoList1" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_account_modify
+    order by f_add_score 
+  </select>
+  
+  <select id="selectAccoountModityInfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from ljfl_account_modify
+  where f_modify_user_name regexp '${modifyusername}'
+  </select>
+   <select id="selectAccoountModityInfoList2" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ljfl_account_modify
+    where f_staff_detail_id = '${fstaffdetailid}'
+    order by f_add_score 
+  </select>
+  
+</mapper>

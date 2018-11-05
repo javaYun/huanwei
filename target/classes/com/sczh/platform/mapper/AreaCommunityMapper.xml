@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.AreaCommunityMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.AreaCommunity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="communitycode" property="communitycode" jdbcType="VARCHAR" />
+    <result column="areaId" property="areaid" jdbcType="VARCHAR" />
+    <result column="areaCode" property="areacode" jdbcType="VARCHAR" />
+    <result column="communityname" property="communityname" jdbcType="VARCHAR" />
+    <result column="communitydescribe" property="communitydescribe" jdbcType="VARCHAR" />
+    <result column="communityleader" property="communityleader" jdbcType="VARCHAR" />
+    <result column="communityStatus" property="communitystatus" jdbcType="VARCHAR" />
+    <result column="setuptime" property="setuptime" jdbcType="DATE" />
+    <result column="changetime" property="changetime" jdbcType="DATE" />
+    <result column="parentId" property="parentid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, communitycode, areaId, areaCode, communityname, communitydescribe, communityleader, 
+    communityStatus, setuptime, changetime, parentId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from areacommunity
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from areacommunity
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.AreaCommunity" >
+    insert into areacommunity (id, communitycode, areaId, 
+      areaCode, communityname, communitydescribe, 
+      communityleader, communityStatus, setuptime, 
+      changetime, parentId)
+    values (#{id,jdbcType=VARCHAR}, #{communitycode,jdbcType=VARCHAR}, #{areaid,jdbcType=VARCHAR}, 
+      #{areacode,jdbcType=VARCHAR}, #{communityname,jdbcType=VARCHAR}, #{communitydescribe,jdbcType=VARCHAR}, 
+      #{communityleader,jdbcType=VARCHAR}, #{communitystatus,jdbcType=VARCHAR}, #{setuptime,jdbcType=DATE}, 
+      #{changetime,jdbcType=DATE}, #{parentid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.AreaCommunity" >
+    insert into areacommunity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="communitycode != null" >
+        communitycode,
+      </if>
+      <if test="areaid != null" >
+        areaId,
+      </if>
+      <if test="areacode != null" >
+        areaCode,
+      </if>
+      <if test="communityname != null" >
+        communityname,
+      </if>
+      <if test="communitydescribe != null" >
+        communitydescribe,
+      </if>
+      <if test="communityleader != null" >
+        communityleader,
+      </if>
+      <if test="communitystatus != null" >
+        communityStatus,
+      </if>
+      <if test="setuptime != null" >
+        setuptime,
+      </if>
+      <if test="changetime != null" >
+        changetime,
+      </if>
+      <if test="parentid != null" >
+        parentId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="communitycode != null" >
+        #{communitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null" >
+        #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="communityname != null" >
+        #{communityname,jdbcType=VARCHAR},
+      </if>
+      <if test="communitydescribe != null" >
+        #{communitydescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="communityleader != null" >
+        #{communityleader,jdbcType=VARCHAR},
+      </if>
+      <if test="communitystatus != null" >
+        #{communitystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="changetime != null" >
+        #{changetime,jdbcType=DATE},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.AreaCommunity" >
+    update areacommunity
+    <set >
+      <if test="communitycode != null" >
+        communitycode = #{communitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        areaId = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null" >
+        areaCode = #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="communityname != null" >
+        communityname = #{communityname,jdbcType=VARCHAR},
+      </if>
+      <if test="communitydescribe != null" >
+        communitydescribe = #{communitydescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="communityleader != null" >
+        communityleader = #{communityleader,jdbcType=VARCHAR},
+      </if>
+      <if test="communitystatus != null" >
+        communityStatus = #{communitystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        setuptime = #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="changetime != null" >
+        changetime = #{changetime,jdbcType=DATE},
+      </if>
+      <if test="parentid != null" >
+        parentId = #{parentid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.AreaCommunity" >
+    update areacommunity
+    set communitycode = #{communitycode,jdbcType=VARCHAR},
+      areaId = #{areaid,jdbcType=VARCHAR},
+      areaCode = #{areacode,jdbcType=VARCHAR},
+      communityname = #{communityname,jdbcType=VARCHAR},
+      communitydescribe = #{communitydescribe,jdbcType=VARCHAR},
+      communityleader = #{communityleader,jdbcType=VARCHAR},
+      communityStatus = #{communitystatus,jdbcType=VARCHAR},
+      setuptime = #{setuptime,jdbcType=DATE},
+      changetime = #{changetime,jdbcType=DATE},
+      parentId = #{parentid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectareaCommunities" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from areacommunity
+  </select>
+  
+   <select id="selectAreaCommunitsByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from areacommunity
+      where communityname = #{areaName,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflSmartCardMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflSmartCard" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="f_bind_id" property="fBindId" jdbcType="VARCHAR" />
+    <result column="f_bind_name" property="fBindName" jdbcType="VARCHAR" />
+    <result column="f_bind_time" property="fBindTime" jdbcType="TIMESTAMP" />
+    <result column="f_bind_type" property="fBindType" jdbcType="INTEGER" />
+    <result column="f_c_code" property="fCCode" jdbcType="VARCHAR" />
+    <result column="f_code" property="fCode" jdbcType="VARCHAR" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="unitId" property="unitid" jdbcType="VARCHAR" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sczh.platform.po.LjflSmartCard" extends="BaseResultMap" >
+    <result column="f_memo" property="fMemo" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, f_bind_id, f_bind_name, f_bind_time, f_bind_type, f_c_code, f_code, auditId, 
+    userId, unitId, str1
+  </sql>
+  <sql id="Blob_Column_List" >
+    f_memo
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_smart_card
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_smart_card
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflSmartCard" >
+    insert into ljfl_smart_card (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, f_bind_id, 
+      f_bind_name, f_bind_time, f_bind_type, 
+      f_c_code, f_code, auditId, 
+      userId, unitId, str1, 
+      f_memo)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{fBindId,jdbcType=VARCHAR}, 
+      #{fBindName,jdbcType=VARCHAR}, #{fBindTime,jdbcType=TIMESTAMP}, #{fBindType,jdbcType=INTEGER}, 
+      #{fCCode,jdbcType=VARCHAR}, #{fCode,jdbcType=VARCHAR}, #{auditid,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{unitid,jdbcType=VARCHAR}, #{str1,jdbcType=VARCHAR}, 
+      #{fMemo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflSmartCard" >
+    insert into ljfl_smart_card
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="fBindId != null" >
+        f_bind_id,
+      </if>
+      <if test="fBindName != null" >
+        f_bind_name,
+      </if>
+      <if test="fBindTime != null" >
+        f_bind_time,
+      </if>
+      <if test="fBindType != null" >
+        f_bind_type,
+      </if>
+      <if test="fCCode != null" >
+        f_c_code,
+      </if>
+      <if test="fCode != null" >
+        f_code,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="unitid != null" >
+        unitId,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+      <if test="fMemo != null" >
+        f_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fBindId != null" >
+        #{fBindId,jdbcType=VARCHAR},
+      </if>
+      <if test="fBindName != null" >
+        #{fBindName,jdbcType=VARCHAR},
+      </if>
+      <if test="fBindTime != null" >
+        #{fBindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fBindType != null" >
+        #{fBindType,jdbcType=INTEGER},
+      </if>
+      <if test="fCCode != null" >
+        #{fCCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        #{unitid,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="fMemo != null" >
+        #{fMemo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflSmartCard" >
+    update ljfl_smart_card
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fBindId != null" >
+        f_bind_id = #{fBindId,jdbcType=VARCHAR},
+      </if>
+      <if test="fBindName != null" >
+        f_bind_name = #{fBindName,jdbcType=VARCHAR},
+      </if>
+      <if test="fBindTime != null" >
+        f_bind_time = #{fBindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fBindType != null" >
+        f_bind_type = #{fBindType,jdbcType=INTEGER},
+      </if>
+      <if test="fCCode != null" >
+        f_c_code = #{fCCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        f_code = #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        unitId = #{unitid,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="fMemo != null" >
+        f_memo = #{fMemo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sczh.platform.po.LjflSmartCard" >
+    update ljfl_smart_card
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_bind_id = #{fBindId,jdbcType=VARCHAR},
+      f_bind_name = #{fBindName,jdbcType=VARCHAR},
+      f_bind_time = #{fBindTime,jdbcType=TIMESTAMP},
+      f_bind_type = #{fBindType,jdbcType=INTEGER},
+      f_c_code = #{fCCode,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=VARCHAR},
+      unitId = #{unitid,jdbcType=VARCHAR},
+      str1 = #{str1,jdbcType=VARCHAR},
+      f_memo = #{fMemo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflSmartCard" >
+    update ljfl_smart_card
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_bind_id = #{fBindId,jdbcType=VARCHAR},
+      f_bind_name = #{fBindName,jdbcType=VARCHAR},
+      f_bind_time = #{fBindTime,jdbcType=TIMESTAMP},
+      f_bind_type = #{fBindType,jdbcType=INTEGER},
+      f_c_code = #{fCCode,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=VARCHAR},
+      unitId = #{unitid,jdbcType=VARCHAR},
+      str1 = #{str1,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <select id="selectByCcode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+  
+    from ljfl_smart_card
+    where  beenDeleted = 0
+and
+	f_c_code = #{fCCode,jdbcType=VARCHAR}
+  </select>
+  
+   <select id="selectByfBindId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+  
+    from ljfl_smart_card
+    where where  beenDeleted = 0
+and
+f_bind_id = #{fBindId,jdbcType=VARCHAR}
+  </select>
+   <select id="selectLjflSmartCardByParamters" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM ljfl_smart_card
+    
+   	  where
+   		 1=1
+   	 	    <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+   
+        <if test="userId != null" >
+      and
+        userId = #{userId,jdbcType=VARCHAR}
+      </if>
+           <if test="unitId != null" >
+      and
+        unitId = #{unitId,jdbcType=VARCHAR}
+      </if>
+            <if test="f_c_code != null" >
+      and
+        f_c_code = #{f_c_code,jdbcType=VARCHAR}
+      </if>
+           <if test="f_bind_name != null" >
+      and
+        f_bind_name = #{f_bind_name,jdbcType=VARCHAR}
+      </if>
+         <if test="f_bind_type != null" >
+      and
+        f_bind_type = #{f_bind_type,jdbcType=VARCHAR}
+      </if>
+	
+  </select>
+     <select id="selectLjflSmartCardByPamaters" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+       FROM ljfl_smart_card
+    
+   	  where
+   		 1=1
+   	 	    <if test="beendeleted != null" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+   
+        <if test="userId != null" >
+      and
+        userId = #{userId,jdbcType=VARCHAR}
+      </if>
+           <if test="unitId != null" >
+      and
+        unitId = #{unitId,jdbcType=VARCHAR}
+      </if>
+            <if test="f_c_code != null" >
+      and
+        f_c_code = #{f_c_code,jdbcType=VARCHAR}
+      </if>
+           <if test="f_bind_name != null" >
+      and
+        f_bind_name = #{f_bind_name,jdbcType=VARCHAR}
+      </if>
+         <if test="f_bind_type != null" >
+      and
+        f_bind_type = #{f_bind_type,jdbcType=VARCHAR}
+      </if>
+      order BY createTime
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	
+  </select>
+  <select id="selectljflsmartcard" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_smart_card
+  </select>
+</mapper>

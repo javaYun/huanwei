@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.DriverInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.DriverInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="drivername" property="drivername" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="nativePlace" property="nativeplace" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="educationlevel" property="educationlevel" jdbcType="VARCHAR" />
+    <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="jonCom" property="joncom" jdbcType="TIMESTAMP" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="mobilephone" property="mobilephone" jdbcType="VARCHAR" />
+    <result column="driverCard" property="drivercard" jdbcType="VARCHAR" />
+    <result column="cardunit" property="cardunit" jdbcType="VARCHAR" />
+    <result column="workno" property="workno" jdbcType="VARCHAR" />
+    <result column="drivertype" property="drivertype" jdbcType="VARCHAR" />
+    <result column="startdate" property="startdate" jdbcType="TIMESTAMP" />
+    <result column="enddate" property="enddate" jdbcType="TIMESTAMP" />
+    <result column="beizhu" property="beizhu" jdbcType="VARCHAR" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+    <result column="str2" property="str2" jdbcType="VARCHAR" />
+    <result column="str3" property="str3" jdbcType="VARCHAR" />
+    <result column="str4" property="str4" jdbcType="VARCHAR" />
+    <result column="str5" property="str5" jdbcType="VARCHAR" />
+    <result column="str6" property="str6" jdbcType="VARCHAR" />
+    <result column="str7" property="str7" jdbcType="VARCHAR" />
+    <result column="str8" property="str8" jdbcType="VARCHAR" />
+    <result column="unitID" property="unitid" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="unitName" property="unitname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, drivername, sex, nativePlace, nation, educationlevel, idcard, birthday, jonCom, 
+    address, telephone, mobilephone, driverCard, cardunit, workno, drivertype, startdate, 
+    enddate, beizhu, str1, str2, str3, str4, str5, str6, str7, str8, unitID, userId, 
+    unitName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from driverinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from driverinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.DriverInfo" >
+    insert into driverinfo (id, drivername, sex, 
+      nativePlace, nation, educationlevel, 
+      idcard, birthday, jonCom, 
+      address, telephone, mobilephone, 
+      driverCard, cardunit, workno, 
+      drivertype, startdate, enddate, 
+      beizhu, str1, str2, 
+      str3, str4, str5, str6, 
+      str7, str8, unitID, 
+      userId, unitName)
+    values (#{id,jdbcType=VARCHAR}, #{drivername,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{nativeplace,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{educationlevel,jdbcType=VARCHAR}, 
+      #{idcard,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{joncom,jdbcType=TIMESTAMP}, 
+      #{address,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{mobilephone,jdbcType=VARCHAR}, 
+      #{drivercard,jdbcType=VARCHAR}, #{cardunit,jdbcType=VARCHAR}, #{workno,jdbcType=VARCHAR}, 
+      #{drivertype,jdbcType=VARCHAR}, #{startdate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, 
+      #{beizhu,jdbcType=VARCHAR}, #{str1,jdbcType=VARCHAR}, #{str2,jdbcType=VARCHAR}, 
+      #{str3,jdbcType=VARCHAR}, #{str4,jdbcType=VARCHAR}, #{str5,jdbcType=VARCHAR}, #{str6,jdbcType=VARCHAR}, 
+      #{str7,jdbcType=VARCHAR}, #{str8,jdbcType=VARCHAR}, #{unitid,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{unitname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.DriverInfo" >
+    insert into driverinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="drivername != null" >
+        drivername,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="nativeplace != null" >
+        nativePlace,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="educationlevel != null" >
+        educationlevel,
+      </if>
+      <if test="idcard != null" >
+        idcard,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="joncom != null" >
+        jonCom,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="mobilephone != null" >
+        mobilephone,
+      </if>
+      <if test="drivercard != null" >
+        driverCard,
+      </if>
+      <if test="cardunit != null" >
+        cardunit,
+      </if>
+      <if test="workno != null" >
+        workno,
+      </if>
+      <if test="drivertype != null" >
+        drivertype,
+      </if>
+      <if test="startdate != null" >
+        startdate,
+      </if>
+      <if test="enddate != null" >
+        enddate,
+      </if>
+      <if test="beizhu != null" >
+        beizhu,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+      <if test="str2 != null" >
+        str2,
+      </if>
+      <if test="str3 != null" >
+        str3,
+      </if>
+      <if test="str4 != null" >
+        str4,
+      </if>
+      <if test="str5 != null" >
+        str5,
+      </if>
+      <if test="str6 != null" >
+        str6,
+      </if>
+      <if test="str7 != null" >
+        str7,
+      </if>
+      <if test="str8 != null" >
+        str8,
+      </if>
+      <if test="unitid != null" >
+        unitID,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="unitname != null" >
+        unitName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="drivername != null" >
+        #{drivername,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null" >
+        #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="educationlevel != null" >
+        #{educationlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="joncom != null" >
+        #{joncom,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="drivercard != null" >
+        #{drivercard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardunit != null" >
+        #{cardunit,jdbcType=VARCHAR},
+      </if>
+      <if test="workno != null" >
+        #{workno,jdbcType=VARCHAR},
+      </if>
+      <if test="drivertype != null" >
+        #{drivertype,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beizhu != null" >
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        #{str4,jdbcType=VARCHAR},
+      </if>
+      <if test="str5 != null" >
+        #{str5,jdbcType=VARCHAR},
+      </if>
+      <if test="str6 != null" >
+        #{str6,jdbcType=VARCHAR},
+      </if>
+      <if test="str7 != null" >
+        #{str7,jdbcType=VARCHAR},
+      </if>
+      <if test="str8 != null" >
+        #{str8,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        #{unitid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null" >
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.DriverInfo" >
+    update driverinfo
+    <set >
+      <if test="drivername != null" >
+        drivername = #{drivername,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null" >
+        nativePlace = #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="educationlevel != null" >
+        educationlevel = #{educationlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="joncom != null" >
+        jonCom = #{joncom,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        mobilephone = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="drivercard != null" >
+        driverCard = #{drivercard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardunit != null" >
+        cardunit = #{cardunit,jdbcType=VARCHAR},
+      </if>
+      <if test="workno != null" >
+        workno = #{workno,jdbcType=VARCHAR},
+      </if>
+      <if test="drivertype != null" >
+        drivertype = #{drivertype,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        startdate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        enddate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beizhu != null" >
+        beizhu = #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        str2 = #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        str3 = #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        str4 = #{str4,jdbcType=VARCHAR},
+      </if>
+      <if test="str5 != null" >
+        str5 = #{str5,jdbcType=VARCHAR},
+      </if>
+      <if test="str6 != null" >
+        str6 = #{str6,jdbcType=VARCHAR},
+      </if>
+      <if test="str7 != null" >
+        str7 = #{str7,jdbcType=VARCHAR},
+      </if>
+      <if test="str8 != null" >
+        str8 = #{str8,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        unitID = #{unitid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null" >
+        unitName = #{unitname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.DriverInfo" >
+    update driverinfo
+    set drivername = #{drivername,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      nativePlace = #{nativeplace,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      educationlevel = #{educationlevel,jdbcType=VARCHAR},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      jonCom = #{joncom,jdbcType=TIMESTAMP},
+      address = #{address,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      mobilephone = #{mobilephone,jdbcType=VARCHAR},
+      driverCard = #{drivercard,jdbcType=VARCHAR},
+      cardunit = #{cardunit,jdbcType=VARCHAR},
+      workno = #{workno,jdbcType=VARCHAR},
+      drivertype = #{drivertype,jdbcType=VARCHAR},
+      startdate = #{startdate,jdbcType=TIMESTAMP},
+      enddate = #{enddate,jdbcType=TIMESTAMP},
+      beizhu = #{beizhu,jdbcType=VARCHAR},
+      str1 = #{str1,jdbcType=VARCHAR},
+      str2 = #{str2,jdbcType=VARCHAR},
+      str3 = #{str3,jdbcType=VARCHAR},
+      str4 = #{str4,jdbcType=VARCHAR},
+      str5 = #{str5,jdbcType=VARCHAR},
+      str6 = #{str6,jdbcType=VARCHAR},
+      str7 = #{str7,jdbcType=VARCHAR},
+      str8 = #{str8,jdbcType=VARCHAR},
+      unitID = #{unitid,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=VARCHAR},
+      unitName = #{unitname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+              <select id="getDriverInfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from driverinfo
+   order by birthday desc LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+         <select id="getDriverInfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from driverinfo
+  </select>
+    <delete id="deleteDriverInfoByPrimaryKeys" parameterType="map" >
+    delete from driverinfo
+    where 1=1 
+       <if test="idsList != null and idsList.size()>0">  
+    and id in 
+          <foreach collection="idsList" item="item" index="index" open="(" separator="," close=")">  
+              #{item}  
+           </foreach>  
+        </if>
+  </delete>
+           <select id="getDriverInfoListByUnit" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from driverinfo
+     where 
+      unitID =  ${unitid}
+   order by birthday desc LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+         <select id="getDriverInfoListTotalByUnit" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from driverinfo
+     where 
+      unitID =  ${unitid}
+  </select>
+</mapper>

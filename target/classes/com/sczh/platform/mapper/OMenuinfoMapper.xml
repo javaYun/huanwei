@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.OMenuinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.OMenuinfo" >
+    <id column="oid" property="oid" jdbcType="INTEGER" />
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pId" property="pId" jdbcType="VARCHAR" />
+    <result column="onclick" property="onclick" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    oid, id, name, pId, onclick
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from organization_menuinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from organization_menuinfo
+    where
+     <if test="id != null" >
+         oid = #{oid,jdbcType=INTEGER}
+      </if>
+    
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.OMenuinfo" >
+    insert into organization_menuinfo (oid, id, name, 
+      pId, onclick)
+    values (#{oid,jdbcType=INTEGER}, #{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{pId,jdbcType=VARCHAR}, #{onclick,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.OMenuinfo" >
+    insert into organization_menuinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        oid,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="pId != null" >
+        pId,
+      </if>
+      <if test="onclick != null" >
+        onclick,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="onclick != null" >
+        #{onclick,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.OMenuinfo" >
+    update organization_menuinfo
+    <set >
+      <if test="id != null" >
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null" >
+        pId = #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="onclick != null" >
+        onclick = #{onclick,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.OMenuinfo" >
+    update organization_menuinfo
+    set id = #{id,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      pId = #{pId,jdbcType=VARCHAR},
+      onclick = #{onclick,jdbcType=VARCHAR}
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <select id="selectOMenuInfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from organization_menuinfo
+  </select>
+  
+   <select id="selectByPid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from organization_menuinfo
+    where  pId = #{pId,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

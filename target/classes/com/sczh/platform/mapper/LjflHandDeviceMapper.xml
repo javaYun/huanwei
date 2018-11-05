@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflHandDeviceMapper">
+	<resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflHandDevice">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="lastChangeTime" property="lastchangetime"
+			jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+		<result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+		<result column="auditId" property="auditid" jdbcType="VARCHAR" />
+		<result column="businessSystemId" property="businesssystemid"
+			jdbcType="VARCHAR" />
+		<result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="lastLoginTime" property="lastlogintime"
+			jdbcType="TIMESTAMP" />
+		<result column="lastLoginUserId" property="lastloginuserid"
+			jdbcType="VARCHAR" />
+		<result column="latitude" property="latitude" jdbcType="DOUBLE" />
+		<result column="latitudeDone" property="latitudedone" jdbcType="DOUBLE" />
+		<result column="longitude" property="longitude" jdbcType="DOUBLE" />
+		<result column="longitudeDone" property="longitudedone"
+			jdbcType="DOUBLE" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, createTime, lastChangeTime, status, beenDeleted, deletedTime,
+		auditId, businessSystemId,
+		tenantId, address, code, lastLoginTime, lastLoginUserId, latitude,
+		latitudeDone,
+		longitude, longitudeDone
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from ljfl_hand_device
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from ljfl_hand_device
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.sczh.platform.po.LjflHandDevice">
+		insert into ljfl_hand_device (id, createTime, lastChangeTime,
+		status, beenDeleted, deletedTime,
+		auditId, businessSystemId, tenantId,
+		address, code, lastLoginTime,
+		lastLoginUserId, latitude, latitudeDone,
+		longitude, longitudeDone)
+		values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+		#{lastchangetime,jdbcType=TIMESTAMP},
+		#{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP},
+		#{auditid,jdbcType=VARCHAR}, #{businesssystemid,jdbcType=VARCHAR},
+		#{tenantid,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{lastlogintime,jdbcType=TIMESTAMP},
+		#{lastloginuserid,jdbcType=VARCHAR}, #{latitude,jdbcType=DOUBLE},
+		#{latitudedone,jdbcType=DOUBLE},
+		#{longitude,jdbcType=DOUBLE}, #{longitudedone,jdbcType=DOUBLE})
+	</insert>
+	<insert id="insertSelective" parameterType="com.sczh.platform.po.LjflHandDevice">
+		insert into ljfl_hand_device
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="createtime != null">
+				createTime,
+			</if>
+			<if test="lastchangetime != null">
+				lastChangeTime,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="beendeleted != null">
+				beenDeleted,
+			</if>
+			<if test="deletedtime != null">
+				deletedTime,
+			</if>
+			<if test="auditid != null">
+				auditId,
+			</if>
+			<if test="businesssystemid != null">
+				businessSystemId,
+			</if>
+			<if test="tenantid != null">
+				tenantId,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="code != null">
+				code,
+			</if>
+			<if test="lastlogintime != null">
+				lastLoginTime,
+			</if>
+			<if test="lastloginuserid != null">
+				lastLoginUserId,
+			</if>
+			<if test="latitude != null">
+				latitude,
+			</if>
+			<if test="latitudedone != null">
+				latitudeDone,
+			</if>
+			<if test="longitude != null">
+				longitude,
+			</if>
+			<if test="longitudedone != null">
+				longitudeDone,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lastchangetime != null">
+				#{lastchangetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="beendeleted != null">
+				#{beendeleted,jdbcType=INTEGER},
+			</if>
+			<if test="deletedtime != null">
+				#{deletedtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="auditid != null">
+				#{auditid,jdbcType=VARCHAR},
+			</if>
+			<if test="businesssystemid != null">
+				#{businesssystemid,jdbcType=VARCHAR},
+			</if>
+			<if test="tenantid != null">
+				#{tenantid,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="lastlogintime != null">
+				#{lastlogintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lastloginuserid != null">
+				#{lastloginuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="latitude != null">
+				#{latitude,jdbcType=DOUBLE},
+			</if>
+			<if test="latitudedone != null">
+				#{latitudedone,jdbcType=DOUBLE},
+			</if>
+			<if test="longitude != null">
+				#{longitude,jdbcType=DOUBLE},
+			</if>
+			<if test="longitudedone != null">
+				#{longitudedone,jdbcType=DOUBLE},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflHandDevice">
+		update ljfl_hand_device
+		<set>
+			<if test="createtime != null">
+				createTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lastchangetime != null">
+				lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="beendeleted != null">
+				beenDeleted = #{beendeleted,jdbcType=INTEGER},
+			</if>
+			<if test="deletedtime != null">
+				deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="auditid != null">
+				auditId = #{auditid,jdbcType=VARCHAR},
+			</if>
+			<if test="businesssystemid != null">
+				businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+			</if>
+			<if test="tenantid != null">
+				tenantId = #{tenantid,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null">
+				code = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="lastlogintime != null">
+				lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lastloginuserid != null">
+				lastLoginUserId = #{lastloginuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="latitude != null">
+				latitude = #{latitude,jdbcType=DOUBLE},
+			</if>
+			<if test="latitudedone != null">
+				latitudeDone = #{latitudedone,jdbcType=DOUBLE},
+			</if>
+			<if test="longitude != null">
+				longitude = #{longitude,jdbcType=DOUBLE},
+			</if>
+			<if test="longitudedone != null">
+				longitudeDone = #{longitudedone,jdbcType=DOUBLE},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflHandDevice">
+		update ljfl_hand_device
+		set createTime = #{createtime,jdbcType=TIMESTAMP},
+		lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+		status = #{status,jdbcType=INTEGER},
+		beenDeleted = #{beendeleted,jdbcType=INTEGER},
+		deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+		auditId = #{auditid,jdbcType=VARCHAR},
+		businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+		tenantId = #{tenantid,jdbcType=VARCHAR},
+		address = #{address,jdbcType=VARCHAR},
+		code = #{code,jdbcType=VARCHAR},
+		lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+		lastLoginUserId = #{lastloginuserid,jdbcType=VARCHAR},
+		latitude = #{latitude,jdbcType=DOUBLE},
+		latitudeDone = #{latitudedone,jdbcType=DOUBLE},
+		longitude = #{longitude,jdbcType=DOUBLE},
+		longitudeDone = #{longitudedone,jdbcType=DOUBLE}
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
+
+	<select id="selecthanddeviceinfos" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from ljfl_hand_device
+		where beenDeleted = '0'
+		and code regexp '${code}'
+		and lastLoginUserId regexp '${name}'
+		order by lastLoginTime DESC LIMIT
+		${startSize},
+		${endSize}
+	</select>
+
+	<select id="selecthanddeviceinfostotal" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from ljfl_hand_device
+		where beenDeleted = '0'
+		and code regexp '${code}'
+		and lastLoginUserId regexp '${name}'
+	</select>
+		<select id="selectByHandDevice" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from ljfl_hand_device
+		where beenDeleted = '0'
+		and code = #{code,jdbcType=VARCHAR}
+	</select>
+</mapper>

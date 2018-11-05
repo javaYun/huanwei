@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.DeptsMapper" >
+  <resultMap id="BasesResultMap" type="com.sczh.platform.po.Depts" >
+    <id column="deptId" property="deptId" jdbcType="INTEGER" />
+    <result column="deptName" property="deptName" jdbcType="VARCHAR" />
+    <result column="describe" property="describe" jdbcType="VARCHAR" />
+    <result column="variety" property="variety" jdbcType="VARCHAR" />
+    <result column="license" property="license" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  
+  
+  
+  <!-- 自定义 -->
+	<insert id="insertRegisterDepts" parameterType="com.sczh.platform.po.Depts" >
+		INSERT INTO depts (`deptName`, `describe`, `variety`, `license`) 
+		VALUES (#{deptName,jdbcType=VARCHAR}, #{describe,jdbcType=VARCHAR}, 
+		#{variety,jdbcType=VARCHAR}, #{license,jdbcType=VARCHAR})
+	</insert>
+	
+</mapper>

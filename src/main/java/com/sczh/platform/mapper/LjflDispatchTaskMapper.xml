@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflDispatchTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflDispatchTask" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="beginTime" property="begintime" jdbcType="TIMESTAMP" />
+    <result column="clearManId" property="clearmanid" jdbcType="VARCHAR" />
+    <result column="clearManName" property="clearmanname" jdbcType="VARCHAR" />
+    <result column="f_code" property="fCode" jdbcType="VARCHAR" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="responseMin" property="responsemin" jdbcType="INTEGER" />
+    <result column="taskStatus" property="taskstatus" jdbcType="VARCHAR" />
+    <result column="f_workPoint" property="fWorkpoint" jdbcType="VARCHAR" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+    <result column="divisionTime" property="divisiontime" jdbcType="TIMESTAMP" />
+    <result column="f_begin_time" property="fBeginTime" jdbcType="TIMESTAMP" />
+    <result column="f_clear_man_id" property="fClearManId" jdbcType="VARCHAR" />
+    <result column="f_clear_man_name" property="fClearManName" jdbcType="VARCHAR" />
+    <result column="f_end_time" property="fEndTime" jdbcType="TIMESTAMP" />
+    <result column="f_msg_push_time" property="fMsgPushTime" jdbcType="TIMESTAMP" />
+    <result column="f_response_min" property="fResponseMin" jdbcType="INTEGER" />
+    <result column="f_spill_over_type_code" property="fSpillOverTypeCode" jdbcType="VARCHAR" />
+    <result column="f_spill_over_type_id" property="fSpillOverTypeId" jdbcType="VARCHAR" />
+    <result column="f_spill_over_type_name" property="fSpillOverTypeName" jdbcType="VARCHAR" />
+    <result column="f_spill_over_value" property="fSpillOverValue" jdbcType="DOUBLE" />
+    <result column="f_task_status" property="fTaskStatus" jdbcType="VARCHAR" />
+    <result column="f_weight" property="fWeight" jdbcType="DOUBLE" />
+    <result column="f_rubbish_type_id" property="fRubbishTypeId" jdbcType="VARCHAR" />
+    <result column="f_work_point_id" property="fWorkPointId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sczh.platform.po.LjflDispatchTask" extends="BaseResultMap" >
+    <result column="rubbishType" property="rubbishtype" jdbcType="BINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, beginTime, clearManId, clearManName, f_code, endTime, responseMin, taskStatus, 
+    f_workPoint, auditId, divisionTime, f_begin_time, f_clear_man_id, f_clear_man_name, 
+    f_end_time, f_msg_push_time, f_response_min, f_spill_over_type_code, f_spill_over_type_id, 
+    f_spill_over_type_name, f_spill_over_value, f_task_status, f_weight, f_rubbish_type_id, 
+    f_work_point_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    rubbishType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_dispatch_task
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_dispatch_task
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflDispatchTask" >
+    insert into ljfl_dispatch_task (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, beginTime, 
+      clearManId, clearManName, f_code, 
+      endTime, responseMin, taskStatus, 
+      f_workPoint, auditId, divisionTime, 
+      f_begin_time, f_clear_man_id, f_clear_man_name, 
+      f_end_time, f_msg_push_time, f_response_min, 
+      f_spill_over_type_code, f_spill_over_type_id, f_spill_over_type_name, 
+      f_spill_over_value, f_task_status, f_weight, 
+      f_rubbish_type_id, f_work_point_id, rubbishType
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{begintime,jdbcType=TIMESTAMP}, 
+      #{clearmanid,jdbcType=VARCHAR}, #{clearmanname,jdbcType=VARCHAR}, #{fCode,jdbcType=VARCHAR}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{responsemin,jdbcType=INTEGER}, #{taskstatus,jdbcType=VARCHAR}, 
+      #{fWorkpoint,jdbcType=VARCHAR}, #{auditid,jdbcType=VARCHAR}, #{divisiontime,jdbcType=TIMESTAMP}, 
+      #{fBeginTime,jdbcType=TIMESTAMP}, #{fClearManId,jdbcType=VARCHAR}, #{fClearManName,jdbcType=VARCHAR}, 
+      #{fEndTime,jdbcType=TIMESTAMP}, #{fMsgPushTime,jdbcType=TIMESTAMP}, #{fResponseMin,jdbcType=INTEGER}, 
+      #{fSpillOverTypeCode,jdbcType=VARCHAR}, #{fSpillOverTypeId,jdbcType=VARCHAR}, #{fSpillOverTypeName,jdbcType=VARCHAR}, 
+      #{fSpillOverValue,jdbcType=DOUBLE}, #{fTaskStatus,jdbcType=VARCHAR}, #{fWeight,jdbcType=DOUBLE}, 
+      #{fRubbishTypeId,jdbcType=VARCHAR}, #{fWorkPointId,jdbcType=VARCHAR}, #{rubbishtype,jdbcType=BINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflDispatchTask" >
+    insert into ljfl_dispatch_task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="begintime != null" >
+        beginTime,
+      </if>
+      <if test="clearmanid != null" >
+        clearManId,
+      </if>
+      <if test="clearmanname != null" >
+        clearManName,
+      </if>
+      <if test="fCode != null" >
+        f_code,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="responsemin != null" >
+        responseMin,
+      </if>
+      <if test="taskstatus != null" >
+        taskStatus,
+      </if>
+      <if test="fWorkpoint != null" >
+        f_workPoint,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime,
+      </if>
+      <if test="fBeginTime != null" >
+        f_begin_time,
+      </if>
+      <if test="fClearManId != null" >
+        f_clear_man_id,
+      </if>
+      <if test="fClearManName != null" >
+        f_clear_man_name,
+      </if>
+      <if test="fEndTime != null" >
+        f_end_time,
+      </if>
+      <if test="fMsgPushTime != null" >
+        f_msg_push_time,
+      </if>
+      <if test="fResponseMin != null" >
+        f_response_min,
+      </if>
+      <if test="fSpillOverTypeCode != null" >
+        f_spill_over_type_code,
+      </if>
+      <if test="fSpillOverTypeId != null" >
+        f_spill_over_type_id,
+      </if>
+      <if test="fSpillOverTypeName != null" >
+        f_spill_over_type_name,
+      </if>
+      <if test="fSpillOverValue != null" >
+        f_spill_over_value,
+      </if>
+      <if test="fTaskStatus != null" >
+        f_task_status,
+      </if>
+      <if test="fWeight != null" >
+        f_weight,
+      </if>
+      <if test="fRubbishTypeId != null" >
+        f_rubbish_type_id,
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id,
+      </if>
+      <if test="rubbishtype != null" >
+        rubbishType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null" >
+        #{begintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clearmanid != null" >
+        #{clearmanid,jdbcType=VARCHAR},
+      </if>
+      <if test="clearmanname != null" >
+        #{clearmanname,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responsemin != null" >
+        #{responsemin,jdbcType=INTEGER},
+      </if>
+      <if test="taskstatus != null" >
+        #{taskstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkpoint != null" >
+        #{fWorkpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fBeginTime != null" >
+        #{fBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fClearManId != null" >
+        #{fClearManId,jdbcType=VARCHAR},
+      </if>
+      <if test="fClearManName != null" >
+        #{fClearManName,jdbcType=VARCHAR},
+      </if>
+      <if test="fEndTime != null" >
+        #{fEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fMsgPushTime != null" >
+        #{fMsgPushTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fResponseMin != null" >
+        #{fResponseMin,jdbcType=INTEGER},
+      </if>
+      <if test="fSpillOverTypeCode != null" >
+        #{fSpillOverTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpillOverTypeId != null" >
+        #{fSpillOverTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpillOverTypeName != null" >
+        #{fSpillOverTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpillOverValue != null" >
+        #{fSpillOverValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fTaskStatus != null" >
+        #{fTaskStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fWeight != null" >
+        #{fWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fRubbishTypeId != null" >
+        #{fRubbishTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="rubbishtype != null" >
+        #{rubbishtype,jdbcType=BINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflDispatchTask" >
+    update ljfl_dispatch_task
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null" >
+        beginTime = #{begintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clearmanid != null" >
+        clearManId = #{clearmanid,jdbcType=VARCHAR},
+      </if>
+      <if test="clearmanname != null" >
+        clearManName = #{clearmanname,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        f_code = #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responsemin != null" >
+        responseMin = #{responsemin,jdbcType=INTEGER},
+      </if>
+      <if test="taskstatus != null" >
+        taskStatus = #{taskstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkpoint != null" >
+        f_workPoint = #{fWorkpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="divisiontime != null" >
+        divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fBeginTime != null" >
+        f_begin_time = #{fBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fClearManId != null" >
+        f_clear_man_id = #{fClearManId,jdbcType=VARCHAR},
+      </if>
+      <if test="fClearManName != null" >
+        f_clear_man_name = #{fClearManName,jdbcType=VARCHAR},
+      </if>
+      <if test="fEndTime != null" >
+        f_end_time = #{fEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fMsgPushTime != null" >
+        f_msg_push_time = #{fMsgPushTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fResponseMin != null" >
+        f_response_min = #{fResponseMin,jdbcType=INTEGER},
+      </if>
+      <if test="fSpillOverTypeCode != null" >
+        f_spill_over_type_code = #{fSpillOverTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpillOverTypeId != null" >
+        f_spill_over_type_id = #{fSpillOverTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpillOverTypeName != null" >
+        f_spill_over_type_name = #{fSpillOverTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="fSpillOverValue != null" >
+        f_spill_over_value = #{fSpillOverValue,jdbcType=DOUBLE},
+      </if>
+      <if test="fTaskStatus != null" >
+        f_task_status = #{fTaskStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fWeight != null" >
+        f_weight = #{fWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="fRubbishTypeId != null" >
+        f_rubbish_type_id = #{fRubbishTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="fWorkPointId != null" >
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      </if>
+      <if test="rubbishtype != null" >
+        rubbishType = #{rubbishtype,jdbcType=BINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sczh.platform.po.LjflDispatchTask" >
+    update ljfl_dispatch_task
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      beginTime = #{begintime,jdbcType=TIMESTAMP},
+      clearManId = #{clearmanid,jdbcType=VARCHAR},
+      clearManName = #{clearmanname,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      responseMin = #{responsemin,jdbcType=INTEGER},
+      taskStatus = #{taskstatus,jdbcType=VARCHAR},
+      f_workPoint = #{fWorkpoint,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      f_begin_time = #{fBeginTime,jdbcType=TIMESTAMP},
+      f_clear_man_id = #{fClearManId,jdbcType=VARCHAR},
+      f_clear_man_name = #{fClearManName,jdbcType=VARCHAR},
+      f_end_time = #{fEndTime,jdbcType=TIMESTAMP},
+      f_msg_push_time = #{fMsgPushTime,jdbcType=TIMESTAMP},
+      f_response_min = #{fResponseMin,jdbcType=INTEGER},
+      f_spill_over_type_code = #{fSpillOverTypeCode,jdbcType=VARCHAR},
+      f_spill_over_type_id = #{fSpillOverTypeId,jdbcType=VARCHAR},
+      f_spill_over_type_name = #{fSpillOverTypeName,jdbcType=VARCHAR},
+      f_spill_over_value = #{fSpillOverValue,jdbcType=DOUBLE},
+      f_task_status = #{fTaskStatus,jdbcType=VARCHAR},
+      f_weight = #{fWeight,jdbcType=DOUBLE},
+      f_rubbish_type_id = #{fRubbishTypeId,jdbcType=VARCHAR},
+      f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR},
+      rubbishType = #{rubbishtype,jdbcType=BINARY}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflDispatchTask" >
+    update ljfl_dispatch_task
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      beginTime = #{begintime,jdbcType=TIMESTAMP},
+      clearManId = #{clearmanid,jdbcType=VARCHAR},
+      clearManName = #{clearmanname,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      responseMin = #{responsemin,jdbcType=INTEGER},
+      taskStatus = #{taskstatus,jdbcType=VARCHAR},
+      f_workPoint = #{fWorkpoint,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      divisionTime = #{divisiontime,jdbcType=TIMESTAMP},
+      f_begin_time = #{fBeginTime,jdbcType=TIMESTAMP},
+      f_clear_man_id = #{fClearManId,jdbcType=VARCHAR},
+      f_clear_man_name = #{fClearManName,jdbcType=VARCHAR},
+      f_end_time = #{fEndTime,jdbcType=TIMESTAMP},
+      f_msg_push_time = #{fMsgPushTime,jdbcType=TIMESTAMP},
+      f_response_min = #{fResponseMin,jdbcType=INTEGER},
+      f_spill_over_type_code = #{fSpillOverTypeCode,jdbcType=VARCHAR},
+      f_spill_over_type_id = #{fSpillOverTypeId,jdbcType=VARCHAR},
+      f_spill_over_type_name = #{fSpillOverTypeName,jdbcType=VARCHAR},
+      f_spill_over_value = #{fSpillOverValue,jdbcType=DOUBLE},
+      f_task_status = #{fTaskStatus,jdbcType=VARCHAR},
+      f_weight = #{fWeight,jdbcType=DOUBLE},
+      f_rubbish_type_id = #{fRubbishTypeId,jdbcType=VARCHAR},
+      f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <select id="selectDispatchTaskSizeByPamater" parameterType="com.sczh.platform.po.Model.PageModelDomain"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM 	   
+    
+   ljfl_dispatch_task
+      
+   	  where
+   		 1=1
+   		   <if test="beendeleted != null and beendeleted != ''" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="tenantid != null and tenantid != ''" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fWorkPointId != null and fWorkPointId != ''" >
+      and
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR}
+      </if>
+      <if test="fTaskStatus != null and fTaskStatus != ''" >
+      and
+        f_task_status = #{fTaskStatus,jdbcType=VARCHAR}
+      </if>
+         <if test="fQymanId != null and fQymanId != ''" >
+      and
+        clearManId = #{fQymanId,jdbcType=VARCHAR}
+      </if>
+      <if test="fLjflTypeId != null and fLjflTypeId != ''" >
+      and
+        f_rubbish_type_id = #{fLjflTypeId,jdbcType=VARCHAR}
+      </if>
+       
+ 
+	
+  </select>
+     <select id="selectDispatchTaskByPamaters" parameterType="com.sczh.platform.po.Model.PageModelDomain"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM 
+     
+   ljfl_dispatch_task
+      
+   	  where
+   		 1=1
+   		   <if test="beendeleted != null and beendeleted != ''" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="tenantid != null and tenantid != ''" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fWorkPointId != null and fWorkPointId != ''" >
+      and
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR}
+      </if>
+      <if test="fTaskStatus != null and fTaskStatus != ''" >
+      and
+        f_task_status = #{fTaskStatus,jdbcType=VARCHAR}
+      </if>
+         <if test="fQymanId != null and fQymanId != ''" >
+      and
+        clearManId = #{fQymanId,jdbcType=VARCHAR}
+      </if>
+      <if test="fLjflTypeId != null and fLjflTypeId != ''" >
+      and
+        f_rubbish_type_id = #{fLjflTypeId,jdbcType=VARCHAR}
+      </if>
+       
+ 
+      order BY beginTime
+        <if test="currentNum != null and pageSize != 0" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	</select>
+	
+	
+	   <select id="selecDispatchTaskHistorySize" parameterType="com.sczh.platform.po.Model.PageModelDomain"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM 	   
+    
+    ${tableName}
+      
+   	  where
+   		 1=1
+   		   <if test="beendeleted != null and beendeleted != ''" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="tenantid != null and tenantid != ''" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fWorkPointId != null and fWorkPointId != ''" >
+      and
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR}
+      </if>
+      <if test="fTaskStatus != null and fTaskStatus != ''" >
+      and
+        f_task_status = #{fTaskStatus,jdbcType=VARCHAR}
+      </if>
+         <if test="fQymanId != null and fQymanId != ''" >
+      and
+        clearManId = #{fQymanId,jdbcType=VARCHAR}
+      </if>
+      <if test="fLjflTypeId != null and fLjflTypeId != ''" >
+      and
+        f_rubbish_type_id = #{fLjflTypeId,jdbcType=VARCHAR}
+      </if>
+        <if test="startTime != null and startTime != ''" >
+      and
+        f_begin_time  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endTime != null and endTime != ''" >
+      and
+        f_begin_time &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+       
+ 
+	
+  </select>
+     <select id="selecDispatchTaskHistoryTotal" parameterType="com.sczh.platform.po.Model.PageModelDomain"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+  FROM 	  
+    ${tableName}
+      
+   	  where
+   		 1=1
+   		   <if test="beendeleted != null and beendeleted != ''" >
+      and
+        beenDeleted = #{beendeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="tenantid != null and tenantid != ''" >
+      and
+        tenantId = #{tenantid,jdbcType=VARCHAR}
+      </if>
+   		   <if test="fWorkPointId != null and fWorkPointId != ''" >
+      and
+        f_work_point_id = #{fWorkPointId,jdbcType=VARCHAR}
+      </if>
+      <if test="fTaskStatus != null and fTaskStatus != ''" >
+      and
+        f_task_status = #{fTaskStatus,jdbcType=VARCHAR}
+      </if>
+         <if test="fQymanId != null and fQymanId != ''" >
+      and
+        clearManId = #{fQymanId,jdbcType=VARCHAR}
+      </if>
+      <if test="fLjflTypeId != null and fLjflTypeId != ''" >
+      and
+        f_rubbish_type_id = #{fLjflTypeId,jdbcType=VARCHAR}
+      </if>
+        <if test="startTime != null and startTime != ''" >
+      and
+        f_begin_time  &gt;=  #{startTime,jdbcType=VARCHAR}
+      </if>
+      
+         <if test="endTime != null and endTime != ''" >
+      and
+        f_begin_time &lt;= #{endTime,jdbcType=VARCHAR}
+      </if>
+ 
+      order BY f_begin_time
+        <if test="currentNum != null and pageSize != 0" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+	</select>
+</mapper>

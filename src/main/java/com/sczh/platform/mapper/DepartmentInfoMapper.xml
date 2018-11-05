@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.DepartmentInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.DepartmentInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="departmentcode" property="departmentcode" jdbcType="VARCHAR" />
+    <result column="unitcode" property="unitcode" jdbcType="VARCHAR" />
+    <result column="departmentname" property="departmentname" jdbcType="VARCHAR" />
+    <result column="departmentdescribe" property="departmentdescribe" jdbcType="VARCHAR" />
+    <result column="departmentleader" property="departmentleader" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="setuptime" property="setuptime" jdbcType="DATE" />
+    <result column="changetime" property="changetime" jdbcType="DATE" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, departmentcode, unitcode, departmentname, departmentdescribe, departmentleader, 
+    state, setuptime, changetime, pid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from departmentmanage
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from departmentmanage
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.DepartmentInfo" >
+    insert into departmentmanage (id, departmentcode, unitcode, 
+      departmentname, departmentdescribe, departmentleader, 
+      state, setuptime, changetime, 
+      pid)
+    values (#{id,jdbcType=INTEGER}, #{departmentcode,jdbcType=VARCHAR}, #{unitcode,jdbcType=VARCHAR}, 
+      #{departmentname,jdbcType=VARCHAR}, #{departmentdescribe,jdbcType=VARCHAR}, #{departmentleader,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{setuptime,jdbcType=DATE}, #{changetime,jdbcType=DATE}, 
+      #{pid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.DepartmentInfo" >
+    insert into departmentmanage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="departmentcode != null" >
+        departmentcode,
+      </if>
+      <if test="unitcode != null" >
+        unitcode,
+      </if>
+      <if test="departmentname != null" >
+        departmentname,
+      </if>
+      <if test="departmentdescribe != null" >
+        departmentdescribe,
+      </if>
+      <if test="departmentleader != null" >
+        departmentleader,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="setuptime != null" >
+        setuptime,
+      </if>
+      <if test="changetime != null" >
+        changetime,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="departmentcode != null" >
+        #{departmentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitcode != null" >
+        #{unitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentname != null" >
+        #{departmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentdescribe != null" >
+        #{departmentdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentleader != null" >
+        #{departmentleader,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="changetime != null" >
+        #{changetime,jdbcType=DATE},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.DepartmentInfo" >
+    update departmentmanage
+    <set >
+      <if test="departmentcode != null" >
+        departmentcode = #{departmentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitcode != null" >
+        unitcode = #{unitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentname != null" >
+        departmentname = #{departmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentdescribe != null" >
+        departmentdescribe = #{departmentdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentleader != null" >
+        departmentleader = #{departmentleader,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        setuptime = #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="changetime != null" >
+        changetime = #{changetime,jdbcType=DATE},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.DepartmentInfo" >
+    update departmentmanage
+    set departmentcode = #{departmentcode,jdbcType=VARCHAR},
+      unitcode = #{unitcode,jdbcType=VARCHAR},
+      departmentname = #{departmentname,jdbcType=VARCHAR},
+      departmentdescribe = #{departmentdescribe,jdbcType=VARCHAR},
+      departmentleader = #{departmentleader,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      setuptime = #{setuptime,jdbcType=DATE},
+      changetime = #{changetime,jdbcType=DATE},
+      pid = #{pid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+   <select id="selectDepartmentinfoList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from departmentmanage
+  </select>
+  <select id="selectByUnitCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from departmentmanage
+   where unitcode = #{unitcode,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByDepartmentCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from departmentmanage
+   where departmentcode = #{departmentcode,jdbcType=VARCHAR}
+  </select>
+</mapper>

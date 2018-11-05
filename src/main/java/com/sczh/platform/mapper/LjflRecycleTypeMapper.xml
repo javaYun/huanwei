@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.LjflRecycleTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.LjflRecycleType" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="f_balance_formula" property="fBalanceFormula" jdbcType="VARCHAR" />
+    <result column="f_code" property="fCode" jdbcType="VARCHAR" />
+    <result column="f_name" property="fName" jdbcType="VARCHAR" />
+    <result column="f_order_index" property="fOrderIndex" jdbcType="INTEGER" />
+    <result column="f_rubbish_type_id" property="fRubbishTypeId" jdbcType="VARCHAR" />
+    <result column="auditId" property="auditid" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sczh.platform.po.LjflRecycleType" extends="BaseResultMap" >
+    <result column="f_memo" property="fMemo" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, f_balance_formula, f_code, f_name, f_order_index, f_rubbish_type_id, auditId
+  </sql>
+  <sql id="Blob_Column_List" >
+    f_memo
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_recycle_type
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ljfl_recycle_type
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.LjflRecycleType" >
+    insert into ljfl_recycle_type (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, f_balance_formula, 
+      f_code, f_name, f_order_index, 
+      f_rubbish_type_id, auditId, f_memo
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{fBalanceFormula,jdbcType=VARCHAR}, 
+      #{fCode,jdbcType=VARCHAR}, #{fName,jdbcType=VARCHAR}, #{fOrderIndex,jdbcType=INTEGER}, 
+      #{fRubbishTypeId,jdbcType=VARCHAR}, #{auditid,jdbcType=VARCHAR}, #{fMemo,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.LjflRecycleType" >
+    insert into ljfl_recycle_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="fBalanceFormula != null" >
+        f_balance_formula,
+      </if>
+      <if test="fCode != null" >
+        f_code,
+      </if>
+      <if test="fName != null" >
+        f_name,
+      </if>
+      <if test="fOrderIndex != null" >
+        f_order_index,
+      </if>
+      <if test="fRubbishTypeId != null" >
+        f_rubbish_type_id,
+      </if>
+      <if test="auditid != null" >
+        auditId,
+      </if>
+      <if test="fMemo != null" >
+        f_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fBalanceFormula != null" >
+        #{fBalanceFormula,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null" >
+        #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fOrderIndex != null" >
+        #{fOrderIndex,jdbcType=INTEGER},
+      </if>
+      <if test="fRubbishTypeId != null" >
+        #{fRubbishTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="fMemo != null" >
+        #{fMemo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.LjflRecycleType" >
+    update ljfl_recycle_type
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fBalanceFormula != null" >
+        f_balance_formula = #{fBalanceFormula,jdbcType=VARCHAR},
+      </if>
+      <if test="fCode != null" >
+        f_code = #{fCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null" >
+        f_name = #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fOrderIndex != null" >
+        f_order_index = #{fOrderIndex,jdbcType=INTEGER},
+      </if>
+      <if test="fRubbishTypeId != null" >
+        f_rubbish_type_id = #{fRubbishTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditid != null" >
+        auditId = #{auditid,jdbcType=VARCHAR},
+      </if>
+      <if test="fMemo != null" >
+        f_memo = #{fMemo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sczh.platform.po.LjflRecycleType" >
+    update ljfl_recycle_type
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_balance_formula = #{fBalanceFormula,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      f_name = #{fName,jdbcType=VARCHAR},
+      f_order_index = #{fOrderIndex,jdbcType=INTEGER},
+      f_rubbish_type_id = #{fRubbishTypeId,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR},
+      f_memo = #{fMemo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.LjflRecycleType" >
+    update ljfl_recycle_type
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_balance_formula = #{fBalanceFormula,jdbcType=VARCHAR},
+      f_code = #{fCode,jdbcType=VARCHAR},
+      f_name = #{fName,jdbcType=VARCHAR},
+      f_order_index = #{fOrderIndex,jdbcType=INTEGER},
+      f_rubbish_type_id = #{fRubbishTypeId,jdbcType=VARCHAR},
+      auditId = #{auditid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <select id="selectByTenantId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id,f_order_index,f_name,f_rubbish_type_id
+    from ljfl_recycle_type
+    where tenantId = #{tenantid,jdbcType=VARCHAR}
+  </select>
+         <select id="selectLjflTypeListByParamters" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM ljfl_recycle_type
+    
+   	  where
+   		 1=1
+      <if test="beendeleted != null" >
+      and
+       beenDeleted = #{beendeleted,jdbcType=INTEGER}
+      </if>
+     
+      order BY createTime
+      
+	
+  </select>
+           <select id="selectRecycleTypeByPamaters" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM ljfl_recycle_type
+    
+   	  where
+   		 1=1
+      <if test="beendeleted != null" >
+      and
+       beenDeleted = #{beendeleted,jdbcType=INTEGER}
+      </if>
+    
+       <if test="fName != null" >
+      and
+        f_name = #{fName,jdbcType=VARCHAR}
+      </if>
+         <if test="fCode != null" >
+      and
+        f_code =  #{fCode,jdbcType=VARCHAR}
+      </if>
+       
+      order BY f_order_index
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${endNum}
+      </if>
+     
+
+      
+	
+  </select>
+   <select id="selectRecycleTypeByPamaterSize" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    count(*)
+    FROM ljfl_recycle_type
+    
+   	  where
+   		 1=1
+   		   <if test="beendeleted != null" >
+      and
+       beenDeleted = #{beendeleted,jdbcType=INTEGER}
+      </if>
+      
+       <if test="fName != null" >
+      and
+        f_name = #{fName,jdbcType=VARCHAR}
+      </if>
+         <if test="fCode != null" >
+      and
+        f_code =  #{fCode,jdbcType=VARCHAR}
+      </if>
+       
+      order BY f_order_index
+	
+  </select>
+  <select id="selectrecycletypebyname" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ljfl_recycle_type
+    where  f_name = #{name,jdbcType=VARCHAR}
+  </select>
+</mapper>

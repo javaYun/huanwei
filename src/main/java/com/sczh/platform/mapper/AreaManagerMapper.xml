@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.AreaManagerMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.AreaManager" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="personcode" property="personcode" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="setuptime" property="setuptime" jdbcType="DATE" />
+    <result column="changetime" property="changetime" jdbcType="DATE" />
+    <result column="areaId" property="areaid" jdbcType="VARCHAR" />
+    <result column="areaname" property="areaname" jdbcType="VARCHAR" />
+    <result column="departmentname" property="departmentname" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+    <result column="str2" property="str2" jdbcType="VARCHAR" />
+    <result column="str3" property="str3" jdbcType="VARCHAR" />
+    <result column="str4" property="str4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, personcode, name, role, status, setuptime, changetime, areaId, areaname, departmentname, 
+    pid, userId, userName, password, str1, str2, str3, str4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from areamanager
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from areamanager
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.AreaManager" >
+    insert into areamanager (id, personcode, name, 
+      role, status, setuptime, 
+      changetime, areaId, areaname, 
+      departmentname, pid, userId, 
+      userName, password, str1, 
+      str2, str3, str4)
+    values (#{id,jdbcType=VARCHAR}, #{personcode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{role,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{setuptime,jdbcType=DATE}, 
+      #{changetime,jdbcType=DATE}, #{areaid,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, 
+      #{departmentname,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{str1,jdbcType=VARCHAR}, 
+      #{str2,jdbcType=VARCHAR}, #{str3,jdbcType=VARCHAR}, #{str4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.AreaManager" >
+    insert into areamanager
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="personcode != null" >
+        personcode,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="setuptime != null" >
+        setuptime,
+      </if>
+      <if test="changetime != null" >
+        changetime,
+      </if>
+      <if test="areaid != null" >
+        areaId,
+      </if>
+      <if test="areaname != null" >
+        areaname,
+      </if>
+      <if test="departmentname != null" >
+        departmentname,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+      <if test="str2 != null" >
+        str2,
+      </if>
+      <if test="str3 != null" >
+        str3,
+      </if>
+      <if test="str4 != null" >
+        str4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="personcode != null" >
+        #{personcode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="changetime != null" >
+        #{changetime,jdbcType=DATE},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentname != null" >
+        #{departmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        #{str4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.AreaManager" >
+    update areamanager
+    <set >
+      <if test="personcode != null" >
+        personcode = #{personcode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        setuptime = #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="changetime != null" >
+        changetime = #{changetime,jdbcType=DATE},
+      </if>
+      <if test="areaid != null" >
+        areaId = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaname = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentname != null" >
+        departmentname = #{departmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        str2 = #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        str3 = #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        str4 = #{str4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.AreaManager" >
+    update areamanager
+    set personcode = #{personcode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      setuptime = #{setuptime,jdbcType=DATE},
+      changetime = #{changetime,jdbcType=DATE},
+      areaId = #{areaid,jdbcType=VARCHAR},
+      areaname = #{areaname,jdbcType=VARCHAR},
+      departmentname = #{departmentname,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      str1 = #{str1,jdbcType=VARCHAR},
+      str2 = #{str2,jdbcType=VARCHAR},
+      str3 = #{str3,jdbcType=VARCHAR},
+      str4 = #{str4,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

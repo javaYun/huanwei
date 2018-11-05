@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.KitchenInforecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.KitchenInforecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="cardno" property="cardno" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="recordtime" property="recordtime" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cardno, name, recordtime, weight
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from kitcheninforecord
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from kitcheninforecord
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.KitchenInforecord" >
+    insert into kitcheninforecord (id, cardno, name, 
+      recordtime, weight)
+    values (#{id,jdbcType=VARCHAR}, #{cardno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{recordtime,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.KitchenInforecord" >
+    insert into kitcheninforecord
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardno != null" >
+        cardno,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="recordtime != null" >
+        recordtime,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null" >
+        #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="recordtime != null" >
+        #{recordtime,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.KitchenInforecord" >
+    update kitcheninforecord
+    <set >
+      <if test="cardno != null" >
+        cardno = #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="recordtime != null" >
+        recordtime = #{recordtime,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.KitchenInforecord" >
+    update kitcheninforecord
+    set cardno = #{cardno,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      recordtime = #{recordtime,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  <select id="kitchenrecordinfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from kitcheninforecord
+    order by recordtime desc LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+  
+  <select id="kitchenrecordinfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String">
+  select
+  <include refid="Base_Column_List"/>
+  from kitcheninforecord
+  </select>
+</mapper>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.WorkPlanMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.WorkPlan" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="usetype" property="usetype" jdbcType="VARCHAR" />
+    <result column="groupnum" property="groupnum" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="VARCHAR" />
+    <result column="carNum" property="carnum" jdbcType="VARCHAR" />
+    <result column="drivername" property="drivername" jdbcType="VARCHAR" />
+    <result column="drivertype" property="drivertype" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="speed" property="speed" jdbcType="VARCHAR" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+    <result column="str2" property="str2" jdbcType="VARCHAR" />
+    <result column="str3" property="str3" jdbcType="VARCHAR" />
+    <result column="str4" property="str4" jdbcType="VARCHAR" />
+    <result column="str5" property="str5" jdbcType="VARCHAR" />
+    <result column="str6" property="str6" jdbcType="VARCHAR" />
+    <result column="str7" property="str7" jdbcType="VARCHAR" />
+    <result column="str8" property="str8" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, usetype, groupnum, num, carNum, drivername, drivertype, address, starttime, endtime, 
+    speed, str1, str2, str3, str4, str5, str6, str7, str8
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from workplan
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from workplan
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.WorkPlan" >
+    insert into workplan (id, usetype, groupnum, 
+      num, carNum, drivername, 
+      drivertype, address, starttime, 
+      endtime, speed, str1, 
+      str2, str3, str4, str5, 
+      str6, str7, str8)
+    values (#{id,jdbcType=VARCHAR}, #{usetype,jdbcType=VARCHAR}, #{groupnum,jdbcType=VARCHAR}, 
+      #{num,jdbcType=VARCHAR}, #{carnum,jdbcType=VARCHAR}, #{drivername,jdbcType=VARCHAR}, 
+      #{drivertype,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{speed,jdbcType=VARCHAR}, #{str1,jdbcType=VARCHAR}, 
+      #{str2,jdbcType=VARCHAR}, #{str3,jdbcType=VARCHAR}, #{str4,jdbcType=VARCHAR}, #{str5,jdbcType=VARCHAR}, 
+      #{str6,jdbcType=VARCHAR}, #{str7,jdbcType=VARCHAR}, #{str8,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.WorkPlan" >
+    insert into workplan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="usetype != null" >
+        usetype,
+      </if>
+      <if test="groupnum != null" >
+        groupnum,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="carnum != null" >
+        carNum,
+      </if>
+      <if test="drivername != null" >
+        drivername,
+      </if>
+      <if test="drivertype != null" >
+        drivertype,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="speed != null" >
+        speed,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+      <if test="str2 != null" >
+        str2,
+      </if>
+      <if test="str3 != null" >
+        str3,
+      </if>
+      <if test="str4 != null" >
+        str4,
+      </if>
+      <if test="str5 != null" >
+        str5,
+      </if>
+      <if test="str6 != null" >
+        str6,
+      </if>
+      <if test="str7 != null" >
+        str7,
+      </if>
+      <if test="str8 != null" >
+        str8,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="usetype != null" >
+        #{usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="groupnum != null" >
+        #{groupnum,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="carnum != null" >
+        #{carnum,jdbcType=VARCHAR},
+      </if>
+      <if test="drivername != null" >
+        #{drivername,jdbcType=VARCHAR},
+      </if>
+      <if test="drivertype != null" >
+        #{drivertype,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="speed != null" >
+        #{speed,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        #{str4,jdbcType=VARCHAR},
+      </if>
+      <if test="str5 != null" >
+        #{str5,jdbcType=VARCHAR},
+      </if>
+      <if test="str6 != null" >
+        #{str6,jdbcType=VARCHAR},
+      </if>
+      <if test="str7 != null" >
+        #{str7,jdbcType=VARCHAR},
+      </if>
+      <if test="str8 != null" >
+        #{str8,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.WorkPlan" >
+    update workplan
+    <set >
+      <if test="usetype != null" >
+        usetype = #{usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="groupnum != null" >
+        groupnum = #{groupnum,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="carnum != null" >
+        carNum = #{carnum,jdbcType=VARCHAR},
+      </if>
+      <if test="drivername != null" >
+        drivername = #{drivername,jdbcType=VARCHAR},
+      </if>
+      <if test="drivertype != null" >
+        drivertype = #{drivertype,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="speed != null" >
+        speed = #{speed,jdbcType=VARCHAR},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        str2 = #{str2,jdbcType=VARCHAR},
+      </if>
+      <if test="str3 != null" >
+        str3 = #{str3,jdbcType=VARCHAR},
+      </if>
+      <if test="str4 != null" >
+        str4 = #{str4,jdbcType=VARCHAR},
+      </if>
+      <if test="str5 != null" >
+        str5 = #{str5,jdbcType=VARCHAR},
+      </if>
+      <if test="str6 != null" >
+        str6 = #{str6,jdbcType=VARCHAR},
+      </if>
+      <if test="str7 != null" >
+        str7 = #{str7,jdbcType=VARCHAR},
+      </if>
+      <if test="str8 != null" >
+        str8 = #{str8,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.WorkPlan" >
+    update workplan
+    set usetype = #{usetype,jdbcType=VARCHAR},
+      groupnum = #{groupnum,jdbcType=VARCHAR},
+      num = #{num,jdbcType=VARCHAR},
+      carNum = #{carnum,jdbcType=VARCHAR},
+      drivername = #{drivername,jdbcType=VARCHAR},
+      drivertype = #{drivertype,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      starttime = #{starttime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      speed = #{speed,jdbcType=VARCHAR},
+      str1 = #{str1,jdbcType=VARCHAR},
+      str2 = #{str2,jdbcType=VARCHAR},
+      str3 = #{str3,jdbcType=VARCHAR},
+      str4 = #{str4,jdbcType=VARCHAR},
+      str5 = #{str5,jdbcType=VARCHAR},
+      str6 = #{str6,jdbcType=VARCHAR},
+      str7 = #{str7,jdbcType=VARCHAR},
+      str8 = #{str8,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

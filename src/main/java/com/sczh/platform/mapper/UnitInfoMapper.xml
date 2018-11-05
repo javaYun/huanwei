@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.UnitInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.UnitInfo" >
+    <id column="unitcode" property="unitcode" jdbcType="VARCHAR" />
+    <result column="unitname" property="unitname" jdbcType="VARCHAR" />
+    <result column="unitdepict" property="unitdepict" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="corporate" property="corporate" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="unitadmin" property="unitadmin" jdbcType="VARCHAR" />
+    <result column="setuptime" property="setuptime" jdbcType="DATE" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="changetime" property="changetime" jdbcType="DATE" />
+    <result column="areaId" property="areaid" jdbcType="VARCHAR" />
+    <result column="areaName" property="areaname" jdbcType="VARCHAR" />
+    <result column="unitType" property="unittype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    unitcode, unitname, unitdepict, address, corporate, phone, unitadmin, setuptime, 
+    state, changetime, areaId, areaName, unitType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from unitmanage
+    where unitcode = #{unitcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from unitmanage
+    where unitcode = #{unitcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.UnitInfo" >
+    insert into unitmanage (unitcode, unitname, unitdepict, 
+      address, corporate, phone, 
+      unitadmin, setuptime, state, 
+      changetime, areaId, areaName, 
+      unitType)
+    values (#{unitcode,jdbcType=VARCHAR}, #{unitname,jdbcType=VARCHAR}, #{unitdepict,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{corporate,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{unitadmin,jdbcType=VARCHAR}, #{setuptime,jdbcType=DATE}, #{state,jdbcType=VARCHAR}, 
+      #{changetime,jdbcType=DATE}, #{areaid,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, 
+      #{unittype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.UnitInfo" >
+    insert into unitmanage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="unitcode != null" >
+        unitcode,
+      </if>
+      <if test="unitname != null" >
+        unitname,
+      </if>
+      <if test="unitdepict != null" >
+        unitdepict,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="corporate != null" >
+        corporate,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="unitadmin != null" >
+        unitadmin,
+      </if>
+      <if test="setuptime != null" >
+        setuptime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="changetime != null" >
+        changetime,
+      </if>
+      <if test="areaid != null" >
+        areaId,
+      </if>
+      <if test="areaname != null" >
+        areaName,
+      </if>
+      <if test="unittype != null" >
+        unitType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="unitcode != null" >
+        #{unitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null" >
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="unitdepict != null" >
+        #{unitdepict,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="corporate != null" >
+        #{corporate,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="unitadmin != null" >
+        #{unitadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="changetime != null" >
+        #{changetime,jdbcType=DATE},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="unittype != null" >
+        #{unittype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.UnitInfo" >
+    update unitmanage
+    <set >
+      <if test="unitname != null" >
+        unitname = #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="unitdepict != null" >
+        unitdepict = #{unitdepict,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="corporate != null" >
+        corporate = #{corporate,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="unitadmin != null" >
+        unitadmin = #{unitadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        setuptime = #{setuptime,jdbcType=DATE},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="changetime != null" >
+        changetime = #{changetime,jdbcType=DATE},
+      </if>
+      <if test="areaid != null" >
+        areaId = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="unittype != null" >
+        unitType = #{unittype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where unitcode = #{unitcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.UnitInfo" >
+    update unitmanage
+    set unitname = #{unitname,jdbcType=VARCHAR},
+      unitdepict = #{unitdepict,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      corporate = #{corporate,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      unitadmin = #{unitadmin,jdbcType=VARCHAR},
+      setuptime = #{setuptime,jdbcType=DATE},
+      state = #{state,jdbcType=VARCHAR},
+      changetime = #{changetime,jdbcType=DATE},
+      areaId = #{areaid,jdbcType=VARCHAR},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      unitType = #{unittype,jdbcType=VARCHAR}
+    where unitcode = #{unitcode,jdbcType=VARCHAR}
+  </update>
+    <select id="selectUnitInfoList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from unitmanage
+  </select>
+  
+  
+  <select id="selectByAreaId" parameterType="java.lang.String"  resultType = "java.lang.Integer">
+    select 
+    <include refid="Base_Column_List" />
+    FROM unitmanage
+	where  areaId = #{areaId,jdbcType=VARCHAR}
+  </select>
+  
+    <select id="selectUnitListByAreaId" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select 
+  <include refid="Base_Column_List" />
+    FROM unitmanage
+    
+   	  where
+   		 1=1
+       <if test="areaId != null" >
+      and
+        areaId = #{areaId,jdbcType=VARCHAR}
+      </if>
+        <if test="currentNum != null" >
+      LIMIT
+      ${currentNum}
+      ,
+       ${pageSize}
+      </if>
+       </select>
+       
+        <select id="selectByArea" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from unitmanage
+    where areaId = #{areaid,jdbcType=VARCHAR}
+  </select>
+       
+</mapper>

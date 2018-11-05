@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.DeviceInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.DeviceInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="deviceType" property="devicetype" jdbcType="VARCHAR" />
+    <result column="productType" property="producttype" jdbcType="VARCHAR" />
+    <result column="mobilePhone" property="mobilephone" jdbcType="VARCHAR" />
+    <result column="productCompany" property="productcompany" jdbcType="VARCHAR" />
+    <result column="companyMobilePhone" property="companymobilephone" jdbcType="VARCHAR" />
+    <result column="String1" property="string1" jdbcType="VARCHAR" />
+    <result column="String2" property="string2" jdbcType="VARCHAR" />
+    <result column="String3" property="string3" jdbcType="VARCHAR" />
+    <result column="String4" property="string4" jdbcType="VARCHAR" />
+    <result column="unitID" property="unitid" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="unitName" property="unitname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, deviceType, productType, mobilePhone, productCompany, companyMobilePhone, String1, 
+    String2, String3, String4, unitID, userId, unitName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from deviceinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.DeviceInfo" >
+    insert into deviceinfo (id, deviceType, productType, 
+      mobilePhone, productCompany, companyMobilePhone, 
+      String1, String2, String3, 
+      String4, unitID, userId, 
+      unitName)
+    values (#{id,jdbcType=VARCHAR}, #{devicetype,jdbcType=VARCHAR}, #{producttype,jdbcType=VARCHAR}, 
+      #{mobilephone,jdbcType=VARCHAR}, #{productcompany,jdbcType=VARCHAR}, #{companymobilephone,jdbcType=VARCHAR}, 
+      #{string1,jdbcType=VARCHAR}, #{string2,jdbcType=VARCHAR}, #{string3,jdbcType=VARCHAR}, 
+      #{string4,jdbcType=VARCHAR}, #{unitid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{unitname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.DeviceInfo" >
+    insert into deviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="devicetype != null" >
+        deviceType,
+      </if>
+      <if test="producttype != null" >
+        productType,
+      </if>
+      <if test="mobilephone != null" >
+        mobilePhone,
+      </if>
+      <if test="productcompany != null" >
+        productCompany,
+      </if>
+      <if test="companymobilephone != null" >
+        companyMobilePhone,
+      </if>
+      <if test="string1 != null" >
+        String1,
+      </if>
+      <if test="string2 != null" >
+        String2,
+      </if>
+      <if test="string3 != null" >
+        String3,
+      </if>
+      <if test="string4 != null" >
+        String4,
+      </if>
+      <if test="unitid != null" >
+        unitID,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="unitname != null" >
+        unitName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="devicetype != null" >
+        #{devicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null" >
+        #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="productcompany != null" >
+        #{productcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="companymobilephone != null" >
+        #{companymobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="string1 != null" >
+        #{string1,jdbcType=VARCHAR},
+      </if>
+      <if test="string2 != null" >
+        #{string2,jdbcType=VARCHAR},
+      </if>
+      <if test="string3 != null" >
+        #{string3,jdbcType=VARCHAR},
+      </if>
+      <if test="string4 != null" >
+        #{string4,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        #{unitid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null" >
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.DeviceInfo" >
+    update deviceinfo
+    <set >
+      <if test="devicetype != null" >
+        deviceType = #{devicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null" >
+        productType = #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        mobilePhone = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="productcompany != null" >
+        productCompany = #{productcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="companymobilephone != null" >
+        companyMobilePhone = #{companymobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="string1 != null" >
+        String1 = #{string1,jdbcType=VARCHAR},
+      </if>
+      <if test="string2 != null" >
+        String2 = #{string2,jdbcType=VARCHAR},
+      </if>
+      <if test="string3 != null" >
+        String3 = #{string3,jdbcType=VARCHAR},
+      </if>
+      <if test="string4 != null" >
+        String4 = #{string4,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        unitID = #{unitid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null" >
+        unitName = #{unitname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.DeviceInfo" >
+    update deviceinfo
+    set deviceType = #{devicetype,jdbcType=VARCHAR},
+      productType = #{producttype,jdbcType=VARCHAR},
+      mobilePhone = #{mobilephone,jdbcType=VARCHAR},
+      productCompany = #{productcompany,jdbcType=VARCHAR},
+      companyMobilePhone = #{companymobilephone,jdbcType=VARCHAR},
+      String1 = #{string1,jdbcType=VARCHAR},
+      String2 = #{string2,jdbcType=VARCHAR},
+      String3 = #{string3,jdbcType=VARCHAR},
+      String4 = #{string4,jdbcType=VARCHAR},
+      unitID = #{unitid,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=VARCHAR},
+      unitName = #{unitname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+           <select id="getDeviceInfoList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+   order by id LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+   <select id="getDeviceInfoListTotal" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+  </select>
+      <delete id="deleteDeviceInfoByPrimaryKeys" parameterType="map" >
+    delete from deviceinfo
+    where 1=1 
+       <if test="idsList != null and idsList.size()>0">  
+    and id in 
+          <foreach collection="idsList" item="item" index="index" open="(" separator="," close=")">  
+              #{item}  
+           </foreach>  
+        </if>
+  </delete>
+  
+            <select id="getDeviceInfoListByUnit" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where unitID = ${unitId}
+   order by id LIMIT
+    ${startSize},
+     ${endSize}
+  </select>
+   <select id="getDeviceInfoListTotalByUnit" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where unitID = ${unitId}
+  </select>
+     <select id="getDeviceInfoListTotalByUnitAndDeviceType" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where unitID = ${unitId}
+    and
+   deviceType = #{devicetype,jdbcType=VARCHAR}
+  </select>
+   <select id="getDeviceInfoListTotalByDeviceType" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where
+    deviceType = #{devicetype,jdbcType=VARCHAR}
+  </select>
+</mapper>

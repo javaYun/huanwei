@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sczh.platform.dao.CloudWxLoginUserMapper" >
+  <resultMap id="BaseResultMap" type="com.sczh.platform.po.CloudWxLoginUser" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastChangeTime" property="lastchangetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="beenDeleted" property="beendeleted" jdbcType="INTEGER" />
+    <result column="deletedTime" property="deletedtime" jdbcType="TIMESTAMP" />
+    <result column="businessSystemId" property="businesssystemid" jdbcType="VARCHAR" />
+    <result column="tenantId" property="tenantid" jdbcType="VARCHAR" />
+    <result column="f_bindManId" property="fBindmanid" jdbcType="VARCHAR" />
+    <result column="f_password" property="fPassword" jdbcType="VARCHAR" />
+    <result column="f_userName" property="fUsername" jdbcType="VARCHAR" />
+    <result column="f_userStatus" property="fUserstatus" jdbcType="VARCHAR" />
+    <result column="f_userType" property="fUsertype" jdbcType="VARCHAR" />
+    <result column="f_original_password" property="fOriginalPassword" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, lastChangeTime, status, beenDeleted, deletedTime, businessSystemId, 
+    tenantId, f_bindManId, f_password, f_userName, f_userStatus, f_userType, f_original_password
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cloud_wx_login_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from cloud_wx_login_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sczh.platform.po.CloudWxLoginUser" >
+    insert into cloud_wx_login_user (id, createTime, lastChangeTime, 
+      status, beenDeleted, deletedTime, 
+      businessSystemId, tenantId, f_bindManId, 
+      f_password, f_userName, f_userStatus, 
+      f_userType, f_original_password)
+    values (#{id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lastchangetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{beendeleted,jdbcType=INTEGER}, #{deletedtime,jdbcType=TIMESTAMP}, 
+      #{businesssystemid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{fBindmanid,jdbcType=VARCHAR}, 
+      #{fPassword,jdbcType=VARCHAR}, #{fUsername,jdbcType=VARCHAR}, #{fUserstatus,jdbcType=VARCHAR}, 
+      #{fUsertype,jdbcType=VARCHAR}, #{fOriginalPassword,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sczh.platform.po.CloudWxLoginUser" >
+    insert into cloud_wx_login_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted,
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime,
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId,
+      </if>
+      <if test="tenantid != null" >
+        tenantId,
+      </if>
+      <if test="fBindmanid != null" >
+        f_bindManId,
+      </if>
+      <if test="fPassword != null" >
+        f_password,
+      </if>
+      <if test="fUsername != null" >
+        f_userName,
+      </if>
+      <if test="fUserstatus != null" >
+        f_userStatus,
+      </if>
+      <if test="fUsertype != null" >
+        f_userType,
+      </if>
+      <if test="fOriginalPassword != null" >
+        f_original_password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fBindmanid != null" >
+        #{fBindmanid,jdbcType=VARCHAR},
+      </if>
+      <if test="fPassword != null" >
+        #{fPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="fUsername != null" >
+        #{fUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="fUserstatus != null" >
+        #{fUserstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fUsertype != null" >
+        #{fUsertype,jdbcType=VARCHAR},
+      </if>
+      <if test="fOriginalPassword != null" >
+        #{fOriginalPassword,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sczh.platform.po.CloudWxLoginUser" >
+    update cloud_wx_login_user
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastchangetime != null" >
+        lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="beendeleted != null" >
+        beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      </if>
+      <if test="deletedtime != null" >
+        deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businesssystemid != null" >
+        businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        tenantId = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="fBindmanid != null" >
+        f_bindManId = #{fBindmanid,jdbcType=VARCHAR},
+      </if>
+      <if test="fPassword != null" >
+        f_password = #{fPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="fUsername != null" >
+        f_userName = #{fUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="fUserstatus != null" >
+        f_userStatus = #{fUserstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fUsertype != null" >
+        f_userType = #{fUsertype,jdbcType=VARCHAR},
+      </if>
+      <if test="fOriginalPassword != null" >
+        f_original_password = #{fOriginalPassword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sczh.platform.po.CloudWxLoginUser" >
+    update cloud_wx_login_user
+    set createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastChangeTime = #{lastchangetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      beenDeleted = #{beendeleted,jdbcType=INTEGER},
+      deletedTime = #{deletedtime,jdbcType=TIMESTAMP},
+      businessSystemId = #{businesssystemid,jdbcType=VARCHAR},
+      tenantId = #{tenantid,jdbcType=VARCHAR},
+      f_bindManId = #{fBindmanid,jdbcType=VARCHAR},
+      f_password = #{fPassword,jdbcType=VARCHAR},
+      f_userName = #{fUsername,jdbcType=VARCHAR},
+      f_userStatus = #{fUserstatus,jdbcType=VARCHAR},
+      f_userType = #{fUsertype,jdbcType=VARCHAR},
+      f_original_password = #{fOriginalPassword,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectBystaffId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cloud_wx_login_user
+    where f_bindManId = #{fBindmanid,jdbcType=VARCHAR}
+  </select>
+</mapper>
